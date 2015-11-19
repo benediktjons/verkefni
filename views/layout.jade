@@ -3,22 +3,30 @@ html(lang="is")
   head
     title= title
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/bower_components/dist/css/bootstrap.min.css")
     link(rel='stylesheet' href='/stylesheets/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body.container-fluid
    div.wrapper.col-lg-8.col-md-10.col-sm-12.col-xs-12.col-md-offset-1.col-lg-offset-2
+      nav.navbar.navbar-inverse.navbar-static-top
+        div.container-fluid
+          a.navbar-brand(href='#') Samfó
+          button.navbar-toggle(data-toggle ="collapse" data-target=".navHeaderCollapse") 
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          div.navbar-collapse.collapse.navHeaderCollapse
+            ul.nav.navbar-nav.navbar-right
+              li: a(href='/').btn Forsíða
+              li: a(href='/login').btn Innskrá
+              li: a(href='/logout').btn Útskrá
+              li: a(href='/create').btn Nýskrá
       header
         h1= title
-        .left
-          ul.list-inline
-            li: a(href='/').btn Forsíða
-            li: a(href='/login').btn Innskrá
-            li: a(href='/logout').btn Útskrá
-            li: a(href='/create').btn Nýskrá
-            li: a(href='/restricted').btn Leyndó
       main
         block content
     script(src='bower_components/jquery/dist/jquery.min.js')
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(src='/bower_compoments/bootstrap/dist/js/bootstrap.min.js')
     script(src='/js/frontpage.js')

@@ -8,16 +8,16 @@ var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
 
-router.get('/restricted', ensureLoggedIn, restrictedIndex);
-router.get('/restricted/thewall',ensureLoggedIn, thewall);
-router.get('/restricted/thewall/create',ensureLoggedIn, writeOnWall);
-router.post('/restricted/thewall/create', entryHandler);
+//router.get('/restricted', ensureLoggedIn, restrictedIndex);
+//router.get('/restricted/thewall',ensureLoggedIn, thewall);
+router.get('/post', writeOnWall);
+//router.post('/restricted/thewall/create', entryHandler);
 router.get('/login', redirectIfLoggedIn, login);
 router.post('/login', loginHandler);
 router.get('/logout', logout);
 router.get('/create', createForm);
 router.post('/create', createHandler);
-router.get('/redirect', redirect);
+//router.get('/redirect', redirect);
 
 module.exports = router;
 
@@ -146,7 +146,7 @@ function logout(req, res) {
   });
 }
 
-function restrictedIndex(req, res) {
+/*function restrictedIndex(req, res) {
   var user = req.session.user;
 
   users.listUsers(function (err, all) {
@@ -155,8 +155,8 @@ function restrictedIndex(req, res) {
       users: all });
   });
 }
-
-function thewall(req, res) {
+*/
+/*function thewall(req, res) {
   console.log('Keyri thewall');
   var user = req.session.user;
 
@@ -169,7 +169,7 @@ function thewall(req, res) {
       entries: all});
   });
 }
-
+*/
 function writeOnWall(req, res) {
   console.log('Keyri writeOnWall');
   var user = req.session.user;
