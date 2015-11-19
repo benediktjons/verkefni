@@ -1,0 +1,12 @@
+extends wallLayout
+block content
+    p Velkomin/n á leynivegginn. Hér fá aðeins innskráðir notendur að tjá sig. 
+    p Skráð/ur inn sem #{user.username}.
+    if entries
+        each e in entries
+            section.panel.panel-default.row
+                div.panel-heading 
+                    span #{e.entrydate}
+                    div
+                        strong Notandi: #{e.entryuser}
+                div.panel-body= e.entrytext

@@ -1,0 +1,21 @@
+body {
+  background-image:url("/images/background.png") ;
+}
+
+input{
+    margin-bottom:10px;
+}
+input.comment{
+    width:400px;
+    height:100px;
+}
+
+p.error{
+    color:red;
+}
+a{
+    color:green;
+}
+a:hover{
+    background-color: #d2d2d2;
+}

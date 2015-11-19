@@ -1,0 +1,10 @@
+extends thewall
+block content
+    if !success
+        p.error=error
+    form(method='post', action='/restricted/thewall/create')
+        div: label(for='Entry') Skrifa athugasemd sem #{user.username}
+        textarea(rows="8", cols="70",id='entryText', name='entryText', value=entryText)
+
+        div 
+            button.btn.btn-success Búa til færslu

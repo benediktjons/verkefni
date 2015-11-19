@@ -1,0 +1,20 @@
+doctype html
+html(lang="is")
+  head
+    title= title
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
+    link(rel='stylesheet' href='/stylesheets/style.css')
+  body.container-fluid
+   div.wrapper.col-lg-8.col-md-10.col-sm-12.col-xs-12.col-md-offset-1.col-lg-offset-2
+      header
+        h1= title
+        .left
+          ul.list-inline
+            li: a(href='/').btn Forsíða
+            li: a(href='/login').btn Innskrá
+            li: a(href='/logout').btn Útskrá
+            li: a(href='/create').btn Nýskrá
+            li: a(href='/restricted').btn Leyndó
+        
+      main
+        block content

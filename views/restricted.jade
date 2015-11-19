@@ -1,0 +1,9 @@
+extends wallLayout
+block content 
+  if users
+    p Velkomin/n á leynisvæðið. Leynisvæðið sjá aðeins þeir sem eru skráðir inn.
+    p Þú ert innskráð/ur sem #{user.username}.
+    p Notendur í kerfi:
+    ul
+      each u in users
+        li.list-unstyled= u.username

@@ -1,0 +1,182 @@
+'use strict';
+
+var express = require('express');
+var router = express.Router();
+var xss = require('xss');
+
+var validate = require('../lib/validate');
+var users = require('../lib/users');
+var entries = require('../lib/entries');
+
+router.get('/restricted', ensureLoggedIn, restrictedIndex);
+router.get('/restricted/thewall',ensureLoggedIn, thewall);
+router.get('/restricted/thewall/create',ensureLoggedIn, writeOnWall);
+router.post('/restricted/thewall/create', entryHandler);
+router.get('/login', redirectIfLoggedIn, login);
+router.post('/login', loginHandler);
+router.get('/logout', logout);
+router.get('/create', createForm);
+router.post('/create', createHandler);
+router.get('/redirect', redirect);
+
+module.exports = router;
+
+/** route middlewares **/
+
+function createForm(req, res) {
+  res.render('create', { title: 'Nýskráning' });
+}
+
+function createHandler(req, res) {
+  var username = xss(req.body.username);
+  var password = xss(req.body.password);
+  var validUser = validate.length(username, 2);
+  var validPw = validate.length(password, 5);
+
+  if (!validUser){
+    res.render('create', {title: 'Nýskráning',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir og lykilorð lengra en 5 stafir'
+  });
+  }
+  else if(!validPw){
+    res.render('create', {title: 'Nýskráning',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir og lykilorð lengra en 5 stafir'
+  });
+  }
+  else{
+    users.createUser(username, password, function (err, status) {
+      if (err) {
+        console.error(err);
+      }
+
+      var success = true;
+      var error='';
+      if (err || !status) {
+        success = false;
+        error= 'Villa við að útbúa notanda';
+      }
+
+      res.render('create', { title: 'Nýskráning', post: true, error: error, success: success });
+    });
+  }
+}
+
+function entryHandler(req,res){
+  console.log('Keyri entryHandler');
+  var username = req.session.user;
+  var text = xss(req.body.entryText);
+
+  if (!text){
+    res.render('writeOnWall',{title: 'Skrifa á vegg',
+    user: username,
+    error: 'Athugasemd má ekki vera tóm!',
+    success: false
+    });
+  }
+  else{
+     entries.createEntry(username.username,text, function(err, status){
+      if (err){
+        console.error(err);
+      }
+
+      var success = true;
+
+      if (err || !status){
+        success = false;
+      }
+
+      res.redirect('/restricted/thewall');
+    });
+  }
+}
+
+function ensureLoggedIn(req, res, next) {
+  console.log('Ensuring logged in...');
+  if (req.session.user) {
+    next(); // köllum í næsta middleware ef við höfum notanda
+  } else {
+    res.redirect('/login');
+  }
+}
+
+function redirectIfLoggedIn(req, res, next) {
+  if (req.session.user) {
+    res.redirect('/redirect');
+  } else {
+    next();
+  }
+}
+
+function login(req, res) {
+  res.render('login', { title: 'Login' });
+}
+
+function loginHandler(req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+
+  users.auth(username, password, function (err, user) {
+    if (user) {
+      req.session.regenerate(function (){
+        req.session.user = user;
+        res.redirect('/restricted');
+      });
+    } else {
+      var data = {
+        title: 'Login',
+        username: username,
+        error: true
+      };
+      res.render('login', data);
+    }
+  });
+}
+
+function logout(req, res) {
+  // eyðir session og öllum gögnum, verður til nýtt við næsta request
+  req.session.destroy(function(){
+    res.redirect('/');
+  });
+}
+
+function restrictedIndex(req, res) {
+  var user = req.session.user;  
+
+  users.listUsers(function (err, all) {
+    res.render('restricted', { title: 'Leynisvæðið',
+      user: user,
+      users: all });
+  });
+}
+
+function thewall(req, res) {
+  console.log('Keyri thewall');
+  var user = req.session.user;
+
+  entries.listEntries(function (err, all){
+    if (err){
+      console.error(err);
+    }
+    res.render('thewall',{title: 'The Wall',
+      user: user,
+      entries: all});
+  });
+}
+
+function writeOnWall(req, res) {
+  console.log('Keyri writeOnWall');
+  var user = req.session.user;
+  entries.listEntries(function (err, all) {
+    res.render('writeOnWall', { title: 'Skrifa á vegg',
+      user: user,
+      users: all });
+  });
+}
+
+function redirect(req,res){
+  res.render('redirect', {title: 'Úps!'});
+}
