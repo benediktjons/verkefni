@@ -30,6 +30,9 @@ function createForm(req, res) {
 function createHandler(req, res) {
   var username = xss(req.body.username);
   var password = xss(req.body.password);
+  var email = xss(req.body.email);
+  var phone = xss(req.body.phone);
+
   var validUser = validate.length(username, 2);
   var validPw = validate.length(password, 5);
 
@@ -48,7 +51,7 @@ function createHandler(req, res) {
   });
   }
   else{
-    users.createUser(username, password, function (err, status) {
+    users.createUser(username, password, email, phone, function (err, status) {
       if (err) {
         console.error(err);
       }
@@ -144,7 +147,7 @@ function logout(req, res) {
 }
 
 function restrictedIndex(req, res) {
-  var user = req.session.user;  
+  var user = req.session.user;
 
   users.listUsers(function (err, all) {
     res.render('restricted', { title: 'Leynisvæðið',
