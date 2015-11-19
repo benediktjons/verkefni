@@ -1,0 +1,22 @@
+{
+  "name": "samfo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/benediktjons/verkefni",
+  "authors": [
+    "IngvarBjarki <ingvarbjarki@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
