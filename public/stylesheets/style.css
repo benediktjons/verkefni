@@ -19,3 +19,8 @@ a{
 a:hover{
     background-color: #d2d2d2;
 }
+
+.date-form { margin: 10px; }
+label.control-label span { cursor: pointer; }
+
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
