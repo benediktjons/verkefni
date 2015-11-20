@@ -4,7 +4,9 @@ html(lang="is")
     title= title
     link(href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel='stylesheet')
     link(rel='stylesheet', type='text/css', href='/stylesheets/datepicker.css')
-    link(rel='stylesheet' href='/stylesheets/style.css')
+    link(rel='stylesheet' ,href='/stylesheets/bootstrap-clockpicker.min.css')
+    //link(rel='stylesheet', href='jquery-clockpicker.min.css' )
+    link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body.container-fluid
     div.wrapper.col-lg-8.col-md-10.col-sm-12.col-xs-12.col-md-offset-1.col-lg-offset-2
@@ -37,11 +39,14 @@ html(lang="is")
         h1= title
       main
         block content
-    script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='/bower_components/jquery/dist/jquery.min.js')
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-    script(src='/bower_compoments/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
     //thetta er fyrir thewall/create dagatal
     script(src='http://code.jquery.com/jquery-1.11.0.min.js')
     script(src='/js/frontpage.js')
     script(src='/js/datepicker.js')
+    script(src='/js/bootstrap-clockpicker.min.js')
+    //script(src='/js/jquery-clockpicker.min.js')
+
