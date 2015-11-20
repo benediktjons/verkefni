@@ -9,9 +9,20 @@ h1{
   text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
 }
 
+
+h3{
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: 1.5em;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+}
+
+
 input{
     margin-bottom:10px;
 }
+
+
 input.comment{
     width:400px;
     height:100px;
@@ -38,4 +49,12 @@ label.control-label span { cursor: pointer; }
 input[type=text]:focus, input[type=checkbox]:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   border: 1px solid rgba(81, 203, 238, 1);
+}
+
+span.underline{
+  text-decoration: underline;
+}
+.form-group{
+  border-top: 1px solid black;
+  padding:1em;
 }

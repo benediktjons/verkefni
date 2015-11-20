@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    h3 Veldu leið
     .form-inline
         .form-group
             label(for='Fra') Frá:
@@ -181,24 +182,38 @@ block content
                 option(value='Vestmannaeyjar') Vestmannaeyjar
                 option(value='Vogar') Vogar
                 option(value='Vopnafjörður') Vopnafjörður
-            .form-horizontal
-                .control-group
-                    label(for='date-picker-2') Dagsetning
-                    .controls
-                        .input-group
-                            input.date-picker.form-control(type='text', id="date-picker-2")
-                            label.input-group-addon.btn(for='date-picker-2')
-                                span.glyphicon.glyphicon-calendar
 
-            .control-group
-                label(for='date-picker-2') Dagsetning
-                .controls
+            h3 Veldu tímabil
+            .form-income.form-horizontal(role="form")
+                .form-group
+                    label.control-label(for='date-picker-2') Frá:
                     .input-group
                         input.date-picker.form-control(type='text', id="date-picker-2")
                         label.input-group-addon.btn(for='date-picker-2')
                             span.glyphicon.glyphicon-calendar
 
+                    label.control-label(for='date-picker-3') Til:
+                    .input-group
+                        input.date-picker.form-control(type='text', id="date-picker-3")
+                        label.input-group-addon.btn(for='date-picker-3')
+                            span.glyphicon.glyphicon-calendar
 
-        label.checkbox-inline
+    h3.grayscale Aðrir valkostir
+    .form-group
+        label.checkbox
                     input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
-                    | Reyklaus
+                    | Sjá aðeins
+                    span.underline  reyklausa
+                    |  bíla.
+         label.checkbox
+                    input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                    | Sjá aðeins þá sem
+                    span.underline  óska
+                    |  eftir fari
+         label.checkbox
+                    input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                    | Sjá aðeins þá sem
+                    span.underline  eru á
+                    |  bíl.
+
+        button.btn.btn-default(type='button') Leita
