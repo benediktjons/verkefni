@@ -54,7 +54,7 @@ input[type=text]:focus, input[type=checkbox]:focus {
 span.underline{
   text-decoration: underline;
 }
-.form-group{
+.verticalLine{
   border-top: 1px solid black;
-  padding:1em;
+  padding: 1em;
 }
