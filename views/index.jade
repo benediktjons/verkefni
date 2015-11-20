@@ -1,219 +1,224 @@
 extends layout
 
 block content
-    h3 Veldu leið
-    .form-inline
+    div
+      button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
+        | Leita
+    #search.collapse
+      .card.card-block
+        h3 Veldu leið
+        .form-inline
+            .form-group
+                label(for='Fra') Frá:
+                select.form-control(muliteple='' name='from' id = "Fra")
+                    option(value='Akranes') Akranes
+                    option(value='Akureyri') Akureyri
+                    option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
+                    option(value='Ísafjörður') Ísafjörður
+                    option(value='Ólafsfjörður') Ólafsfjörður
+                    option(value='Ólafsvík') Ólafsvík
+                    option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
+                    option(value='Þórshöfn') Þórshöfn
+                    option(value='Þingeyri') Þingeyri
+                    option(value='Þorlákshöfn') Þorlákshöfn
+                    option(value='Bakkafjörður') Bakkafjörður
+                    option(value='Bíldudalur') Bíldudalur
+                    option(value='Búðardalur') Búðardalur
+                    option(value='Bifröst') Bifröst
+                    option(value='Bifröst') Bifröst
+                    option(value='Blönduós') Blönduós
+                    option(value='Bolungarvík') Bolungarvík
+                    option(value='Borgarfjörður') Borgarfjörður
+                    option(value='Borgarnes') Borgarnes
+                    option(value='Breiðdalsvík') Breiðdalsvík
+                    option(value='Dalvík') Dalvík
+                    option(value='Djúpivogur') Djúpivogur
+                    option(value='Drangsnes') Drangsnes
+                    option(value='Egilsstaðir') Egilsstaðir
+                    option(value='Eskifjörður') Eskifjörður
+                    option(value='Eyrarbakki') Eyrarbakki
+                    option(value='Fáskrúðsfjörður') Fáskrúðsfjörður
+                    option(value='Flateyri') Flateyri
+                    option(value='Flúðir') Flúðir
+                    option(value='Garðabær') Garðabær
+                    option(value='Garður') Garður
+                    option(value='Grenivík') Grenivík
+                    option(value='Grindavík') Grindavík
+                    option(value='Grundarfjörður') Grundarfjörður
+                    option(value='Hafnarfjörður') Hafnarfjörður
+                    option(value='Hólar í Hjaltadal') Hólar í Hjaltadal
+                    option(value='Hólmavík') Hólmavík
+                    option(value='Höfn') Höfn
+                    option(value='Húsavík') Húsavík
+                    option(value='Heitar laugar á Íslandi') Heitar laugar á Íslandi
+                    option(value='Hella') Hella
+                    option(value='Hellissandur') Hellissandur
+                    option(value='Hofsós') Hofsós
+                    option(value='Hvammstangi') Hvammstangi
+                    option(value='Hvanneyri') Hvanneyri
+                    option(value='Hveragerði') Hveragerði
+                    option(value='Hvolsvöllur') Hvolsvöllur
+                    option(value='Kárahnjúkar') Kárahnjúkar
+                    option(value='Kópasker') Kópasker
+                    option(value='Kópavogur') Kópavogur
+                    option(value='Keflavík') Keflavík
+                    option(value='Keflavík (Airport)') Keflavík (Airport)
+                    option(value='Keilissvæðið') Keilissvæðið
+                    option(value='Kirkjubæjarklaustur') Kirkjubæjarklaustur
+                    option(value='Landeyjahöfn') Landeyjahöfn
+                    option(value='Landmannalaugar') Landmannalaugar
+                    option(value='Laugar') Laugar
+                    option(value='Laugarvatn') Laugarvatn
+                    option(value='Mývatn') Mývatn
+                    option(value='Mjóifjörður') Mjóifjörður
+                    option(value='Mosfellsbær') Mosfellsbær
+                    option(value='Neskaupstaður') Neskaupstaður
+                    option(value='Patreksfjörður') Patreksfjörður
+                    option(value='Raufarhöfn') Raufarhöfn
+                    option(value='Reyðarfjörður') Reyðarfjörður
+                    option(value='Reykhólar') Reykhólar
+                    option(value='Reykholt') Reykholt
+                    option(value='Reykjanesbær') Reykjanesbær
+                    option(value='Reykjavík') Reykjavík
+                    option(value='Sandgerði') Sandgerði
+                    option(value='Sauðárkrókur') Sauðárkrókur
+                    option(value='Súðavík') Súðavík
+                    option(value='Selfoss') Selfoss
+                    option(value='Seyðisfjörður') Seyðisfjörður
+                    option(value='Siglufjörður') Siglufjörður
+                    option(value='Skagaströnd') Skagaströnd
+                    option(value='Staður') Staður
+                    option(value='Stöðvarfjörður') Stöðvarfjörður
+                    option(value='Stokkseyri') Stokkseyri
+                    option(value='Stykkishólmur') Stykkishólmur
+                    option(value='Suðureyri') Suðureyri
+                    option(value='Tálknafjörður') Tálknafjörður
+                    option(value='Varmahlíð') Varmahlíð
+                    option(value='Vík') Vík
+                    option(value='Vestmannaeyjar') Vestmannaeyjar
+                    option(value='Vogar') Vogar
+                    option(value='Vopnafjörður') Vopnafjörður
+                label(for='Til') Til:
+                select.form-control(muliteple='', id= "Til")
+                    option(value='Akranes') Akranes
+                    option(value='Akureyri') Akureyri
+                    option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
+                    option(value='Ísafjörður') Ísafjörður
+                    option(value='Ólafsfjörður') Ólafsfjörður
+                    option(value='Ólafsvík') Ólafsvík
+                    option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
+                    option(value='Þórshöfn') Þórshöfn
+                    option(value='Þingeyri') Þingeyri
+                    option(value='Þorlákshöfn') Þorlákshöfn
+                    option(value='Bakkafjörður') Bakkafjörður
+                    option(value='Bíldudalur') Bíldudalur
+                    option(value='Búðardalur') Búðardalur
+                    option(value='Bifröst') Bifröst
+                    option(value='Bifröst') Bifröst
+                    option(value='Blönduós') Blönduós
+                    option(value='Bolungarvík') Bolungarvík
+                    option(value='Borgarfjörður') Borgarfjörður
+                    option(value='Borgarnes') Borgarnes
+                    option(value='Breiðdalsvík') Breiðdalsvík
+                    option(value='Dalvík') Dalvík
+                    option(value='Djúpivogur') Djúpivogur
+                    option(value='Drangsnes') Drangsnes
+                    option(value='Egilsstaðir') Egilsstaðir
+                    option(value='Eskifjörður') Eskifjörður
+                    option(value='Eyrarbakki') Eyrarbakki
+                    option(value='Fáskrúðsfjörður') Fáskrúðsfjörður
+                    option(value='Flateyri') Flateyri
+                    option(value='Flúðir') Flúðir
+                    option(value='Garðabær') Garðabær
+                    option(value='Garður') Garður
+                    option(value='Grenivík') Grenivík
+                    option(value='Grindavík') Grindavík
+                    option(value='Grundarfjörður') Grundarfjörður
+                    option(value='Hafnarfjörður') Hafnarfjörður
+                    option(value='Hólar í Hjaltadal') Hólar í Hjaltadal
+                    option(value='Hólmavík') Hólmavík
+                    option(value='Höfn') Höfn
+                    option(value='Húsavík') Húsavík
+                    option(value='Heitar laugar á Íslandi') Heitar laugar á Íslandi
+                    option(value='Hella') Hella
+                    option(value='Hellissandur') Hellissandur
+                    option(value='Hofsós') Hofsós
+                    option(value='Hvammstangi') Hvammstangi
+                    option(value='Hvanneyri') Hvanneyri
+                    option(value='Hveragerði') Hveragerði
+                    option(value='Hvolsvöllur') Hvolsvöllur
+                    option(value='Kárahnjúkar') Kárahnjúkar
+                    option(value='Kópasker') Kópasker
+                    option(value='Kópavogur') Kópavogur
+                    option(value='Keflavík') Keflavík
+                    option(value='Keflavík (Airport)') Keflavík (Airport)
+                    option(value='Keilissvæðið') Keilissvæðið
+                    option(value='Kirkjubæjarklaustur') Kirkjubæjarklaustur
+                    option(value='Landeyjahöfn') Landeyjahöfn
+                    option(value='Landmannalaugar') Landmannalaugar
+                    option(value='Laugar') Laugar
+                    option(value='Laugarvatn') Laugarvatn
+                    option(value='Mývatn') Mývatn
+                    option(value='Mjóifjörður') Mjóifjörður
+                    option(value='Mosfellsbær') Mosfellsbær
+                    option(value='Neskaupstaður') Neskaupstaður
+                    option(value='Patreksfjörður') Patreksfjörður
+                    option(value='Raufarhöfn') Raufarhöfn
+                    option(value='Reyðarfjörður') Reyðarfjörður
+                    option(value='Reykhólar') Reykhólar
+                    option(value='Reykholt') Reykholt
+                    option(value='Reykjanesbær') Reykjanesbær
+                    option(value='Reykjavík') Reykjavík
+                    option(value='Sandgerði') Sandgerði
+                    option(value='Sauðárkrókur') Sauðárkrókur
+                    option(value='Súðavík') Súðavík
+                    option(value='Selfoss') Selfoss
+                    option(value='Seyðisfjörður') Seyðisfjörður
+                    option(value='Siglufjörður') Siglufjörður
+                    option(value='Skagaströnd') Skagaströnd
+                    option(value='Staður') Staður
+                    option(value='Stöðvarfjörður') Stöðvarfjörður
+                    option(value='Stokkseyri') Stokkseyri
+                    option(value='Stykkishólmur') Stykkishólmur
+                    option(value='Suðureyri') Suðureyri
+                    option(value='Tálknafjörður') Tálknafjörður
+                    option(value='Varmahlíð') Varmahlíð
+                    option(value='Vík') Vík
+                    option(value='Vestmannaeyjar') Vestmannaeyjar
+                    option(value='Vogar') Vogar
+                    option(value='Vopnafjörður') Vopnafjörður
+
+                h3 Veldu tímabil
+                .form-income.form-horizontal(role="form")
+                    .form-group
+                        label.control-label(for='date-picker-2') Frá:
+                        .input-group
+                            input.date-picker.form-control(type='text', id="date-picker-2")
+                            label.input-group-addon.btn(for='date-picker-2')
+                                span.glyphicon.glyphicon-calendar
+
+                        label.control-label(for='date-picker-3') Til:
+                        .input-group
+                            input.date-picker.form-control(type='text', id="date-picker-3")
+                            label.input-group-addon.btn(for='date-picker-3')
+                                span.glyphicon.glyphicon-calendar
+
+        h3.grayscale Aðrir valkostir
         .form-group
-            label(for='Fra') Frá:
-            select.form-control(muliteple='' name='from' id = "Fra")
-                option(value='Akranes') Akranes
-                option(value='Akureyri') Akureyri
-                option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
-                option(value='Ísafjörður') Ísafjörður
-                option(value='Ólafsfjörður') Ólafsfjörður
-                option(value='Ólafsvík') Ólafsvík
-                option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
-                option(value='Þórshöfn') Þórshöfn
-                option(value='Þingeyri') Þingeyri
-                option(value='Þorlákshöfn') Þorlákshöfn
-                option(value='Bakkafjörður') Bakkafjörður
-                option(value='Bíldudalur') Bíldudalur
-                option(value='Búðardalur') Búðardalur
-                option(value='Bifröst') Bifröst
-                option(value='Bifröst') Bifröst
-                option(value='Blönduós') Blönduós
-                option(value='Bolungarvík') Bolungarvík
-                option(value='Borgarfjörður') Borgarfjörður
-                option(value='Borgarnes') Borgarnes
-                option(value='Breiðdalsvík') Breiðdalsvík
-                option(value='Dalvík') Dalvík
-                option(value='Djúpivogur') Djúpivogur
-                option(value='Drangsnes') Drangsnes
-                option(value='Egilsstaðir') Egilsstaðir
-                option(value='Eskifjörður') Eskifjörður
-                option(value='Eyrarbakki') Eyrarbakki
-                option(value='Fáskrúðsfjörður') Fáskrúðsfjörður
-                option(value='Flateyri') Flateyri
-                option(value='Flúðir') Flúðir
-                option(value='Garðabær') Garðabær
-                option(value='Garður') Garður
-                option(value='Grenivík') Grenivík
-                option(value='Grindavík') Grindavík
-                option(value='Grundarfjörður') Grundarfjörður
-                option(value='Hafnarfjörður') Hafnarfjörður
-                option(value='Hólar í Hjaltadal') Hólar í Hjaltadal
-                option(value='Hólmavík') Hólmavík
-                option(value='Höfn') Höfn
-                option(value='Húsavík') Húsavík
-                option(value='Heitar laugar á Íslandi') Heitar laugar á Íslandi
-                option(value='Hella') Hella
-                option(value='Hellissandur') Hellissandur
-                option(value='Hofsós') Hofsós
-                option(value='Hvammstangi') Hvammstangi
-                option(value='Hvanneyri') Hvanneyri
-                option(value='Hveragerði') Hveragerði
-                option(value='Hvolsvöllur') Hvolsvöllur
-                option(value='Kárahnjúkar') Kárahnjúkar
-                option(value='Kópasker') Kópasker
-                option(value='Kópavogur') Kópavogur
-                option(value='Keflavík') Keflavík
-                option(value='Keflavík (Airport)') Keflavík (Airport)
-                option(value='Keilissvæðið') Keilissvæðið
-                option(value='Kirkjubæjarklaustur') Kirkjubæjarklaustur
-                option(value='Landeyjahöfn') Landeyjahöfn
-                option(value='Landmannalaugar') Landmannalaugar
-                option(value='Laugar') Laugar
-                option(value='Laugarvatn') Laugarvatn
-                option(value='Mývatn') Mývatn
-                option(value='Mjóifjörður') Mjóifjörður
-                option(value='Mosfellsbær') Mosfellsbær
-                option(value='Neskaupstaður') Neskaupstaður
-                option(value='Patreksfjörður') Patreksfjörður
-                option(value='Raufarhöfn') Raufarhöfn
-                option(value='Reyðarfjörður') Reyðarfjörður
-                option(value='Reykhólar') Reykhólar
-                option(value='Reykholt') Reykholt
-                option(value='Reykjanesbær') Reykjanesbær
-                option(value='Reykjavík') Reykjavík
-                option(value='Sandgerði') Sandgerði
-                option(value='Sauðárkrókur') Sauðárkrókur
-                option(value='Súðavík') Súðavík
-                option(value='Selfoss') Selfoss
-                option(value='Seyðisfjörður') Seyðisfjörður
-                option(value='Siglufjörður') Siglufjörður
-                option(value='Skagaströnd') Skagaströnd
-                option(value='Staður') Staður
-                option(value='Stöðvarfjörður') Stöðvarfjörður
-                option(value='Stokkseyri') Stokkseyri
-                option(value='Stykkishólmur') Stykkishólmur
-                option(value='Suðureyri') Suðureyri
-                option(value='Tálknafjörður') Tálknafjörður
-                option(value='Varmahlíð') Varmahlíð
-                option(value='Vík') Vík
-                option(value='Vestmannaeyjar') Vestmannaeyjar
-                option(value='Vogar') Vogar
-                option(value='Vopnafjörður') Vopnafjörður
-            label(for='Til') Til:
-            select.form-control(muliteple='', id= "Til")
-                option(value='Akranes') Akranes
-                option(value='Akureyri') Akureyri
-                option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
-                option(value='Ísafjörður') Ísafjörður
-                option(value='Ólafsfjörður') Ólafsfjörður
-                option(value='Ólafsvík') Ólafsvík
-                option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
-                option(value='Þórshöfn') Þórshöfn
-                option(value='Þingeyri') Þingeyri
-                option(value='Þorlákshöfn') Þorlákshöfn
-                option(value='Bakkafjörður') Bakkafjörður
-                option(value='Bíldudalur') Bíldudalur
-                option(value='Búðardalur') Búðardalur
-                option(value='Bifröst') Bifröst
-                option(value='Bifröst') Bifröst
-                option(value='Blönduós') Blönduós
-                option(value='Bolungarvík') Bolungarvík
-                option(value='Borgarfjörður') Borgarfjörður
-                option(value='Borgarnes') Borgarnes
-                option(value='Breiðdalsvík') Breiðdalsvík
-                option(value='Dalvík') Dalvík
-                option(value='Djúpivogur') Djúpivogur
-                option(value='Drangsnes') Drangsnes
-                option(value='Egilsstaðir') Egilsstaðir
-                option(value='Eskifjörður') Eskifjörður
-                option(value='Eyrarbakki') Eyrarbakki
-                option(value='Fáskrúðsfjörður') Fáskrúðsfjörður
-                option(value='Flateyri') Flateyri
-                option(value='Flúðir') Flúðir
-                option(value='Garðabær') Garðabær
-                option(value='Garður') Garður
-                option(value='Grenivík') Grenivík
-                option(value='Grindavík') Grindavík
-                option(value='Grundarfjörður') Grundarfjörður
-                option(value='Hafnarfjörður') Hafnarfjörður
-                option(value='Hólar í Hjaltadal') Hólar í Hjaltadal
-                option(value='Hólmavík') Hólmavík
-                option(value='Höfn') Höfn
-                option(value='Húsavík') Húsavík
-                option(value='Heitar laugar á Íslandi') Heitar laugar á Íslandi
-                option(value='Hella') Hella
-                option(value='Hellissandur') Hellissandur
-                option(value='Hofsós') Hofsós
-                option(value='Hvammstangi') Hvammstangi
-                option(value='Hvanneyri') Hvanneyri
-                option(value='Hveragerði') Hveragerði
-                option(value='Hvolsvöllur') Hvolsvöllur
-                option(value='Kárahnjúkar') Kárahnjúkar
-                option(value='Kópasker') Kópasker
-                option(value='Kópavogur') Kópavogur
-                option(value='Keflavík') Keflavík
-                option(value='Keflavík (Airport)') Keflavík (Airport)
-                option(value='Keilissvæðið') Keilissvæðið
-                option(value='Kirkjubæjarklaustur') Kirkjubæjarklaustur
-                option(value='Landeyjahöfn') Landeyjahöfn
-                option(value='Landmannalaugar') Landmannalaugar
-                option(value='Laugar') Laugar
-                option(value='Laugarvatn') Laugarvatn
-                option(value='Mývatn') Mývatn
-                option(value='Mjóifjörður') Mjóifjörður
-                option(value='Mosfellsbær') Mosfellsbær
-                option(value='Neskaupstaður') Neskaupstaður
-                option(value='Patreksfjörður') Patreksfjörður
-                option(value='Raufarhöfn') Raufarhöfn
-                option(value='Reyðarfjörður') Reyðarfjörður
-                option(value='Reykhólar') Reykhólar
-                option(value='Reykholt') Reykholt
-                option(value='Reykjanesbær') Reykjanesbær
-                option(value='Reykjavík') Reykjavík
-                option(value='Sandgerði') Sandgerði
-                option(value='Sauðárkrókur') Sauðárkrókur
-                option(value='Súðavík') Súðavík
-                option(value='Selfoss') Selfoss
-                option(value='Seyðisfjörður') Seyðisfjörður
-                option(value='Siglufjörður') Siglufjörður
-                option(value='Skagaströnd') Skagaströnd
-                option(value='Staður') Staður
-                option(value='Stöðvarfjörður') Stöðvarfjörður
-                option(value='Stokkseyri') Stokkseyri
-                option(value='Stykkishólmur') Stykkishólmur
-                option(value='Suðureyri') Suðureyri
-                option(value='Tálknafjörður') Tálknafjörður
-                option(value='Varmahlíð') Varmahlíð
-                option(value='Vík') Vík
-                option(value='Vestmannaeyjar') Vestmannaeyjar
-                option(value='Vogar') Vogar
-                option(value='Vopnafjörður') Vopnafjörður
+            label.checkbox
+                        input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                        | Sjá aðeins
+                        span.underline  reyklausa
+                        |  bíla.
+             label.checkbox
+                        input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                        | Sjá aðeins þá sem
+                        span.underline  óska
+                        |  eftir fari
+             label.checkbox
+                        input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                        | Sjá aðeins þá sem
+                        span.underline  eru á
+                        |  bíl.
 
-            h3 Veldu tímabil
-            .form-income.form-horizontal(role="form")
-                .form-group
-                    label.control-label(for='date-picker-2') Frá:
-                    .input-group
-                        input.date-picker.form-control(type='text', id="date-picker-2")
-                        label.input-group-addon.btn(for='date-picker-2')
-                            span.glyphicon.glyphicon-calendar
-
-                    label.control-label(for='date-picker-3') Til:
-                    .input-group
-                        input.date-picker.form-control(type='text', id="date-picker-3")
-                        label.input-group-addon.btn(for='date-picker-3')
-                            span.glyphicon.glyphicon-calendar
-
-    h3.grayscale Aðrir valkostir
-    .form-group
-        label.checkbox
-                    input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
-                    | Sjá aðeins
-                    span.underline  reyklausa
-                    |  bíla.
-         label.checkbox
-                    input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
-                    | Sjá aðeins þá sem
-                    span.underline  óska
-                    |  eftir fari
-         label.checkbox
-                    input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
-                    | Sjá aðeins þá sem
-                    span.underline  eru á
-                    |  bíl.
-
-        button.btn.btn-default(type='button') Leita
+            button.btn.btn-default(type='button') Leita
