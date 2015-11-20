@@ -8,16 +8,27 @@ block content
       else
         p Notandi búinn til!
 
-    div: label(for='username') Username
-    input(type='text', id='username', name='username', placeholder ="Jón Sigurðsson" value=username)
 
-    div: label(for='password') Password
-    input(type='password', id='password', name='password', placeholder="*****")
+    .form-group.has-feedback
+        label.control-label(for="username") Username:
+        input.form-control(type='text', placeholder='Username', id="username", name="Jón Sigurðsson", value=username)
+        i.glyphicon.glyphicon-user.form-control-feedback
 
-    div: label(for='phone') Phone number
-    input(type='phone', id='phone', name='phone', placeholder ="5812345" value=phone)
+    .form-group.has-feedback
+        label.control-label(for="password") Password:
+        input.form-control(type='password', placeholder='*****', id="password", name="password")
+        i.glyphicon.glyphicon-lock.form-control-feedback
 
-    div: label(for='email') Email
-    input(type='email', id='email', name='email', placeholder = "samfo@samfo.is" value=email)
+    .form-group.has-feedback
+        label.control-label(for="phone") Phone:
+        input.form-control(type='phone', placeholder='5812345', id="phone", name="phone", value=phone)
+        i.glyphicon.glyphicon-earphone.form-control-feedback
+
+     .form-group.has-feedback
+        label.control-label(for="email") Email:
+        input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email)
+        i.glyphicon.glyphicon-envelope.form-control-feedback
+
+
 
     div: button.btn Create user

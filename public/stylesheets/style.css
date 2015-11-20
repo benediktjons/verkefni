@@ -2,9 +2,27 @@ body {
   background-image:url("/images/background.png") ;
 }
 
+h1{
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 3em;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+
+
+h3{
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: 1.5em;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+}
+
+
 input{
     margin-bottom:10px;
 }
+
+
 input.comment{
     width:400px;
     height:100px;
@@ -23,4 +41,20 @@ a:hover{
 .date-form { margin: 10px; }
 label.control-label span { cursor: pointer; }
 
-@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+::selection {
+  background: black;
+  color:white;
+}
+
+input[type=text]:focus, input[type=checkbox]:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+span.underline{
+  text-decoration: underline;
+}
+.verticalLine{
+  border-top: 1px solid black;
+  padding: 1em;
+}
