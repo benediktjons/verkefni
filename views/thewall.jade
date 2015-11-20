@@ -1,12 +1,26 @@
 extends wallLayout
 block content
-    p Velkomin/n á leynivegginn. Hér fá aðeins innskráðir notendur að tjá sig. 
+    p Velkomin/n á leynivegginn. Hér fá aðeins innskráðir notendur að tjá sig.
     p Skráð/ur inn sem #{user.username}.
-    if entries
-        each e in entries
-            section.panel.panel-default.row
-                div.panel-heading 
-                    span #{e.entrydate}
-                    div
-                        strong Notandi: #{e.entryuser}
-                div.panel-body= e.entrytext
+    table.table.table-hover
+          thead
+            tr
+              th Óska eftir
+              th Frá
+              th Til
+              th Dagsetning
+            if entries
+                each e in entries
+                      tbody
+                        tr
+                          td #{e.request}
+                          td #{e.entryfrom}
+                          td #{e.entryto}
+                          td #{e.entrytime}
+
+                    //-section.panel.panel-default.row
+                        div.panel-heading
+                            span #{e.entrytime}
+                            div
+                                strong Notandi: #{e.entryuser}
+                        div.panel-body= e.entryfrom
