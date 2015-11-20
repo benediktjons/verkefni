@@ -5,15 +5,25 @@ block content
     if error
       p Villa við auðkenningu
 
-    .form-group.has-feedback
-        label.control-label(for="username") Username:
-        input.form-control(type='text', placeholder='Username', id="username", name="username")
-        i.glyphicon.glyphicon-user.form-control-feedback
 
-    .form-group.has-feedback
-        label.control-label(for="password") Password:
-        input.form-control(type='password', placeholder='Password', id="password", name="password")
-        i.glyphicon.glyphicon-lock.form-control-feedback
+    .form-horizontal.col-md-8
+        .form-group.has-feedback
+            label.control-label.col-md-2(for="username") Notendanafn:
+            .col-md-4
+                input.form-control(type='text', placeholder='Jón Sigurðsson', id="username", name="username")
+                i.glyphicon.glyphicon-user.form-control-feedback
+            .col-md-8
+
+        .form-group.has-feedback
+            label.control-label.col-md-2(for="password") Lykilorð:
+            .col-md-4
+                input.form-control(type='password', placeholder='*****', id="password", name="password")
+                i.glyphicon.glyphicon-lock.form-control-feedback
+            .col-md-8
 
 
-    div: button.login Login
+        .form-group.has-feedback
+            .col-md-2
+            .col-md-4
+                button.login.pull-right Innskrá
+            .col-md-8
