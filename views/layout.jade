@@ -23,6 +23,7 @@ html(lang="is")
               li: a(href='/login').btn Innskrá
               li: a(href='/logout').btn Útskrá
               li: a(href='/create').btn Nýskrá
+              li: a(href='/restricted').btn Leyndó
       header
         h1= title
       main
@@ -31,5 +32,7 @@ html(lang="is")
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     script(src='/bower_compoments/bootstrap/dist/js/bootstrap.min.js')
+    //thetta er fyrir thewall/create dagatal
+    script(src='http://code.jquery.com/jquery-1.11.0.min.js')
     script(src='/js/frontpage.js')
     script(src='/js/datepicker.js')

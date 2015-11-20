@@ -8,20 +8,20 @@ var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
 
-//router.get('/restricted', ensureLoggedIn, restrictedIndex);
-//router.get('/restricted/thewall',ensureLoggedIn, thewall);
-router.get('/post', writeOnWall);
-//router.post('/restricted/thewall/create', entryHandler);
+router.get('/restricted', ensureLoggedIn, restrictedIndex);
+router.get('/restricted/thewall',ensureLoggedIn, thewall);
+router.get('/restricted/thewall/create',ensureLoggedIn, writeOnWall);
+router.post('/restricted/thewall/create', entryHandler);
 router.get('/login', redirectIfLoggedIn, login);
 router.post('/login', loginHandler);
 router.get('/logout', logout);
 router.get('/create', createForm);
 router.post('/create', createHandler);
-//router.get('/redirect', redirect);
+router.get('/redirect', redirect);
 
 module.exports = router;
 
-/** route middlewares **/
+//route middlewares
 
 function createForm(req, res) {
   res.render('create', { title: 'Nýskráning' });
@@ -71,9 +71,14 @@ function createHandler(req, res) {
 function entryHandler(req,res){
   console.log('Keyri entryHandler');
   var username = req.session.user;
-  var text = xss(req.body.entryText);
+  var from = xss(req.body.from);
+  var to = xss(req.body.to);
+  var time = xss(req.body.date);
+  var request = xss(req.body.request);
+  var smoking = xss(req.body.smoking);
+  console.log(time);
 
-  if (!text){
+  if (0>3){
     res.render('writeOnWall',{title: 'Skrifa á vegg',
     user: username,
     error: 'Athugasemd má ekki vera tóm!',
@@ -81,7 +86,7 @@ function entryHandler(req,res){
     });
   }
   else{
-     entries.createEntry(username.username,text, function(err, status){
+     entries.createEntry(username.username,from, to,time,request, smoking, function(err, status){
       if (err){
         console.error(err);
       }
@@ -146,7 +151,7 @@ function logout(req, res) {
   });
 }
 
-/*function restrictedIndex(req, res) {
+function restrictedIndex(req, res) {
   var user = req.session.user;
 
   users.listUsers(function (err, all) {
@@ -155,8 +160,8 @@ function logout(req, res) {
       users: all });
   });
 }
-*/
-/*function thewall(req, res) {
+
+function thewall(req, res) {
   console.log('Keyri thewall');
   var user = req.session.user;
 
@@ -169,7 +174,7 @@ function logout(req, res) {
       entries: all});
   });
 }
-*/
+
 function writeOnWall(req, res) {
   console.log('Keyri writeOnWall');
   var user = req.session.user;

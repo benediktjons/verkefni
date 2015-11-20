@@ -9,15 +9,15 @@ block content
         p Notandi búinn til!
 
     div: label(for='username') Username
-    input(type='text', id='username', name='username', value=username)
+    input(type='text', id='username', name='username', placeholder ="Jón Sigurðsson" value=username)
 
     div: label(for='password') Password
-    input(type='password', id='password', name='password')
+    input(type='password', id='password', name='password', placeholder="*****")
 
     div: label(for='phone') Phone number
-    input(type='phone', id='phone', name='phone', value=phone)
+    input(type='phone', id='phone', name='phone', placeholder ="5812345" value=phone)
 
     div: label(for='email') Email
-    input(type='email', id='email', name='email', value=email)
+    input(type='email', id='email', name='email', placeholder = "samfo@samfo.is" value=email)
 
-    div: button Create user
+    div: button.btn Create user
