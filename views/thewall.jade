@@ -3,7 +3,13 @@ extends layout
 block content
     p Velkomin/n á leynivegginn. Hér fá aðeins innskráðir notendur að tjá sig.
     p Skráð/ur inn sem #{user.username}.
-    table.table.table-hover
+    div
+      button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
+        | Leita
+    #search.collapse
+      .card.card-block
+        h3 Veldu leið
+    //-table.table.table-hover
           thead
             tr
               th Óska eftir
@@ -11,33 +17,57 @@ block content
               th Til
               th Dagsetning
               th
-                if entries
-                    each e in entries
-                      tbody
-                        tr
-                          td #{e.request}
-                          td #{e.entryfrom}
-                          td #{e.entryto}
-                          td #{e.entrytime}
-                          td
-                            button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#opnast', aria-expanded='false', aria-controls='search')
-                                | Nánar
-                          #opnast.collapse
-                                    .card.card-block
-                                        tr
-                                            td Notandi: #{e.entryuser}
-                                            td Símanúmer: #{e.entryphone}
-                                            td Netfang: #{e.entryemail}
-                                            td kl: #{e.entryklukka}
-                                            td #{e.smoking}
-                                        tr
-                                            td Annað: #{e.entryfleira}
-                                            td
-                                            td
-                                            td
-                                            td
-    #search.collapse
-        p wegwnegiwne
+    .row
+        .col-md-3 Óska eftir
+        .col-md-3 Frá
+        .col-md-3 Til
+        .col-md-2 Dagsetning
+        .col-md-1
+    if entries
+        each e in entries
+
+          .row
+            .col-md-3 #{e.request}
+            .col-md-3 #{e.entryfrom}
+            .col-md-3 #{e.entryto}
+            .col-md-2 #{e.entrytime}
+            .col-md-1
+                button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#opnast', aria-expanded='false', aria-controls='search')
+                    | Nánar
+          #opnast.collapse
+            .row
+                .col-md-3 #{e.request}
+                .col-md-3 #{e.entryfrom}
+                .col-md-3 #{e.entryto}
+                .col-md-2 #{e.entrytime}
+
+
+            //-table.table.table-hover
+                tbody
+                    tr
+                      td #{e.request}
+                      td #{e.entryfrom}
+                      td #{e.entryto}
+                      td #{e.entrytime}
+                      td
+                        button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#opnast', aria-expanded='false', aria-controls='search')
+                            | Nánar
+            //-#opnast.collapse
+                p asdfasdfasdfasdf
+
+
+                        //-tr#opnast.collapse
+                            td Notandi: #{e.entryuser}
+                            td Símanúmer: #{e.entryphone}
+                            td Netfang: #{e.entryemail}
+                            td kl: #{e.entryklukka}
+                            td #{e.smoking}
+                        //-tr#opnast.collapse
+                            td Annað: #{e.entryfleira}
+                            td sæti: #{e.entrysæti}
+                            td
+                            td
+                            td
 
 
 
