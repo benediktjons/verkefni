@@ -3,7 +3,7 @@ extends layout
 block content
     h3 Veldu leið
     .form-inline
-        .form-group
+        .form-group.verticalLine
             label(for='Fra') Frá:
             select.form-control(muliteple='' name='from' id = "Fra")
                 option(value='Akranes') Akranes
@@ -185,7 +185,7 @@ block content
 
             h3 Veldu tímabil
             .form-income.form-horizontal(role="form")
-                .form-group
+                .form-group.verticalLine
                     label.control-label(for='date-picker-2') Frá:
                     .input-group
                         input.date-picker.form-control(type='text', id="date-picker-2")
@@ -199,7 +199,7 @@ block content
                             span.glyphicon.glyphicon-calendar
 
     h3.grayscale Aðrir valkostir
-    .form-group
+    .form-group.verticalLine
         label.checkbox
                     input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
                     | Sjá aðeins
@@ -217,3 +217,5 @@ block content
                     |  bíl.
 
         button.btn.btn-default(type='button') Leita
+
+
