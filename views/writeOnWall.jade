@@ -6,7 +6,7 @@ block content
 
     if !success
         p.error=error
-    form(method='post', action='/restricted/thewall/create')
+    form.col-md-6(method='post', action='/restricted/thewall/create')
         .form-group
             .form-inline
                 div: label(for='Entry') Skrifa athugasemd sem #{user.username}
@@ -189,39 +189,39 @@ block content
                         option(value='Vogar') Vogar
                         option(value='Vopnafjörður') Vopnafjörður
 
+            //request
+            label(for='request') Óska eftir:
+                select.form-control(muliteple='', name='request', id= "request")
+                    option(value='Farþegum') Farþegum
+                    option(value='Fari') Fari
 
 
-        //request
-        label(for='request') Óska eftir:
-            select.form-control(muliteple='', name='request', id= "request")
-                option(value='Farþegum') Farþegum
-                option(value='Fari') Fari
+            .form-horizontal.form-income.col-md-12
+                .form-group
+                    label.control-label(for='date-picker-2') Dagsetning ferðar:
+                    .input-group.col-md-4
+                        input#date-picker-2.date-picker.form-control(type='text', name='date')
+                        label.input-group-addon.btn(for='date-picker-2')
+                            span.glyphicon.glyphicon-calendar
 
 
-        .form-horizontal.form-income
-            .form-group
-                label.control-label(for='date-picker-2') Dagsetning ferðar:
-                .input-group
-                    input#date-picker-2.date-picker.form-control(type='text', name='date')
-                    label.input-group-addon.btn(for='date-picker-2')
-                        span.glyphicon.glyphicon-calendar
+            .form-horizontal.form-incom.col-md-12
+                .form-group
+                    label.control-label(for='timiFerdar') Tími ferðar:
+                    .input-group.clockpicker.col-md-4(data-placement='left', data-align='top', data-autoclose='true')
+                        input.form-control(type='text', value='13:14', id="timiFerdar")
+                        span.input-group-addon
+                            span.glyphicon.glyphicon-time
 
 
-            .form-group
-                label.control-label(for='timiFerdar') Tími ferðar:
-                .input-group.clockpicker(data-placement='left', data-align='top', data-autoclose='true')
-                    input.form-control(type='text', value='13:14', id="timiFerdar")
-                    span.input-group-addon
-                        span.glyphicon.glyphicon-time
+            .form-horizontal.form-incom.col-md-12
+                .form-group
+                    label.checkbox
+                    input(id="inlineCheckbox1", type="checkbox", name='smoking' value="Reyklaus")
+                    strong Reyklaus
 
+            label Annað:
+            textarea.form-control(row="5", id ="textarea", name = "textarea",placeholder="Legg af stað frá árbæjarsundlaug um hádegi. Stoppað verður einusinni og kiss verður botnað í útvarpinu.")
 
-
-            label.checkbox
-            input(id="inlineCheckbox1", type="checkbox", name='smoking' value="Reyklaus")
-            strong Reyklaus
-
-        label Annað:
-        textarea.form-control(row="5", id ="textarea", name = "textarea",placeholder="Legg af stað frá árbæjarsundlaug um hádegi. Stoppað verður einusinni og kiss verður botnað í útvarpinu.")
-
-        div
-            button.btn.btn-success Búa til færslu
+            div
+                button.btn.btn-success Búa til færslu

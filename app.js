@@ -17,6 +17,8 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
 
+var favicon = require('serve-favicon');
+
 var errorHandler = require('./middleware/errorHandler');
 var notFoundHandler = require('./middleware/notFoundHandler');
 
@@ -32,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // fyrir
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cookieParser());
 
 var cookie = { domain: '',
