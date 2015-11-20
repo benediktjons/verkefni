@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.4.5
 -- Dumped by pg_dump version 9.4.5
--- Started on 2015-11-20 20:40:53
+-- Started on 2015-11-20 23:11:09
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -91,7 +91,8 @@ CREATE TABLE entries (
     entryphone integer,
     entryemail character varying(50),
     entryklukka character varying,
-    entryfleira character varying(500)
+    entryfleira character varying(500),
+    entryseats integer
 );
 
 
@@ -211,10 +212,13 @@ SELECT pg_catalog.setval('comments_cid_seq', 1, false);
 -- Data for Name: entries; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY entries (entryid, entryuser, entrytime, entryfrom, entryto, request, smoking, entryphone, entryemail, entryklukka, entryfleira) FROM stdin;
-8	kleinuhringur	11/03/2015	Akranes	Akranes	Farþegum		123456	kleina@hi.is	\N	\N
-9	kleinuhringur	11/10/2015	Hveragerði	Akranes	Fari	Reyklaus	123456	kleina@hi.is	\N	\N
-10	kleinuhringur	11/25/2015	Akranes	Þórshöfn	Farþegum	Reyklaus	123456	kleina@hi.is	13:14	fer til eyja 'a morgun ekki b'ida eftir m'er
+COPY entries (entryid, entryuser, entrytime, entryfrom, entryto, request, smoking, entryphone, entryemail, entryklukka, entryfleira, entryseats) FROM stdin;
+10	kleinuhringur	11/25/2015	Akranes	Þórshöfn	Farþegum	Reyklaus	123456	kleina@hi.is	13:14	fer til eyja 'a morgun ekki b'ida eftir m'er	\N
+11	kleinuhringur	11/04/2015	Þórshöfn	Þórshöfn	Farþegum	Reyklaus	123456	kleina@hi.is	13:37	bkkbbkjkjbjkbbjbj	\N
+12	kleinuhringur	11/11/2015	Bifröst	Þórshöfn	Fari	Reyklaus	123456	kleina@hi.is	10:10	hallo her er langur texti; \r\n\r\nIt is more fun, cheaper and better for the environment to share ride with others when you travel around Iceland.\r\n\r\nIn Iceland there are more cars then people so there must be someone else going to the same destination as you - every single day.\r\n\r\nPlease tell your friends and family about this website. The more people using this website is better for everyone.\r\n	\N
+13	kleinuhringur	11/24/2015	Akranes	Akranes	Farþegum		123456	kleina@hi.is	13:37	ælmgældmgæladmgælm	\N
+14	kleinuhringur	11/24/2015	Akranes	Akranes	Farþegum		123456	kleina@hi.is	13:37	ælmgældmgæladmgælm	\N
+15	kleinuhringur	11/17/2015	Akranes	Akranes	Farþegum		123456	kleina@hi.is	13:37	ouohioh	6
 \.
 
 
@@ -224,7 +228,7 @@ COPY entries (entryid, entryuser, entrytime, entryfrom, entryto, request, smokin
 -- Name: entries_entryid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('entries_entryid_seq', 10, true);
+SELECT pg_catalog.setval('entries_entryid_seq', 15, true);
 
 
 --
@@ -296,7 +300,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2015-11-20 20:40:54
+-- Completed on 2015-11-20 23:11:10
 
 --
 -- PostgreSQL database dump complete

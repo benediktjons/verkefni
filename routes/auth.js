@@ -78,7 +78,8 @@ function entryHandler(req,res){
   var smoking = xss(req.body.smoking);
   var klukka = xss(req.body.klukka);
   var annad = xss(req.body.textarea);
-  console.log(time);
+  var seats = xss(req.body.seats);
+  console.log(seats);
 
   if (0>3){
     res.render('writeOnWall',{title: 'Skrifa á vegg',
@@ -88,7 +89,7 @@ function entryHandler(req,res){
     });
   }
   else{
-     entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, klukka, annad, function(err, status){
+     entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, klukka, annad, seats, function(err, status){
       if (err){
         console.error(err);
       }
