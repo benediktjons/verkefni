@@ -8,8 +8,11 @@ block content
       else
         p Notandi búinn til!
 
-    div: label(for='username') Username
-    input(type='text', id='username', name='username', value=username)
+    .form-group.has-feedback
+        label.control-label(for="username") Username:
+        input.form-control(type='text', placeholder='Username', id="username", name="username")
+        i.glyphicon.glyphicon-user.form-control-feedback
+
 
     div: label(for='password') Password
     input(type='password', id='password', name='password')
