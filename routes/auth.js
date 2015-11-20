@@ -86,7 +86,7 @@ function entryHandler(req,res){
     });
   }
   else{
-     entries.createEntry(username.username,from, to,time,request, smoking, function(err, status){
+     entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, function(err, status){
       if (err){
         console.error(err);
       }

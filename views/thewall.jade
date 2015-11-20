@@ -1,4 +1,5 @@
-extends wallLayout
+extends layout
+//extends wallLayout
 block content
     p Velkomin/n á leynivegginn. Hér fá aðeins innskráðir notendur að tjá sig.
     p Skráð/ur inn sem #{user.username}.
@@ -9,14 +10,36 @@ block content
               th Frá
               th Til
               th Dagsetning
-            if entries
-                each e in entries
+              th
+                if entries
+                    each e in entries
                       tbody
                         tr
                           td #{e.request}
                           td #{e.entryfrom}
                           td #{e.entryto}
                           td #{e.entrytime}
+                          td
+                            button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#opnast', aria-expanded='false', aria-controls='search')
+                                | Nánar
+                          #opnast.collapse
+                                    .card.card-block
+                                        tr
+                                            td Notandi
+                                            td Símanúmer
+                                            td Netfang
+                                            td Reykur
+                                            td Annað
+                                        tr
+                                            td #{e.entryuser}
+                                            td #{e.entryphone}
+                                            td #{e.entryemail}
+                                            td #{e.smoking}
+                                            td //annad
+    #search.collapse
+        p wegwnegiwne
+
+
 
                     //-section.panel.panel-default.row
                         div.panel-heading
