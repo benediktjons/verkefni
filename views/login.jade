@@ -4,11 +4,16 @@ block content
   form(method='post', action='/login')
     if error
       p Villa við auðkenningu
-      
-    div: label(for='username') Username
-    input(type='text', id='username', name='username', value=username)
 
-    div: label(for='password') Password
-    input(type='password', id='password', name='password')
+    .form-group.has-feedback
+        label.control-label(for="username") Username:
+        input.form-control(type='text', placeholder='Username', id="username", name="username")
+        i.glyphicon.glyphicon-user.form-control-feedback
+
+    .form-group.has-feedback
+        label.control-label(for="password") Password:
+        input.form-control(type='text', placeholder='Password', id="password", name="Password")
+        i.glyphicon.glyphicon-lock.form-control-feedback
+
 
     div: button.login Login

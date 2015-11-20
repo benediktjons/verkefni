@@ -13,14 +13,20 @@ block content
         input.form-control(type='text', placeholder='Username', id="username", name="username")
         i.glyphicon.glyphicon-user.form-control-feedback
 
+    .form-group.has-feedback
+        label.control-label(for="password") Password:
+        input.form-control(type='text', placeholder='Password', id="password", name="Password")
+        i.glyphicon.glyphicon-lock.form-control-feedback
 
-    div: label(for='password') Password
-    input(type='password', id='password', name='password')
+    .form-group.has-feedback
+        label.control-label(for="phone") Phone:
+        input.form-control(type='phone', placeholder='5812345', id="phone", name="Phone", value=phone)
+        i.glyphicon.glyphicon-earphone.form-control-feedback
 
-    div: label(for='phone') Phone number
-    input(type='phone', id='phone', name='phone', value=phone)
+     .form-group.has-feedback
+        label.control-label(for="phone") Email:
+        input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email)
+        i.glyphicon.glyphicon-envelope.form-control-feedback
 
-    div: label(for='email') Email
-    input(type='email', id='email', name='email', value=email)
 
     div: button Create user
