@@ -76,6 +76,8 @@ function entryHandler(req,res){
   var time = xss(req.body.date);
   var request = xss(req.body.request);
   var smoking = xss(req.body.smoking);
+  var klukka = xss(req.body.klukka);
+  var annad = xss(req.body.textarea);
   console.log(time);
 
   if (0>3){
@@ -86,7 +88,7 @@ function entryHandler(req,res){
     });
   }
   else{
-     entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, function(err, status){
+     entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, klukka, annad, function(err, status){
       if (err){
         console.error(err);
       }
