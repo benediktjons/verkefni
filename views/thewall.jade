@@ -32,14 +32,19 @@ block content
             .col-md-3 #{e.entryto}
             .col-md-2 #{e.entrytime}
             .col-md-1
-                button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#opnast', aria-expanded='false', aria-controls='search')
+                button.btn.btn-primary(type='button', data-toggle='collapse', data-target=".collapse", aria-expanded='false', aria-controls='search')
                     | Nánar
-          #opnast.collapse
+          .collapse
             .row
-                .col-md-3 #{e.request}
-                .col-md-3 #{e.entryfrom}
-                .col-md-3 #{e.entryto}
-                .col-md-2 #{e.entrytime}
+                .col-md-3 Notandi: #{e.entryuser}
+                .col-md-3 Símanúmer: #{e.entryphone}
+                .col-md-3 Netfang: #{e.entryemail}
+                .col-md-2 kl: #{e.entryklukka}
+            .row
+                .col-md-3 Sæti: #{e.entryseats}
+                .col-md-3 #{e.smoking}
+                .col-md-6 Annað: #{e.entryfleira}
+
 
 
             //-table.table.table-hover
