@@ -222,7 +222,7 @@ block content
     #search.collapse
       .card.card-block
         h3 Veldu leið
-    .row
+    #head.row
         .col-md-3 Óska eftir
         .col-md-3 Frá
         .col-md-3 Til
@@ -241,11 +241,13 @@ block content
                     | Nánar
           .collapse(id='#{e.entryid}')
             .row
+                .col-md-1
                 .col-md-3 Notandi: #{e.entryuser}
                 .col-md-3 Símanúmer: #{e.entryphone}
                 .col-md-3 Netfang: #{e.entryemail}
                 .col-md-2 kl: #{e.entryklukka}
             .row
+                .col-md-1
                 .col-md-3 Sæti: #{e.entryseats}
-                .col-md-3 #{e.smoking}
+                .col-md-2 #{e.smoking}
                 .col-md-6 Annað: #{e.entryfleira}
