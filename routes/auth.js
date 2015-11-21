@@ -8,15 +8,15 @@ var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
 
-router.get('/restricted', ensureLoggedIn, restrictedIndex);
-router.get('/restricted/thewall',ensureLoggedIn, thewall);
-router.get('/restricted/thewall/create',ensureLoggedIn, writeOnWall);
-router.post('/restricted/thewall/create', entryHandler);
+//router.get('/restricted', ensureLoggedIn, restrictedIndex);
+//router.get('/restricted/thewall',ensureLoggedIn, thewall);
+router.get('/createride',ensureLoggedIn, write);
+router.post('/createride', entryHandler);
 router.get('/login', redirectIfLoggedIn, login);
 router.post('/login', loginHandler);
 router.get('/logout', logout);
 router.get('/create', createForm);
-router.post('/create', createHandler);
+router.post('/create', createHandler);  
 router.get('/redirect', redirect);
 
 module.exports = router;
@@ -35,28 +35,28 @@ function createHandler(req, res) {
 
   var validUser = validate.length(username, 2);
   var validPw = validate.length(password, 5);
+  var validPh = validate.phonenumber(phone);
 
-
-  if (typeof(phone) === 'undefined'){
-    phone = "";
-}
-
- if (typeof(email) === 'undefined'){
-    email = "";
-}
 
   if (!validUser){
     res.render('create', {title: 'Nýskráning',
     success: false,
     post: true,
-    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir og lykilorð lengra en 5 stafir'
+    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir.'
   });
   }
   else if(!validPw){
     res.render('create', {title: 'Nýskráning',
     success: false,
     post: true,
-    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir og lykilorð lengra en 5 stafir'
+    error: 'Villa: lykilorð þarf að vera lengra en 5 stafir.'
+  });
+  }
+  else if(!validPh){
+    res.render('create', {title: 'Nýskráning',
+    success: false,
+    post: true,
+    error: 'Villa: Ath Simanumer þarf að vera minstakosti 7 tölustafir.'
   });
   }
   else{
@@ -90,28 +90,19 @@ function entryHandler(req,res){
   var seats = xss(req.body.seats);
   console.log(seats);
 
-  if (0>3){
-    res.render('writeOnWall',{title: 'Skrifa á vegg',
-    user: username,
-    error: 'Athugasemd má ekki vera tóm!',
-    success: false
-    });
-  }
-  else{
-     entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, klukka, annad, seats, function(err, status){
-      if (err){
-        console.error(err);
-      }
+  entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, klukka, annad, seats, function(err, status){
+    if (err){
+      console.error(err);
+    }
 
-      var success = true;
+    var success = true;
 
-      if (err || !status){
-        success = false;
-      }
+    if (err || !status){
+      success = false;
+    }
 
-      res.redirect('/restricted/thewall');
-    });
-  }
+    res.redirect('/');
+  });
 }
 
 function ensureLoggedIn(req, res, next) {
@@ -119,7 +110,10 @@ function ensureLoggedIn(req, res, next) {
   if (req.session.user) {
     next(); // köllum í næsta middleware ef við höfum notanda
   } else {
-    res.redirect('/login');
+    req.session.regenerate(function (){
+        req.session.redirected = true;
+        res.redirect('/login');
+      });
   }
 }
 
@@ -132,7 +126,7 @@ function redirectIfLoggedIn(req, res, next) {
 }
 
 function login(req, res) {
-  res.render('login', { title: 'Login' });
+  res.render('login', { title: 'Login'});
 }
 
 function loginHandler(req, res) {
@@ -141,11 +135,18 @@ function loginHandler(req, res) {
 
   users.auth(username, password, function (err, user) {
     if (user) {
-      req.session.regenerate(function (){
+      if (req.session.redirected){
         req.session.user = user;
-        res.redirect('/restricted');
-      });
-    } else {
+        res.redirect('/createride');
+      }
+      else{
+        req.session.regenerate(function (){
+          req.session.user = user;
+          res.redirect('/');
+        });
+      }
+    }
+    else {
       var data = {
         title: 'Login',
         username: username,
@@ -187,8 +188,8 @@ function thewall(req, res) {
   });
 }
 
-function writeOnWall(req, res) {
-  console.log('Keyri writeOnWall');
+function write(req, res) {
+  console.log('Keyri write');
   var user = req.session.user;
   entries.listEntries(function (err, all) {
     res.render('writeOnWall', { title: 'Skrifa á vegg',
