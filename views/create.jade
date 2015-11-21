@@ -9,26 +9,36 @@ block content
         p Notandi búinn til!
 
 
-    .form-group.has-feedback
-        label.control-label(for="username") Username:
-        input.form-control(type='text', placeholder='Maggi Mix', id="username", name="username", value=username)
-        i.glyphicon.glyphicon-user.form-control-feedback
+    .form-horizontal.col-md-8
+        .form-group.has-feedback
+            label.control-label.col-md-2(for="username") Notendanafn:
+            .col-md-8
+                input.form-control(type='text', placeholder='Jón Sigurðsson', id="username", name="username", value=username)
+                i.glyphicon.glyphicon-user.form-control-feedback
+            .col-md-2
+        .form-group.has-feedback
+            label.control-label.col-md-2(for="password") Lykilorð:
+            .col-md-8
+                input.form-control(type='password', placeholder='*****', id="password", name="password")
+                i.glyphicon.glyphicon-lock.form-control-feedback
+            .col-md-2
+        .form-group.has-feedback
+            label.control-label.col-md-2(for="phone") Sími:
+            .col-md-8
+                input.form-control(type='phone', placeholder='5812345', id="phone", name="phone", value=phone)
+                i.glyphicon.glyphicon-earphone.form-control-feedback
+            .col-md-2
+         .form-group.has-feedback
+            label.control-label.col-md-2(for="email") Netfang:
+            .col-md-8
+                input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email)
+                i.glyphicon.glyphicon-envelope.form-control-feedback
+            .col-md-2
 
-    .form-group.has-feedback
-        label.control-label(for="password") Password:
-        input.form-control(type='password', placeholder='*****', id="password", name="password")
-        i.glyphicon.glyphicon-lock.form-control-feedback
-
-    .form-group.has-feedback
-        label.control-label(for="phone") Phone:
-        input.form-control(type='phone', placeholder='5812345', id="phone", name="phone", value=phone)
-        i.glyphicon.glyphicon-earphone.form-control-feedback
-
-     .form-group.has-feedback
-        label.control-label(for="email") Email:
-        input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email)
-        i.glyphicon.glyphicon-envelope.form-control-feedback
 
 
+        .col-md-2
+        .col-md-8
+            button.btn.btn-default.pull-right Create user
+        .col-md-2
 
-    div: button.btn Create user
