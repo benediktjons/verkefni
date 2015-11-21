@@ -35,28 +35,28 @@ function createHandler(req, res) {
 
   var validUser = validate.length(username, 2);
   var validPw = validate.length(password, 5);
+  var validPh = validate.phonenumber(phone);
 
-
-  if (typeof(phone) === 'undefined'){
-    phone = "";
-}
-
- if (typeof(email) === 'undefined'){
-    email = "";
-}
 
   if (!validUser){
     res.render('create', {title: 'Nýskráning',
     success: false,
     post: true,
-    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir og lykilorð lengra en 5 stafir'
+    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir.'
   });
   }
   else if(!validPw){
     res.render('create', {title: 'Nýskráning',
     success: false,
     post: true,
-    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir og lykilorð lengra en 5 stafir'
+    error: 'Villa: lykilorð þarf að vera lengra en 5 stafir.'
+  });
+  }
+  else if(!validPh){
+    res.render('create', {title: 'Nýskráning',
+    success: false,
+    post: true,
+    error: 'Villa: Ath Simanumer þarf að vera minstakosti 7 tölustafir.'
   });
   }
   else{
