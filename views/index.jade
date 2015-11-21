@@ -220,3 +220,45 @@ block content
                         |  bíl.
 
             button.btn.btn-default(type='button') Leita
+    p Velkomin/n á leynivegginn. Hér fá aðeins innskráðir notendur að tjá sig.
+    div
+      button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
+        | Leita
+    #search.collapse
+      .card.card-block
+        h3 Veldu leið
+    //-table.table.table-hover
+          thead
+            tr
+              th Óska eftir
+              th Frá
+              th Til
+              th Dagsetning
+              th
+    .row
+        .col-md-3 Óska eftir
+        .col-md-3 Frá
+        .col-md-3 Til
+        .col-md-2 Dagsetning
+        .col-md-1
+    if entries
+        each e in entries
+
+          .row
+            .col-md-3 #{e.request}
+            .col-md-3 #{e.entryfrom}
+            .col-md-3 #{e.entryto}
+            .col-md-2 #{e.entrytime}
+            .col-md-1
+                button.btn.btn-primary(type='button', data-toggle='collapse', data-target=".collapse", aria-expanded='false', aria-controls='search')
+                    | Nánar
+          .collapse
+            .row
+                .col-md-3 Notandi: #{e.entryuser}
+                .col-md-3 Símanúmer: #{e.entryphone}
+                .col-md-3 Netfang: #{e.entryemail}
+                .col-md-2 kl: #{e.entryklukka}
+            .row
+                .col-md-3 Sæti: #{e.entryseats}
+                .col-md-3 #{e.smoking}
+                .col-md-6 Annað: #{e.entryfleira}
