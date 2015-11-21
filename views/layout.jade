@@ -3,6 +3,8 @@ html(lang="is")
   head
     title= title
     link(href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel='stylesheet')
+    //Taka þetta út í lokin, bara gert fyrir heroku. Viljum nota bower_compoments.
+    link(href ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel='stylesheet')
     link(rel='stylesheet', type='text/css', href='/stylesheets/datepicker.css')
     link(rel='stylesheet' ,href='/stylesheets/bootstrap-clockpicker.min.css')
     //link(rel='stylesheet', href='jquery-clockpicker.min.css' )
@@ -40,6 +42,8 @@ html(lang="is")
       main
         block content
     script(src='/bower_components/jquery/dist/jquery.min.js')
+    // Þetta jquery er bara fyrir heroku. Viljum eyða út þegar við náum að láta bower_components virka fyrir heroku.
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
