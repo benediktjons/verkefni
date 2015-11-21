@@ -232,15 +232,42 @@ block content
     if entries
         each e in entries
 
-          .row
+          #hvitt.row
             .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.request}
             .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
             .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entrytime}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3
+            .col-xs-2.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
+            .col-xs-1.col-sm-1.col-md-1.col-lg-1
                 button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                     | Nánar
           .collapse(id='#{e.entryid}')
+            .row
+                .col-xs-1.col-sm-1.col-md-1.col-lg-1
+                #hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
+                    .row
+                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                            | Notandi:
+                            strong  #{e.entryuser}
+                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                            | Símanúmer:
+                            strong #{e.entryphone}
+                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                            | Netfang:
+                            strong #{e.entryemail}
+                        .col-xs-11.col-sm-2.col-md-2.col-lg-2
+                            | kl:
+                            strong #{e.entryklukka}
+                    .row
+                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                            | Sæti:
+                            strong #{e.entryseats}
+                        .col-xs-11.col-sm-2.col-md-2.col-lg-2
+                            strong #{e.smoking}
+                        .col-xs-11.col-sm-6.col-md-6.col-lg-6
+                            strong Annað:
+                            | #{e.entryfleira}
+
+           //-
             .row
                 .col-xs-1.col-sm-1.col-md-1.col-lg-1
                 .col-xs-3.col-sm-3.col-md-3.col-lg-3 Notandi: #{e.entryuser}
