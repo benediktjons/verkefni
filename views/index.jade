@@ -232,21 +232,21 @@ block content
         each e in entries
 
           .row
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.request}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entrytime}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3
+            .col-xs-12.col-sm-12.col-md-3.col-lg-3 #{e.request}
+            .col-xs-12.col-sm-12.col-md-3.col-lg-3 #{e.entryfrom}
+            .col-xs-12.col-sm-12.col-md-3.col-lg-3 #{e.entryto}
+            .col-xs-12.col-sm-12.col-md-3.col-lg-3 #{e.entrytime}
+            .col-xs-12.col-sm-12.col-md-3.col-lg-3
                 button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                     | Nánar
           .collapse(id='#{e.entryid}')
             .row
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Notandi: #{e.entryuser}
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Símanúmer: #{e.entryphone}
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Netfang: #{e.entryemail}
-                .col-xs-2.col-sm-2.col-md-2.col-lg-2 kl: #{e.entryklukka}
+                .col-xs-12.col-sm-3.col-md-3.col-lg-3 Notandi: #{e.entryuser}
+                .col-xs-12.col-sm-3.col-md-3.col-lg-3 Símanúmer: #{e.entryphone}
+                .col-xs-12.col-sm-3.col-md-3.col-lg-3 Netfang: #{e.entryemail}
+                .col-xs-12.col-sm-2.col-md-2.col-lg-2 kl: #{e.entryklukka}
             .row
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Sæti: #{e.entryseats}
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.smoking}
-                .col-xs-6.col-sm-6.col-md-6.col-lg-6 Annað: #{e.entryfleira}
+                .col-xs-12.col-sm-3.col-md-3.col-lg-3 Sæti: #{e.entryseats}
+                .col-xs-12.col-sm-3.col-md-3.col-lg-3 #{e.smoking}
+                .col-xs-12.col-sm-6.col-md-6.col-lg-6 Annað: #{e.entryfleira}
     a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
