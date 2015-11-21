@@ -9,8 +9,8 @@ block content
         h3 Veldu leið
         .form-inline
             .form-group
-                label(for='Fra') Frá:
-                select.form-control(muliteple='' name='from' id = "Fra")
+                label(for='leitFra') Frá:
+                select.form-control(muliteple='' name='from' id = "leitFra")
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
                     option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
@@ -98,8 +98,8 @@ block content
                     option(value='Vestmannaeyjar') Vestmannaeyjar
                     option(value='Vogar') Vogar
                     option(value='Vopnafjörður') Vopnafjörður
-                label(for='Til') Til:
-                select.form-control(muliteple='', id= "Til")
+                label(for='leitTil') Til:
+                select.form-control(muliteple='', id= "leitTil")
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
                     option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
@@ -204,17 +204,17 @@ block content
         h3.grayscale Aðrir valkostir
         .form-group
             label.checkbox
-                        input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                        input(id="leitReyklaus", type="checkbox", value="Reyklaus")
                         | Sjá aðeins
                         span.underline  reyklausa
                         |  bíla.
              label.checkbox
-                        input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                        input(id="leitOskaEftirFari", type="checkbox", value="Reyklaus")
                         | Sjá aðeins þá sem
                         span.underline  óska
                         |  eftir fari
              label.checkbox
-                        input(id="inlineCheckbox1", type="checkbox", value="Reyklaus")
+                        input(id="leitOkumen", type="checkbox", value="Reyklaus")
                         | Sjá aðeins þá sem
                         span.underline  eru á
                         |  bíl.
