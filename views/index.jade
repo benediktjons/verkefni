@@ -223,59 +223,56 @@ block content
       .card.card-block
         h3 Veldu leið
     #head.row
-        .col-xs-3.col-sm-3.col-md-3.col-lg-3 Óska eftir
+        .col-xs-3.col-sm-2.col-md-2.col-lg-2 Óska eftir
         .col-xs-3.col-sm-3.col-md-3.col-lg-3 Frá
         .col-xs-3.col-sm-3.col-md-3.col-lg-3 Til
         .col-xs-2.col-sm-2.col-md-2.col-lg-2 Dagsetning
+        .hidden-xs.col-sm-1.col-md-1.col-lg-1 Brottför
         .col-xs-1.col-sm-1.col-md-1.col-lg-1
 
     if entries
         each e in entries
-          #hvitt.row
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.request}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-            .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-            .col-xs-2.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
-            .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                    | Nánar
-          .collapse(id='#{e.entryid}')
-            .row
-                .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                #hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
-                    .row
-                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                            | Notandi:
-                            strong  #{e.entryuser}
-                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                            | Símanúmer:
-                            strong #{e.entryphone}
-                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                            | Netfang:
-                            strong #{e.entryemail}
-                        .col-xs-11.col-sm-2.col-md-2.col-lg-2
-                            | kl:
-                            strong #{e.entryklukka}
-                    .row
-                        .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                            | Sæti:
-                            strong #{e.entryseats}
-                        .col-xs-11.col-sm-2.col-md-2.col-lg-2
-                            strong #{e.smoking}
-                        .col-xs-11.col-sm-6.col-md-6.col-lg-6
-                            strong Annað:
-                            | #{e.entryfleira}
+            #hvitt.row
+                .row
+                    a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                        .col-xs-3.col-sm-3.col-md-3.col-lg-2 #{e.request}
+                        .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
+                        .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
+                        .col-xs-2.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
+                        .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
+                        .hidden-xs.col-sm-1.col-md-1.col-lg-1
+                            button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                                | Nánar
 
-           //-
-            .row
-                .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Notandi: #{e.entryuser}
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Símanúmer: #{e.entryphone}
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Netfang: #{e.entryemail}
-                .col-xs-2.col-sm-2.col-md-2.col-lg-2 kl: #{e.entryklukka}
-            .row
-                .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                .col-xs-3.col-sm-3.col-md-3.col-lg-3 Sæti: #{e.entryseats}
-                .col-xs-2.col-sm-2.col-md-2.col-lg-2 #{e.smoking}
-                .col-xs-6.col-sm-6.col-md-6.col-lg-6 Annað: #{e.entryfleira}
+                .hidden-sm.hidden-md.hidden-lg.row
+                    a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                        .col-xs-5 #{e.entryklukka}
+                        .col-xs-6
+                            button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                                | Nánar
+            .collapse(id='#{e.entryid}')
+                .row
+                    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+                    #hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
+                        .row
+                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Notandi:
+                                strong  #{e.entryuser}
+                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Símanúmer:
+                                strong #{e.entryphone}
+                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Netfang:
+                                strong #{e.entryemail}
+                            .col-xs-11.col-sm-1.col-md-1.col-lg-1
+                                | Sæti:
+                                strong #{e.entryseats}
+                            .col-xs-11.col-sm-1.col-md-1.col-lg-1
+                                strong #{e.smoking}
+                        .row
+                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                                | Annað:
+                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                                | #{e.entryfleira}
+
     a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
