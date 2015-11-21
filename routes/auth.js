@@ -36,6 +36,15 @@ function createHandler(req, res) {
   var validUser = validate.length(username, 2);
   var validPw = validate.length(password, 5);
 
+
+  if (typeof(phone) === 'undefined'){
+    phone = "";
+}
+
+ if (typeof(email) === 'undefined'){
+    email = "";
+}
+
   if (!validUser){
     res.render('create', {title: 'Nýskráning',
     success: false,
