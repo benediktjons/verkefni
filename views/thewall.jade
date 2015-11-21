@@ -32,9 +32,9 @@ block content
             .col-md-3 #{e.entryto}
             .col-md-2 #{e.entrytime}
             .col-md-1
-                button.btn.btn-primary(type='button', data-toggle='collapse', data-target=".collapse", aria-expanded='false', aria-controls='search')
+                button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                     | Nánar
-          .collapse
+          .collapse(id='#{e.entryid}')
             .row
                 .col-md-3 Notandi: #{e.entryuser}
                 .col-md-3 Símanúmer: #{e.entryphone}
