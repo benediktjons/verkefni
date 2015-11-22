@@ -3,6 +3,8 @@ $(document).ready(function (){
     // Herna koma gildinn ur leitinni
     //her eru select gildinn
     $("select, input").click(function () {
+      //ÞETTA FALL ER OÞARFI VAR BARA PRUFA HÆGT AÐ SJA HVERNIG NALGAST SKAL GILDINN
+      // EKKI DELATEA
       var leitFra = $("#leitFra").val();
       var leitTil = $("#leitTil").val();
       var leitTimabilFra = $("#date-picker-2").val();
@@ -12,75 +14,44 @@ $(document).ready(function (){
     var leitOskaEftirFari = $( "#leitOskaEftirFari" ).is(':checked');
     var leitOkumen =$( "#leitOkumen:checkbox:checked" ).is(':checked');
 
-
-
-    console.log(leitFra);
-    console.log(leitReyklaus);
   });
 
 
 
-
-    $("#leitFra, #leitTil").click(function () {
+// her er fra gaurinn
+    $("select").click(function () {
       var leitFra = $("#leitFra").val();
       var items = [];
-      var leitTil= $("#leitTil").val();
-      var items2 = [];
-      var elements = document.getElementsByClassName('jon');
-      var elementsg = document.getElementsByClassName('gunnar');
-      var elementParent = document.getElementsByClassName('parent');
-      var k=0
-      $('.jon').each(function (i, e) {
-        items.push($(e).text());
-        if(items[i] !== leitFra){
-            $(elementParent[i]).hide();//latum parentid fela sig
-            //console.log(elementParent);
-            k=k+1
-          }
-          else{
-            j = i-k ;
-            items2.push(elementsg[j].innerHTML);
-            console.log("her er elementsg");
-            console.log(items2);
-            console.log(i)
-            console.log(items2[j]);
-            if(items2[j] !== leitTil){
-            $(elementParent[i]).hide();//latum parentid fela sig
-            //console.log(elementParent);
-            console.log(leitTil);
-            console.log(items2[i]);
-            console.log("hallo")
-          }
-          else{
-           $(elementParent[j]).show();
-           console.log("eg sest!")
-         }
-
-       }
-     });
-
-
-    });
-
-/*$("#leitTil").click("click", function () {
-      var leitFra = $("#leitTil").val();
-      var items = [];
-      var elements = document.getElementsByClassName('gunnar');
       var elementParent = document.getElementsByClassName('parent');
 
-      $('.gunnar').each(function (i, e) {
+      $('.searchFrom' ).each(function (i, e) {
         items.push($(e).text());
         if(items[i] !== leitFra){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
-        }
-        else{
-           $(elementParent[i]).show();
-        }
+          }
+          else{
+            $(elementParent[i]).show();
+          }
+        });
+    });
+// her er til gaurinn og teir verda badir ad vera med select i gangi svo ta  runna teir badir eldsnogt ef breytt er i id runnar bara annar og tad virkar ekki
+    $("select").click("click", function () {
+      var leitTil = $("#leitTil").val();
+      var items = [];
+      var elementParent = document.getElementsByClassName('parent');
+
+      $('.searchTo').each(function (i, e) {
+        items.push($(e).text());
+        if(items[i] !== leitTil){
+            $(elementParent[i]).hide();//latum parentid fela sig
+            console.log(elementParent);
+          }
       });
-});
-});
-*/
+    });
+
+
+
 
     // herna endar leitinn og klick underline fyror siduna sem tu ert a kemur inn
     $("a").click(function () {
