@@ -19,26 +19,38 @@ $(document).ready(function (){
 
 
 // her er fra gaurinn
-    $("input, select").change(function () {
+    $("input, select").on("change click", function () {
       var leitFra = $("#leitFra").val();
-      var items = [];
-      var elementParent = document.getElementsByClassName('parent');
+      var itemsFra = [];
+      var leitTil = $("#leitTil").val();
+      var itemsTil = [];
+      var elementParent= document.getElementsByClassName('parent');
 
       $('.searchFrom' ).each(function (i, e) {
-        items.push($(e).text());
-        if(items[i] !== leitFra && leitFra !== 'Veldu'){
+        itemsFra.push($(e).text());
+        if(itemsFra[i] !== leitFra && leitFra !== 'Veldu'){
             $(elementParent[i]).hide();//latum parentid fela sig
            // console.log(elementParent);
           }
           else{
             $(elementParent[i]).show();
           }
-
         });
+
+        $('.searchTo').each(function (i, e) {
+        itemsTil.push($(e).text());
+        if(itemsTil[i] !== leitTil && leitTil !== 'Veldu'){
+            $(elementParent[i]).hide();//latum parentid fela sig
+            console.log(elementParent);
+          }
+      });
+
     });
+
 // her er til gaurinn og teir verda badir ad vera med select i gangi svo
 // ta  runna teir badir eldsnogt ef breytt er i id runnar bara annar og tad virkar ekki
-    $("select").change(function () {
+    /*
+    $("select").on("change click", function () {
       var leitTil = $("#leitTil").val();
       var items = [];
       var elementParent = document.getElementsByClassName('parent');
@@ -51,8 +63,8 @@ $(document).ready(function (){
           }
       });
     });
-
-
+*/
+//Fall sem synir bara valdar dagsetningar
         $("input, select").on("change click", function () {
           console.log("virkar")
           var dagssetningfra = $("#date-picker-2").val();
@@ -85,17 +97,34 @@ $(document).ready(function (){
             $(elementParent[i]).hide();//latum parentid fela sig
             //console.log(elementParent[i]);
           }
-          /*
-          else{
-            $(elementParent[i]).show();
-          }
-*/
            if(daystotaltil!=="0" && dagaralls > daystotaltil){
               $(elementParent[i]).hide();//latum parentid fela sig
            }
-
       });
     });
+
+//fall sem synir bara reyklaus
+    $("input, select").on("change click", function () {
+      var reykstatus = $("#Reyklaus").val();
+      var items = [];
+      var elementParent = document.getElementsByClassName('parent');
+
+      $('.searchSmoke' ).each(function (i, e) {
+        items.push($(e).text());
+        if( document.getElementById('leitReyklaus').checked){
+          if(items[i] !== "Reyklaus"){
+              $(elementParent[i]).hide();//latum parentid fela sig
+             // console.log(elementParent);
+            }
+            /*
+            else{
+              $(elementParent[i]).show();
+            }
+            */
+          }
+        });
+    });
+
 
   /*Fallið correctIfFromISGreaterThanTo breytir gildinu á til dagsetningunni
   í gildið á frá dagsetningunni ef að frá er 'stærra' en til gildið.

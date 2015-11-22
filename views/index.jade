@@ -208,12 +208,12 @@ block content
                         span.underline  reyklausa
                         |  bíla.
              label.checkbox
-                        input(id="leitOskaEftirFari", type="checkbox", value="Reyklaus")
+                        input(id="leitOskaEftirFari", type="checkbox", value="barafari")
                         | Sjá aðeins þá sem
                         span.underline  óska
                         |  eftir fari
              label.checkbox
-                        input(id="leitOkumen", type="checkbox", value="Reyklaus")
+                        input(id="leitOkumen", type="checkbox", value="barafarthegum")
                         | Sjá aðeins þá sem
                         span.underline  eru á
                         |  bíl.
@@ -262,13 +262,13 @@ block content
                             .col-xs-11.col-sm-1.col-md-1.col-lg-1
                                 | Sæti:
                                 strong #{e.entryseats}
-                            .col-xs-11.col-sm-1.col-md-1.col-lg-1
+                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
                                 strong #{e.smoking}
                         .row
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11
                                 | Annað:
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11
                                 | #{e.entryfleira}
-                                
+
         a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
 
