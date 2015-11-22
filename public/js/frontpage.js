@@ -3,6 +3,8 @@ $(document).ready(function (){
     // Herna koma gildinn ur leitinni
     //her eru select gildinn
     $("select, input").click(function () {
+      //ÞETTA FALL ER OÞARFI VAR BARA PRUFA HÆGT AÐ SJA HVERNIG NALGAST SKAL GILDINN
+      // EKKI DELATEA
       var leitFra = $("#leitFra").val();
       var leitTil = $("#leitTil").val();
       var leitTimabilFra = $("#date-picker-2").val();
@@ -12,50 +14,41 @@ $(document).ready(function (){
     var leitOskaEftirFari = $( "#leitOskaEftirFari" ).is(':checked');
     var leitOkumen =$( "#leitOkumen:checkbox:checked" ).is(':checked');
 
-
-
-    console.log(leitFra);
-    console.log(leitReyklaus);
   });
 
 
 
-
+// her er fra gaurinn
     $("select").click(function () {
       var leitFra = $("#leitFra").val();
       var items = [];
-      var elements = document.getElementsByClassName('jon');
       var elementParent = document.getElementsByClassName('parent');
-      $('.jon' ).each(function (i, e) {
+
+      $('.searchFrom' ).each(function (i, e) {
         items.push($(e).text());
         if(items[i] !== leitFra){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
-        }
-        else{
-          $(elementParent[i]).show();
-        }
-      });
-});
-
-$("select").click(function () {
-      var leitFra = $("#leitTil").val();
+          }
+          else{
+            $(elementParent[i]).show();
+          }
+        });
+    });
+// her er til gaurinn og teir verda badir ad vera med select i gangi svo ta  runna teir badir eldsnogt ef breytt er i id runnar bara annar og tad virkar ekki
+    $("select").click("click", function () {
+      var leitTil = $("#leitTil").val();
       var items = [];
-      var elements = document.getElementsByClassName('gunnar');
       var elementParent = document.getElementsByClassName('parent');
 
-      $('.gunnar').each(function (i, e) {
+      $('.searchTo').each(function (i, e) {
         items.push($(e).text());
-        if(items[i] !== leitFra){
+        if(items[i] !== leitTil){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
-        }
-        /*else{
-           $(elementParent[i]).show();
-        }
-        */
+          }
       });
-});
+    });
 
 
 
