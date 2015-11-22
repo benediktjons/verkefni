@@ -6,10 +6,12 @@ $(document).ready(function (){
     $("select, input").click(function () {
       //ÞETTA FALL ER OÞARFI VAR BARA PRUFA HÆGT AÐ SJA HVERNIG NALGAST SKAL GILDINN
       // EKKI DELATEA
+
     var leitFra = $("#leitFra").val();
     var leitTil = $("#leitTil").val();
     var leitTimabilFra = $("#date-picker-2").val();
     var leitTimabilTil =$("#date-picker-3").val();
+
 // her eru checkbox gildinn tu fa true og false gildi
     var leitReyklaus = $( "#leitReyklaus" ).is(':checked'); // skilar true ef tad er checkd annars false
     var leitOskaEftirFari = $( "#leitOskaEftirFari" ).is(':checked');
@@ -30,7 +32,6 @@ $(document).ready(function (){
         itemsFra.push($(e).text());
         if(itemsFra[i] !== leitFra && leitFra !== 'Veldu'){
             $(elementParent[i]).hide();//latum parentid fela sig
-           // console.log(elementParent);
           }
           else{
             $(elementParent[i]).show();
@@ -59,14 +60,13 @@ $(document).ready(function (){
         items.push($(e).text());
         if(items[i] !== leitTil && leitTil !== 'Veldu'){
             $(elementParent[i]).hide();//latum parentid fela sig
-            console.log(elementParent);
+
           }
       });
     });
 */
 //Fall sem synir bara valdar dagsetningar
         $("input, select").on("change click", function () {
-          console.log("virkar")
           var dagssetningfra = $("#date-picker-2").val();
           var yearsfra= dagssetningfra.slice(6,10);
           var monthsfra= dagssetningfra.slice(3,5);
@@ -77,8 +77,6 @@ $(document).ready(function (){
           var monthstil= dagssetningtil.slice(3,5);
           var daystil= dagssetningtil.slice(0,2);
           var daystotaltil = yearstil*365+monthstil*30+daystil;
-          console.log("daystotaltil");
-          console.log(daystotaltil);
           var items = [];
           var elementParent = document.getElementsByClassName('parent');
 
@@ -89,13 +87,9 @@ $(document).ready(function (){
           var manudir= items[i].slice(3,5);
           var dagar= items[i].slice(0,2);
           var dagaralls = ar*365+manudir*30+dagar;
-          /*
-          debugger;
-          */
-          console.log(dagaralls)
+
           if(dagaralls < daystotalfra){
             $(elementParent[i]).hide();//latum parentid fela sig
-            //console.log(elementParent[i]);
           }
            if(daystotaltil!=="0" && dagaralls > daystotaltil){
               $(elementParent[i]).hide();//latum parentid fela sig
