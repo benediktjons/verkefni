@@ -13,13 +13,6 @@ block content
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
                     option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
-                    option(value='Ísafjörður') Ísafjörður
-                    option(value='Ólafsfjörður') Ólafsfjörður
-                    option(value='Ólafsvík') Ólafsvík
-                    option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
-                    option(value='Þórshöfn') Þórshöfn
-                    option(value='Þingeyri') Þingeyri
-                    option(value='Þorlákshöfn') Þorlákshöfn
                     option(value='Bakkafjörður') Bakkafjörður
                     option(value='Bíldudalur') Bíldudalur
                     option(value='Búðardalur') Búðardalur
@@ -57,6 +50,7 @@ block content
                     option(value='Hvanneyri') Hvanneyri
                     option(value='Hveragerði') Hveragerði
                     option(value='Hvolsvöllur') Hvolsvöllur
+                    option(value='Ísafjörður') Ísafjörður
                     option(value='Kárahnjúkar') Kárahnjúkar
                     option(value='Kópasker') Kópasker
                     option(value='Kópavogur') Kópavogur
@@ -72,6 +66,8 @@ block content
                     option(value='Mjóifjörður') Mjóifjörður
                     option(value='Mosfellsbær') Mosfellsbær
                     option(value='Neskaupstaður') Neskaupstaður
+                    option(value='Ólafsfjörður') Ólafsfjörður
+                    option(value='Ólafsvík') Ólafsvík
                     option(value='Patreksfjörður') Patreksfjörður
                     option(value='Raufarhöfn') Raufarhöfn
                     option(value='Reyðarfjörður') Reyðarfjörður
@@ -97,18 +93,15 @@ block content
                     option(value='Vestmannaeyjar') Vestmannaeyjar
                     option(value='Vogar') Vogar
                     option(value='Vopnafjörður') Vopnafjörður
+                    option(value='Þórshöfn') Þórshöfn
+                    option(value='Þingeyri') Þingeyri
+                    option(value='Þorlákshöfn') Þorlákshöfn
+                    option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
                 label(for='leitTil') Til:
                 select.form-control(muliteple='', id= "leitTil")
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
                     option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
-                    option(value='Ísafjörður') Ísafjörður
-                    option(value='Ólafsfjörður') Ólafsfjörður
-                    option(value='Ólafsvík') Ólafsvík
-                    option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
-                    option(value='Þórshöfn') Þórshöfn
-                    option(value='Þingeyri') Þingeyri
-                    option(value='Þorlákshöfn') Þorlákshöfn
                     option(value='Bakkafjörður') Bakkafjörður
                     option(value='Bíldudalur') Bíldudalur
                     option(value='Búðardalur') Búðardalur
@@ -146,6 +139,7 @@ block content
                     option(value='Hvanneyri') Hvanneyri
                     option(value='Hveragerði') Hveragerði
                     option(value='Hvolsvöllur') Hvolsvöllur
+                    option(value='Ísafjörður') Ísafjörður
                     option(value='Kárahnjúkar') Kárahnjúkar
                     option(value='Kópasker') Kópasker
                     option(value='Kópavogur') Kópavogur
@@ -161,6 +155,8 @@ block content
                     option(value='Mjóifjörður') Mjóifjörður
                     option(value='Mosfellsbær') Mosfellsbær
                     option(value='Neskaupstaður') Neskaupstaður
+                    option(value='Ólafsfjörður') Ólafsfjörður
+                    option(value='Ólafsvík') Ólafsvík
                     option(value='Patreksfjörður') Patreksfjörður
                     option(value='Raufarhöfn') Raufarhöfn
                     option(value='Reyðarfjörður') Reyðarfjörður
@@ -186,6 +182,10 @@ block content
                     option(value='Vestmannaeyjar') Vestmannaeyjar
                     option(value='Vogar') Vogar
                     option(value='Vopnafjörður') Vopnafjörður
+                    option(value='Þórshöfn') Þórshöfn
+                    option(value='Þingeyri') Þingeyri
+                    option(value='Þorlákshöfn') Þorlákshöfn
+                    option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
 
                 h3 Veldu tímabil
                 .form-income.form-horizontal(role="form")
@@ -232,12 +232,12 @@ block content
 
     if entries
         each e in entries
-            .row.hvitt
+            .row.hvitt.parent
                 .row
                     a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                         .col-xs-3.col-sm-3.col-md-3.col-lg-2 #{e.request}
                         .jon.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-                        .col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
+                        .gunnar.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
                         .col-xs-2.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1

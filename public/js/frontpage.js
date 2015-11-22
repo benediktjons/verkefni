@@ -26,28 +26,35 @@ $(document).ready(function (){
       var items = [];
       var elements = document.getElementsByClassName('jon');
       var elementParent = document.getElementsByClassName('parent');
-      console.log('her er elements ' + elements);
 
       $('.jon').each(function (i, e) {
         items.push($(e).text());
-        if($(e).text() !== leitFra){
-          console.log(e);
-          //$(elements[i]).hide();// þetta virkar en allir gaurarnir slidea
+        if(items[i] !== leitFra){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
-
+        }
+        else{
+           $(elementParent[i]).show();
         }
       });
-console.log(items);//þetta virkar
-console.log('þetta virkar');
-/*
-for ( i in items){
-  if(items[i] !== leitFra){
-    console.log("ég er ekki " + leitFra);
-    console.log(i);
-    $('.jon').hide();
-  }
-}*/
+});
+
+$("select").click(function () {
+      var leitFra = $("#leitTil").val();
+      var items = [];
+      var elements = document.getElementsByClassName('gunnar');
+      var elementParent = document.getElementsByClassName('parent');
+
+      $('.gunnar').each(function (i, e) {
+        items.push($(e).text());
+        if(items[i] !== leitFra){
+            $(elementParent[i]).hide();//latum parentid fela sig
+            console.log(elementParent);
+        }
+        else{
+           $(elementParent[i]).show();
+        }
+      });
 });
 
 
