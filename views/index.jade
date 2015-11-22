@@ -4,9 +4,9 @@ block content
     div
       button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
         | Leita
-    #search.collapse
+    section#search.collapse
         h3 Veldu leið
-        .form-inline
+        form.form-inline
             .form-group
                 label(for='leitFra') Frá:
                 select.form-control(name='from' id = "leitFra")
@@ -188,7 +188,7 @@ block content
                     option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
 
         h3 Veldu tímabil
-        .form-inline.form-horizontal(role="form")
+        form.form-inline.form-horizontal(role="form")
             .form-group
                 label.control-label(for='date-picker-2') Frá:
                 .input-group
@@ -201,7 +201,7 @@ block content
                     aside.input-group-addon.btn(for='date-picker-3')
                         span.glyphicon.glyphicon-calendar
         h3.grayscale Aðrir valkostir
-        .form-group
+        form.form-group
             label.checkbox
                         input(id="leitReyklaus", type="checkbox", value="Reyklaus")
                         | Sjá aðeins
@@ -229,7 +229,7 @@ block content
 
     if entries
         each e in entries
-            .row.hvitt.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+            section.row.hvitt.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                 .row
                     .col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
                     .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
@@ -245,7 +245,7 @@ block content
                         .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
 
-            .collapse(id='#{e.entryid}')
+            article.collapse(id='#{e.entryid}')
                 .row
                     .col-xs-1.col-sm-1.col-md-1.col-lg-1
                     .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
