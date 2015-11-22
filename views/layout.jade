@@ -20,24 +20,26 @@ html(lang="is")
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand(href='#') Samfó
+            a.navbar-brand(href='/') Samfó
           #content.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
-              li.active
-                a(href='/')
-                  | Forsíða
-                  span.sr-only (current)
               li
                 a(href='/login') Innskrá
               li
                 a(href='/logout') Útskrá
               li
                 a(href='/create') Nýskrá
-              li
-                a(href='/restricted') Leyndó
           // /.navbar-collapse
         // /.container-fluid
       header
+        .container-fluid
+          figure#myCarousel.carousel.slide.col-xs-12(data-ride='carousel')
+            .carousel-inner(role='listbox')
+              .item.active
+                img(src='images/carousel/rvk.jpg', alt='Reykjavík')
+              .item
+                img(src='images/carousel/jok.jpg', alt='Jökulsárlón')
+                .carousel-caption
         h1= title
       main
         block content

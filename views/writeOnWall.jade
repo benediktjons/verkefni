@@ -1,12 +1,10 @@
 extends layout
 //extends thewall
 block content
-
-
-
     if !success
         p.error=error
-    form.form-horizontal.col-md-8(method='post', action='/restricted/thewall/create')
+    form.form-horizontal.col-md-8(method='post', action='/createride')
+        if user
         p Skrifa athugasemd sem #{user.username}
         .form-group.col-md-12
             label.col-md-2(for='Fra') Frá:
