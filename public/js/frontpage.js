@@ -25,13 +25,16 @@ $(document).ready(function (){
       var leitFra = $("#leitFra").val();
       var items = [];
       var elements = document.getElementsByClassName('jon');
+      var elementParent = document.getElementsByClassName('parent');
       console.log('her er elements ' + elements);
 
       $('.jon').each(function (i, e) {
         items.push($(e).text());
         if($(e).text() !== leitFra){
           console.log(e);
-          $(elements[i]).hide();// þetta virkar en allir gaurarnir slidea
+          //$(elements[i]).hide();// þetta virkar en allir gaurarnir slidea
+            $(elementParent[i]).hide();//latum parentid fela sig
+            console.log(elementParent);
 
         }
       });
