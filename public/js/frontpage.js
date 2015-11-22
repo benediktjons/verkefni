@@ -6,10 +6,12 @@ $(document).ready(function (){
     $("select, input").click(function () {
       //ÞETTA FALL ER OÞARFI VAR BARA PRUFA HÆGT AÐ SJA HVERNIG NALGAST SKAL GILDINN
       // EKKI DELATEA
+
     var leitFra = $("#leitFra").val();
     var leitTil = $("#leitTil").val();
     var leitTimabilFra = $("#date-picker-2").val();
     var leitTimabilTil =$("#date-picker-3").val();
+
 // her eru checkbox gildinn tu fa true og false gildi
     var leitReyklaus = $( "#leitReyklaus" ).is(':checked'); // skilar true ef tad er checkd annars false
     var leitOskaEftirFari = $( "#leitOskaEftirFari" ).is(':checked');
@@ -19,7 +21,7 @@ $(document).ready(function (){
 
 
 // her er fra gaurinn
-    $("select").change(function () {
+    $("input, select").change(function () {
       var leitFra = $("#leitFra").val();
       var items = [];
       var elementParent = document.getElementsByClassName('parent');
@@ -52,32 +54,51 @@ $(document).ready(function (){
       });
     });
 
-    $("input, select").on("change click", function hummi() {
-      //console.log("virkar");
-      var dagssetning = $("#date-picker-2").val();
-      var years= dagssetning.slice(6,10);
-      var months= dagssetning.slice(3,5);
-      var days= dagssetning.slice(0,2);
-      var daystotal = years*365+months*30+days;
-      var items = [];
-      var elementParent = document.getElementsByClassName('parent');
+
+        $("input, select").on("change click", function () {
+          console.log("virkar")
+          var dagssetningfra = $("#date-picker-2").val();
+          var yearsfra= dagssetningfra.slice(6,10);
+          var monthsfra= dagssetningfra.slice(3,5);
+          var daysfra= dagssetningfra.slice(0,2);
+          var daystotalfra = yearsfra*365+monthsfra*30+daysfra;
+          var dagssetningtil = $("#date-picker-3").val();
+          var yearstil= dagssetningtil.slice(6,10);
+          var monthstil= dagssetningtil.slice(3,5);
+          var daystil= dagssetningtil.slice(0,2);
+          var daystotaltil = yearstil*365+monthstil*30+daystil;
+          console.log("daystotaltil");
+          console.log(daystotaltil);
+          var items = [];
+          var elementParent = document.getElementsByClassName('parent');
 
       $('.searchDate').each(function (i, e) {
         items.push($(e).text());
-        //console.log(items[i]);
-        var ar= items[i].slice(6,10);
-        //console.log('ar er:' + ar);
-        var manudir= items[i].slice(3,5);
-        var dagar= items[i].slice(0,2);
-        var dagaralls = ar*365+manudir*30+dagar;
 
-        if(dagaralls < daystotal){
+          var ar= items[i].slice(6,10);
+          var manudir= items[i].slice(3,5);
+          var dagar= items[i].slice(0,2);
+          var dagaralls = ar*365+manudir*30+dagar;
+          /*
+          debugger;
+          */
+          console.log(dagaralls)
+          if(dagaralls < daystotalfra){
             $(elementParent[i]).hide();//latum parentid fela sig
             //console.log(elementParent[i]);
           }
+          /*
+          else{
+            $(elementParent[i]).show();
+          }
+*/
+           if(daystotaltil!=="0" && dagaralls > daystotaltil){
+              $(elementParent[i]).hide();//latum parentid fela sig
+           }
+
       });
     });
-    
+
   /*Fallið correctIfFromISGreaterThanTo breytir gildinu á til dagsetningunni
   í gildið á frá dagsetningunni ef að frá er 'stærra' en til gildið.
   Þ.a. ekki er hægt að velja t.d. frá okt. 2015 til okt 2013.*/
@@ -106,6 +127,9 @@ $(document).ready(function (){
       }
     }
   });
+
+//gera n'ytt stort fall h'er
+
 
 
 
