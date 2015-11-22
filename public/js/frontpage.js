@@ -26,15 +26,14 @@ $(document).ready(function (){
       var items = [];
       var elements = document.getElementsByClassName('jon');
       var elementParent = document.getElementsByClassName('parent');
-
-      $('.jon').each(function (i, e) {
+      $('.jon' ).each(function (i, e) {
         items.push($(e).text());
         if(items[i] !== leitFra){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
         }
         else{
-           $(elementParent[i]).show();
+          $(elementParent[i]).show();
         }
       });
 });
@@ -51,11 +50,13 @@ $("select").click(function () {
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
         }
-        else{
+        /*else{
            $(elementParent[i]).show();
         }
+        */
       });
 });
+
 
 
 
