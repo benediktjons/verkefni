@@ -21,25 +21,48 @@ $(document).ready(function (){
 
 
 
-    $("select").click(function () {
+    $("#leitFra, #leitTil").click(function () {
       var leitFra = $("#leitFra").val();
       var items = [];
+      var leitTil= $("#leitTil").val();
+      var items2 = [];
       var elements = document.getElementsByClassName('jon');
+      var elementsg = document.getElementsByClassName('gunnar');
       var elementParent = document.getElementsByClassName('parent');
-
+      var k=0
       $('.jon').each(function (i, e) {
         items.push($(e).text());
         if(items[i] !== leitFra){
             $(elementParent[i]).hide();//latum parentid fela sig
-            console.log(elementParent);
-        }
-        else{
-           $(elementParent[i]).show();
-        }
-      });
-});
+            //console.log(elementParent);
+            k=k+1
+          }
+          else{
+            j = i-k ;
+            items2.push(elementsg[j].innerHTML);
+            console.log("her er elementsg");
+            console.log(items2);
+            console.log(i)
+            console.log(items2[j]);
+            if(items2[j] !== leitTil){
+            $(elementParent[i]).hide();//latum parentid fela sig
+            //console.log(elementParent);
+            console.log(leitTil);
+            console.log(items2[i]);
+            console.log("hallo")
+          }
+          else{
+           $(elementParent[j]).show();
+           console.log("eg sest!")
+         }
 
-$("select").click(function () {
+       }
+     });
+
+
+    });
+
+/*$("#leitTil").click("click", function () {
       var leitFra = $("#leitTil").val();
       var items = [];
       var elements = document.getElementsByClassName('gunnar');
@@ -56,8 +79,8 @@ $("select").click(function () {
         }
       });
 });
-
-
+});
+*/
 
     // herna endar leitinn og klick underline fyror siduna sem tu ert a kemur inn
     $("a").click(function () {
