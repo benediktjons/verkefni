@@ -9,8 +9,8 @@ block content
         .form-inline
             .form-group
                 label(for='leitFra') Frá:
-                select.form-control(muliteple='' name='from' id = "leitFra")
-                    option(value='Veldu') Veldu
+                select.form-control(name='from' id = "leitFra")
+                    option(value='Veldu') Allt
                     option(value='Reykjavík') Reykjavík
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
@@ -98,8 +98,8 @@ block content
                     option(value='Þorlákshöfn') Þorlákshöfn
                     option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
                 label(for='leitTil') Til:
-                select.form-control(muliteple='', id= "leitTil")
-                    option(value='Veldu') Veldu
+                select.form-control(id= "leitTil")
+                    option(value='Veldu') Allt
                     option(value='Reykjavík') Reykjavík
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
@@ -229,17 +229,16 @@ block content
 
     if entries
         each e in entries
-            .row.hvitt.parent
+            .row.hvitt.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                 .row
-                    a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                        .col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
-                        .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-                        .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-                        .col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                            button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                | Nánar
+                    .col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
+                    .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
+                    .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
+                    .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
+                    .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
+                    .hidden-xs.col-sm-1.col-md-1.col-lg-1
+                        button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                            | Nánar
                 .row
                     a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                         .col-xs-9.hidden-sm.hidden-md.hidden-lg
@@ -270,16 +269,6 @@ block content
                                 | Annað:
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11
                                 | #{e.entryfleira}
-              .collapse(id='#{e.entryid}')
-                .row
-                    .col-md-3 Notandi: #{e.entryuser}
-                    .col-md-3 Símanúmer: #{e.entryphone}
-                    .col-md-3 Netfang: #{e.entryemail}
-                    .col-md-2 kl: #{e.entryklukka}
-                .row
-                    .col-md-3 Sæti: #{e.entryseats}
-                    .col-md-3 #{e.smoking}
-                    .col-md-6 Annað: #{e.entryfleira}
-
+                                
         a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
 
