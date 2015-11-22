@@ -19,7 +19,7 @@ $(document).ready(function (){
 
 
 // her er fra gaurinn
-    $("#leitFra").change(function () {
+    $("select").change(function () {
       var leitFra = $("#leitFra").val();
       var items = [];
       var elementParent = document.getElementsByClassName('parent');
@@ -37,7 +37,7 @@ $(document).ready(function (){
         });
     });
 // her er til gaurinn og teir verda badir ad vera med select i gangi svo ta  runna teir badir eldsnogt ef breytt er i id runnar bara annar og tad virkar ekki
-    $("leitTil").change(function () {
+    $("select").change(function () {
       var leitTil = $("#leitTil").val();
       var items = [];
       var elementParent = document.getElementsByClassName('parent');
