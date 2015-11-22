@@ -30,7 +30,6 @@ $(document).ready(function (){
         items.push($(e).text());
         if(items[i] !== leitFra && leitFra !== 'Veldu'){
             $(elementParent[i]).hide();//latum parentid fela sig
-           // console.log(elementParent);
           }
           else{
             $(elementParent[i]).show();
@@ -49,14 +48,13 @@ $(document).ready(function (){
         items.push($(e).text());
         if(items[i] !== leitTil && leitTil !== 'Veldu'){
             $(elementParent[i]).hide();//latum parentid fela sig
-            console.log(elementParent);
+
           }
       });
     });
 
 
         $("input, select").on("change click", function () {
-          console.log("virkar")
           var dagssetningfra = $("#date-picker-2").val();
           var yearsfra= dagssetningfra.slice(6,10);
           var monthsfra= dagssetningfra.slice(3,5);
@@ -67,8 +65,6 @@ $(document).ready(function (){
           var monthstil= dagssetningtil.slice(3,5);
           var daystil= dagssetningtil.slice(0,2);
           var daystotaltil = yearstil*365+monthstil*30+daystil;
-          console.log("daystotaltil");
-          console.log(daystotaltil);
           var items = [];
           var elementParent = document.getElementsByClassName('parent');
 
@@ -79,13 +75,9 @@ $(document).ready(function (){
           var manudir= items[i].slice(3,5);
           var dagar= items[i].slice(0,2);
           var dagaralls = ar*365+manudir*30+dagar;
-          /*
-          debugger;
-          */
-          console.log(dagaralls)
+
           if(dagaralls < daystotalfra){
             $(elementParent[i]).hide();//latum parentid fela sig
-            //console.log(elementParent[i]);
           }
           /*
           else{
