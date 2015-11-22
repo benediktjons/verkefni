@@ -75,7 +75,7 @@ span.underline{
   /*border-style: solid;*/
 }
 
-#hvitt {
+.hvitt {
   background-color: white;
   border-bottom-right-radius: 4px;
 }
