@@ -26,9 +26,10 @@ $(document).ready(function (){
       var items = [];
       var elements = document.getElementsByClassName('jon');
       var elementParent = document.getElementsByClassName('parent');
+      console.log(items);
       $('.jon' ).each(function (i, e) {
         items.push($(e).text());
-        if(items[i] !== leitFra){
+        if(items[i] !== leitFra && leitFra !== 'Veldu'){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
         }
@@ -46,7 +47,7 @@ $("select").click(function () {
 
       $('.gunnar').each(function (i, e) {
         items.push($(e).text());
-        if(items[i] !== leitFra){
+        if(items[i] !== leitFra && leitFra !== 'Veldu'){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
         }
