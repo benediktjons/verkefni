@@ -187,19 +187,19 @@ block content
                     option(value='Þorlákshöfn') Þorlákshöfn
                     option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
 
-                h3 Veldu tímabil
-                .form-income.form-horizontal(role="form")
-                    .form-group
-                        label.control-label(for='date-picker-2') Frá:
-                        .input-group
-                            input.date-picker.form-control(type='text', id="date-picker-2")
-                            label.input-group-addon.btn(for='date-picker-2')
-                                span.glyphicon.glyphicon-calendar
-                        label.control-label(for='date-picker-3') Til:
-                        .input-group
-                            input.date-picker.form-control(type='text', id="date-picker-3")
-                            label.input-group-addon.btn(for='date-picker-3')
-                                span.glyphicon.glyphicon-calendar
+        h3 Veldu tímabil
+        .form-inline.form-horizontal(role="form")
+            .form-group
+                label.control-label(for='date-picker-2') Frá:
+                .input-group
+                    input.date-picker.form-control(type='text', id="date-picker-2")
+                    aside.input-group-addon.btn(for='date-picker-2')
+                        span.glyphicon.glyphicon-calendar
+                label.control-label(for='date-picker-3') Til:
+                .input-group
+                    input.date-picker.form-control(type='text', id="date-picker-3")
+                    aside.input-group-addon.btn(for='date-picker-3')
+                        span.glyphicon.glyphicon-calendar
         h3.grayscale Aðrir valkostir
         .form-group
             label.checkbox
@@ -269,6 +269,6 @@ block content
                                 | Annað:
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11
                                 | #{e.entryfleira}
-                                
+
         a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
 
