@@ -213,7 +213,7 @@ block content
                         span.underline  óska
                         |  eftir fari
              label.checkbox
-                        input(id="leitOkumen", type="checkbox", value="barafarthegum")
+                        input(id="leitOkumenn", type="checkbox", value="barafarthegum")
                         | Sjá aðeins þá sem
                         span.underline  eru á
                         |  bíl.
@@ -231,7 +231,7 @@ block content
         each e in entries
             section.row.hvitt.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                 .row
-                    .col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
+                    .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
                     .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
                     .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
                     .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}

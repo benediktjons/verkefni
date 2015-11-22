@@ -20,7 +20,7 @@ $(document).ready(function (){
 
 
 
-// her er fra gaurinn
+// her er til og fra gaurinn
     $("input, select").on("change click", function () {
       var leitFra = $("#leitFra").val();
       var itemsFra = [];
@@ -45,26 +45,9 @@ $(document).ready(function (){
             console.log(elementParent);
           }
       });
-
     });
 
-// her er til gaurinn og teir verda badir ad vera med select i gangi svo
-// ta  runna teir badir eldsnogt ef breytt er i id runnar bara annar og tad virkar ekki
-    /*
-    $("select").on("change click", function () {
-      var leitTil = $("#leitTil").val();
-      var items = [];
-      var elementParent = document.getElementsByClassName('parent');
 
-      $('.searchTo').each(function (i, e) {
-        items.push($(e).text());
-        if(items[i] !== leitTil && leitTil !== 'Veldu'){
-            $(elementParent[i]).hide();//latum parentid fela sig
-
-          }
-      });
-    });
-*/
 //Fall sem synir bara valdar dagsetningar
         $("input, select").on("change click", function () {
           var dagssetningfra = $("#date-picker-2").val();
@@ -99,6 +82,7 @@ $(document).ready(function (){
 
 //fall sem synir bara reyklaus
     $("input, select").on("change click", function () {
+      //reykstatus otharfi
       var reykstatus = $("#Reyklaus").val();
       var items = [];
       var elementParent = document.getElementsByClassName('parent');
@@ -118,6 +102,29 @@ $(document).ready(function (){
           }
         });
     });
+
+    //fall sem felur tha sem oska ekki eftir fari og tha sem oska ekki eftir farthegum
+        $("input, select").on("change click", function () {
+      var items = [];
+      var elementParent = document.getElementsByClassName('parent');
+
+      $('.searchRequest' ).each(function (i, e) {
+        items.push($(e).text());
+        if( document.getElementById('leitOskaEftirFari').checked){
+          if(items[i] !== "Fari"){
+              $(elementParent[i]).hide();//latum parentid fela sig
+             // console.log(elementParent);
+            }
+          }
+          if( document.getElementById('leitOkumenn').checked){
+          if(items[i] !== "Farþegum"){
+              $(elementParent[i]).hide();//latum parentid fela sig
+            }
+          }
+
+        });
+    });
+
 
 
   /*Fallið correctIfFromISGreaterThanTo breytir gildinu á til dagsetningunni
