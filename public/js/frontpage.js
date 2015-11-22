@@ -18,13 +18,35 @@ $(document).ready(function (){
     console.log(leitReyklaus);
   });
 
-/*
-$("#leitFra").click(function () {
-  var leitFra = $("#leitFra").val();
 
-  if{id-id a leit fra !== leitFra}{
-    idaleitfra.hide()
-  }*/
+
+
+    $("select").click(function () {
+      var leitFra = $("#leitFra").val();
+      var items = [];
+      var elements = document.getElementsByClassName('jon');
+      console.log('her er elements ' + elements);
+
+      $('.jon').each(function (i, e) {
+        items.push($(e).text());
+        if($(e).text() !== leitFra){
+          console.log(e);
+          $(elements[i]).hide();// þetta virkar en allir gaurarnir slidea
+
+        }
+      });
+console.log(items);//þetta virkar
+console.log('þetta virkar');
+/*
+for ( i in items){
+  if(items[i] !== leitFra){
+    console.log("ég er ekki " + leitFra);
+    console.log(i);
+    $('.jon').hide();
+  }
+}*/
+});
+
 
 
     // herna endar leitinn og klick underline fyror siduna sem tu ert a kemur inn
