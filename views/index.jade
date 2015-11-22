@@ -235,14 +235,19 @@ block content
             .row.hvitt.parent
                 .row
                     a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                        .col-xs-3.col-sm-3.col-md-3.col-lg-2 #{e.request}
+                        .col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
                         .jon.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
                         .gunnar.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-                        .col-xs-2.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
+                        .col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1
                             button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                                 | Nánar
+                .row
+                    a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                        .col-xs-9.hidden-sm.hidden-md.hidden-lg
+                        .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
+
 
             .collapse(id='#{e.entryid}')
                 .row
