@@ -9,6 +9,8 @@ $(document).ready(function (){
       var leitTil = $("#leitTil").val();
       var leitTimabilFra = $("#date-picker-2").val();
       var leitTimabilTil =$("#date-picker-3").val();
+      console.log("her er date-picker")
+      console.log(leitTimabilFra)
 // her eru checkbox gildinn tu fa true og false gildi
     var leitReyklaus = $( "#leitReyklaus" ).is(':checked'); // skilar true ef tad er checkd annars false
     var leitOskaEftirFari = $( "#leitOskaEftirFari" ).is(':checked');
