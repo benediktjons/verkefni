@@ -19,7 +19,7 @@ $(document).ready(function (){
 
 
 // her er fra gaurinn
-    $("select").change(function () {
+    $("input, select").change(function () {
       var leitFra = $("#leitFra").val();
       var items = [];
       var elementParent = document.getElementsByClassName('parent');
@@ -51,16 +51,22 @@ $(document).ready(function (){
       });
     });
 
-        $("input, select").on("change click", function hummi() {
+        $("input, select").on("change click", function () {
           console.log("virkar")
-          var dagssetning = $("#date-picker-2").val();
-          var years= dagssetning.slice(6,10);
-          var months= dagssetning.slice(3,5);
-          var days= dagssetning.slice(0,2);
-          var daystotal = years*365+months*30+days;
+          var dagssetningfra = $("#date-picker-2").val();
+          var yearsfra= dagssetningfra.slice(6,10);
+          var monthsfra= dagssetningfra.slice(3,5);
+          var daysfra= dagssetningfra.slice(0,2);
+          var daystotalfra = yearsfra*365+monthsfra*30+daysfra;
+          var dagssetningtil = $("#date-picker-3").val();
+          var yearstil= dagssetningtil.slice(6,10);
+          var monthstil= dagssetningtil.slice(3,5);
+          var daystil= dagssetningtil.slice(0,2);
+          var daystotaltil = yearstil*365+monthstil*30+daystil;
+          console.log("daystotaltil");
+          console.log(daystotaltil);
           var items = [];
           var elementParent = document.getElementsByClassName('parent');
-          console.log(daystotal)
 
       $('.searchDate').each(function (i, e) {
         items.push($(e).text());
@@ -69,14 +75,29 @@ $(document).ready(function (){
           var manudir= items[i].slice(3,5);
           var dagar= items[i].slice(0,2);
           var dagaralls = ar*365+manudir*30+dagar;
+          /*
+          debugger;
+          */
           console.log(dagaralls)
 
-        if(dagaralls < daystotal){
+          if(dagaralls < daystotalfra){
             $(elementParent[i]).hide();//latum parentid fela sig
             console.log(elementParent);
           }
+          /*
+          else{
+            $(elementParent[i]).show();
+          }
+*/
+           if(daystotaltil!=="0" && dagaralls > daystotaltil){
+              $(elementParent[i]).hide();//latum parentid fela sig
+           }
+
       });
     });
+
+
+//gera n'ytt stort fall h'er
 
 
 
