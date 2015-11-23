@@ -217,8 +217,20 @@ block content
                         | Sjá aðeins þá sem
                         span.underline  eru á
                         |  bíl.
+             label(for='saetaleit') Sætafjöldi a.m.k:
+                select.form-control(id= "saetaleit")
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+                    option(value='6') 6
+                    option(value='7') 7
+                    option(value='8') 8
+                    option(value='9') 9
+                    option(value='10') 10
 
-            button.btn.btn-default(type='button') Leita
+        button.btn.btn-default(type='button') Leita
     #head.row
         .col-xs-3.col-sm-2.col-md-2.col-lg-2 Óska eftir
         .col-xs-3.col-sm-3.col-md-3.col-lg-3 Frá
@@ -259,7 +271,7 @@ block content
                             .col-xs-11.col-sm-3.col-md-3.col-lg-3
                                 | Netfang:
                                 strong #{e.entryemail}
-                            .col-xs-11.col-sm-1.col-md-1.col-lg-1
+                            .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
                                 | Sæti:
                                 strong #{e.entryseats}
                             .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1

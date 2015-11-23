@@ -18,8 +18,6 @@ $(document).ready(function (){
     var leitOkumen =$( "#leitOkumen:checkbox:checked" ).is(':checked');
   });
 
-
-
 // her er til og fra gaurinn
     $("input, select").on("change click", function () {
       var leitFra = $("#leitFra").val();
@@ -94,11 +92,7 @@ $(document).ready(function (){
               $(elementParent[i]).hide();//latum parentid fela sig
              // console.log(elementParent);
             }
-            /*
-            else{
-              $(elementParent[i]).show();
-            }
-            */
+
           }
         });
     });
@@ -125,7 +119,24 @@ $(document).ready(function (){
         });
     });
 
+//Fall sem synir bara fleiri eda jafnt voldum saetafjolda
+        $("input, select").on("change click", function () {
+          var saetafjoldi = $("#saetaleit").val();
+          var items = [];
+          var elementParent = document.getElementsByClassName('parent');
 
+      $('.searchSeats').each(function (i, e) {
+        items.push($(e).text());
+
+          var totalseats= items[i].slice(5,6);
+          console.log(totalseats);
+
+          if(totalseats < saetafjoldi){
+            $(elementParent[i]).hide();//latum parentid fela sig
+          }
+
+      });
+    });
 
   /*Fallið correctIfFromISGreaterThanTo breytir gildinu á til dagsetningunni
   í gildið á frá dagsetningunni ef að frá er 'stærra' en til gildið.
