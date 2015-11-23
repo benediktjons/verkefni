@@ -241,7 +241,7 @@ block content
 
     if entries
         each e in entries
-            section.row.hvitt.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+            section.row.hvitt.parent.active(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                 .row
                     .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
                     .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
@@ -252,7 +252,7 @@ block content
                         button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                             | Nánar
                 .row
-                    a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                    a(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                         .col-xs-9.hidden-sm.hidden-md.hidden-lg
                         .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 

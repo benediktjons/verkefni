@@ -3,7 +3,6 @@ $(document).ready(function (){
 
   // her er til og fra gaurinn
   $(".date-picker").on("change click", function () {
-
     var leitFra = $("#leitFra").val();
     var itemsFra = [];
     var leitTil = $("#leitTil").val();
@@ -31,7 +30,7 @@ $(document).ready(function (){
 
 
   //Fall sem synir bara valdar dagsetningar
-  $("input, select").on("change click", function () {
+  $(".date-picker").on("change click", function () {
     var dagssetningfra = $("#date-picker-2").val();
     var yearsfra= dagssetningfra.slice(6,10);
     var monthsfra= dagssetningfra.slice(3,5);
@@ -63,19 +62,22 @@ $(document).ready(function (){
   });
 
   //fall sem synir bara reyklaus
-  $("input, select").on("change click", function () {
-
+  $("#leitReyklaus").on("click", function () {
+    debugger;
     var items = [];
-    var elementParent = document.getElementsByClassName('parent');
+    var elementParent = $('.parent');
 
     $('.smokes' ).each(function (i, e) {
       items.push($(e).text());
-      if($('#leitReyklaus').checked){
-        
+      console.log(items);
+      var a = $('#leitReyklaus').is(":checked");
+      if($('#leitReyklaus').is(":checked")){
         if(items[i] !== "Reyklaus"){
           $(elementParent[i]).hide();//latum parentid fela sig
         }
-
+      }
+      else{
+        $(elementParent[i]).show();
       }
     });
   });
@@ -119,11 +121,10 @@ $(document).ready(function (){
     });
   }); 
 
-  /*Fallið correctIfFromISGreaterThanTo breytir gildinu á til dagsetningunni
+  /*Fallið correctIfFromIsGreaterThanTo breytir gildinu á til dagsetningunni
   í gildið á frá dagsetningunni ef að frá er 'stærra' en til gildið.
   Þ.a. ekki er hægt að velja t.d. frá okt. 2015 til okt 2013.*/
   $('.date-picker').change(function correctIfFromIsGreaterThanTo(){
-
     var fromDate = $('#date-picker-2').val();
     var toDate = $('#date-picker-3').val();
     //Athugum ef að annað hvort toDate eða fromDate er tómt og hættum við að keyra fallið ef svo er
@@ -146,8 +147,6 @@ $(document).ready(function (){
         $('#date-picker-3').val(fromDate);
       }
     }
-  }, function(){
-    console.log('Seinna virkar');
   });
 
   //gera n'ytt stort fall h'er
