@@ -232,7 +232,7 @@ block content
                     option(value='9') 9
                     option(value='10') 10
 
-        button.btn.btn-default(type='button') Leita
+
     #head.row
         .col-xs-3.col-sm-2.col-md-2.col-lg-2 Óska eftir
         .col-xs-3.col-sm-3.col-md-3.col-lg-3 Frá
@@ -256,7 +256,13 @@ block content
                                 | Nánar
                     .row
                         a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                            .col-xs-9.hidden-sm.hidden-md.hidden-lg
+                            .BaraUser.col-xs-4.col.col-sm-2.col-md-2.col-lg-1
+                                button.btn.btn-warning(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                                    | Breyta
+                            .BaraUser.col-xs-4.col.col-sm-7.col-md-7.col-lg-8
+                                button.btn.btn-danger(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                                    | Eyða
+                            .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
                             .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
 
@@ -265,7 +271,7 @@ block content
                         .col-xs-1.col-sm-1.col-md-1.col-lg-1
                         .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
                             .row
-                                .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
                                     | Notandi:
                                     strong  #{e.entryuser}
                                 .col-xs-11.col-sm-3.col-md-3.col-lg-3
