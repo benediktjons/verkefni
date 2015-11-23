@@ -241,7 +241,7 @@ block content
 
     if entries
         each e in entries
-            section.row.hvitt.parent.active(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+            section.row.hvitt.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                 .row
                     .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
                     .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
@@ -252,7 +252,7 @@ block content
                         button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                             | Nánar
                 .row
-                    a(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                    a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                         .col-xs-9.hidden-sm.hidden-md.hidden-lg
                         .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
@@ -271,10 +271,10 @@ block content
                             .col-xs-11.col-sm-3.col-md-3.col-lg-3
                                 | Netfang:
                                 strong #{e.entryemail}
-                            .numberOfSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                            .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
                                 | Sæti:
                                 strong #{e.entryseats}
-                            .smokes.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
                                 strong #{e.smoking}
                         .row
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11
@@ -283,4 +283,3 @@ block content
                                 | #{e.entryfleira}
 
         a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
-
