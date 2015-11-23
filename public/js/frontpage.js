@@ -147,5 +147,60 @@ $(document).ready(function (){
     }
   });
 
+  
+  function dateFormat(){
+    $('.searchDate').each(function(){
+      debugger;
+      $(this);
+      var dags = $(this).text();
+      dags = dags.slice(4,16);
+      var year = dags.slice(7,11);
+      var month = dags.slice(0,3);
+      var day=dags.slice(4,6);
 
+      switch (month) {
+        case 'Jan':
+          month ='01'
+          break;
+        case 'Feb':
+          month = '02';
+          break;
+        case 'Mar':
+          break;
+        case 'Apr':
+          month ='04'
+          break;
+        case 'May':
+          month ='05'
+          break;
+        case 'Jun':
+          month ='06'
+          break;
+        case 'Jul':
+          month ='07'
+          break;
+        case 'Aug':
+          month ='08'
+          break;
+        case 'Sep':
+          month ='09'
+          break;
+        case 'Oct':
+          month ='10'
+          break;
+        case 'Nov':
+          month ='11'
+          break;
+        case 'Dec':
+          month ='12'
+          break;
+        default:
+          alert('Whoops! Something went wrong');
+          break;
+      }
+      dags=day+'/'+month+'/'+year;
+      $(this).text(dags);
+    });
+  }
+  dateFormat();
 });

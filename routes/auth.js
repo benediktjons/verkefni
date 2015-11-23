@@ -88,9 +88,11 @@ function entryHandler(req,res){
   var klukka = xss(req.body.klukka);
   var annad = xss(req.body.textarea);
   var seats = xss(req.body.seats);
-  console.log(seats);
+  console.log('Time fyrir er:'+time)
+  time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
+  console.log('Time eftir er:'+time);
 
-  entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, klukka, annad, seats, function(err, status){
+  entries.createEntry(username.username,from,to,time,request, smoking, username.userphone, username.useremail, klukka, annad, seats, function(err, status){
     if (err){
       console.error(err);
     }
