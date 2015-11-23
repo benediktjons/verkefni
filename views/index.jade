@@ -249,7 +249,7 @@ block content
 
     if entries
         each e in entries
-            section.row.hvitt.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+            section.row.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="a#{e.entryid}")
                 .row
                     .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
                     .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
@@ -257,8 +257,8 @@ block content
                     .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                        button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                            | Nánar
+                        button.btn.btn-primary.Button-colap(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                            span.glyphicon.glyphicon-chevron-down
                 .row
                     a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                         .col-xs-9.hidden-sm.hidden-md.hidden-lg
