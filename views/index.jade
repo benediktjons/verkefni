@@ -2,7 +2,9 @@ extends indexlayout
 
 block content
 
-
+    if user
+        p Skráð/ur inn sem
+        p.user #{user.username}
     div
       button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
         | Leita
@@ -256,12 +258,13 @@ block content
                                 | Nánar
                     .row
                         a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                            .BaraUser.col-xs-4.col.col-sm-2.col-md-2.col-lg-1
-                                button.btn.btn-warning(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                    | Breyta
-                            .BaraUser.col-xs-4.col.col-sm-7.col-md-7.col-lg-8
-                                button.btn.btn-danger(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                    | Eyða
+                            .BaraUser
+                                .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
+                                    button.btn.btn-warning(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                                        | Breyta
+                                .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
+                                    button.btn.btn-danger(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                                        | Eyða
                             .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
                             .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
