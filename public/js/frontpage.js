@@ -191,4 +191,24 @@ $(".date-picker").on("change", function () {
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
 
   $('.clockpicker').clockpicker();
+
+// herna er fallid fyrir orvarnar sem breytast upp og nidur
+$('.parent').click(function blabla() {
+  debugger;
+  var id = $(this).attr('aria-expanded');
+  var id2 = $(this).attr("id");
+  var id3 = "#"+id2;
+  var id4 = "#a" + id2;
+
+
+if(id ==="false")
+{
+    $(id4).html('<span class="glyphicon glyphicon-chevron-up"></span>');
+}
+else
+{
+    $(id4).html('<span class="glyphicon glyphicon-chevron-down"></span>');
+}
+});
+
 });
