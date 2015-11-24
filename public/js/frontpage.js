@@ -176,7 +176,7 @@ $(document).ready(function (){
       var dags = $(this).text();//Skilar dags á formattinu Dag Mán dd yyyy tími timezone ofl sem við viljum ekki
       dags = dags.slice(4,16);//Fáum dags á formið Mán dd yyyy
       var year = dags.slice(7,11);
-      var month = dags.slice(0,3);//Tökum út Mán úr dags og notum í switch 
+      var month = dags.slice(0,3);//Tökum út Mán úr dags og notum í switch
       var day=dags.slice(4,6);
 
       switch (month) {
@@ -223,7 +223,7 @@ $(document).ready(function (){
       dags=day+'/'+month+'/'+year;
       $(this).text(dags);
     });
-
+}
 
 
 
@@ -247,9 +247,15 @@ else
 }
 });
 
-
-  }
   dateFormat();
+
+  function runReload () {
+   setTimeout(myTimeFunction, 1000);
+}
+
+function myTimeFunction() {
+   document.location.reload(true);
+}
 
 $('.eyda').on('click', function(){
   var eydaid=$(this).attr('id');
@@ -265,8 +271,10 @@ $('.eyda').on('click', function(){
                alert(data);
         }
 });
- //location.reload();
+runReload ();
 });
+
+
 
 });
 
