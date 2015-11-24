@@ -303,7 +303,6 @@ $('.parent').click(function blabla() {
 
   //Finnum y-gildi main elementsins og látum navbarinn fade-a inn þegar y er komið þangað
     window.addEventListener("scroll", function() {
-      
       var height= document.getElementById('navbar').offsetHeight;
 
       if (window.scrollY>height) {

@@ -263,16 +263,15 @@ block content
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1
                         button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
                     .row
-                        a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                            .BaraUser
-                                .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
-                                    button.btn.btn-warning(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                        | Breyta
-                                .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
-                                    button.btn.btn-danger(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                        | Eyða
-                            .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
-                            .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
+                        .BaraUser
+                            .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
+                                button.btn.btn-warning(type='button',id='eyda')
+                                    | Breyta
+                            .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
+                                button.btn.btn-danger(type='button')
+                                    | Eyða
+                        .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
+                        .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
 
 

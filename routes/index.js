@@ -8,6 +8,9 @@ var entries = require('../lib/entries');
 
 
 router.get('/',   function(req, res) {
+    var body =req.query.class; 
+    var id=req.query.id;
+    
     entries.listEntries(function (err, all){
     if (err){
       console.error(err);
