@@ -35,12 +35,6 @@ router.get('/',   function(req, res) {
         res.render('index',{title:'Velkominn', user:user, entries:all});
     }
     else{
-<<<<<<< HEAD
-      console.log("her kemur entries2");
-      console.log(entries);
-=======
-
->>>>>>> 1b7d379423fb118fd524d0f98b270fd66e2dd1c4
     res.render('index',{title: 'Velkominn',
       entries: all});
     }
