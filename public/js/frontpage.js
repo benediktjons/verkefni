@@ -2,7 +2,7 @@ $(document).ready(function (){
   'use strict';
 
   $('.navbar').fadeOut();
-
+console.log("frontpage keyrir");
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
     var leitFra = $("#leitFra").val();
@@ -223,7 +223,6 @@ $(document).ready(function (){
       dags=day+'/'+month+'/'+year;
       $(this).text(dags);
     });
-
   }
 
 $('.smooth-click').click(function(){
@@ -245,11 +244,28 @@ $('#eyda').click(function(e){
 });
 
 
+
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
   var id = $(this).attr('aria-expanded');
   var id2 = $(this).attr("id");
   var id3 = "#a" + id2;
+
+  if(id ==="false")
+  {
+      $(id3).removeClass('glyphicon-chevron-down');
+      $(id3).addClass('glyphicon-chevron-up');
+  }
+  else
+  {
+      $(id3).removeClass('glyphicon-chevron-up');
+      $(id3).addClass('glyphicon-chevron-down');
+  }
+  });
+
+  dateFormat();
+
+
 
   function runReload () {
    setTimeout(myTimeFunction, 1000);
@@ -278,22 +294,8 @@ runReload ();
 
 
 
-});
 
 
-  if(id ==="false")
-  {
-      $(id3).removeClass('glyphicon-chevron-down');
-      $(id3).addClass('glyphicon-chevron-up');
-  }
-  else
-  {
-      $(id3).removeClass('glyphicon-chevron-up');
-      $(id3).addClass('glyphicon-chevron-down');
-  }
-  });
-
-  dateFormat();
 
   //Gerir transation-ið smooth þegar smellt er á örvatakkann
   $('.smooth-click').click(function(){
@@ -321,4 +323,6 @@ runReload ();
           $('.navbar').fadeOut();
       }
     },false);
+
+
 });
