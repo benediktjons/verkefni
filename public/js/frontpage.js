@@ -262,11 +262,13 @@ $('.parent').click(function blabla() {
 
 if(id ==="false")
 {
-    $(id4).html('<span class="glyphicon glyphicon-chevron-up"></span>');
+    $(id4).removeClass('glyphicon-chevron-down');
+    $(id4).addClass('glyphicon-chevron-up');
 }
 else
 {
-    $(id4).html('<span class="glyphicon glyphicon-chevron-down"></span>');
+    $(id4).removeClass('glyphicon-chevron-up');
+    $(id4).addClass('glyphicon-chevron-down');
 }
 });
 
