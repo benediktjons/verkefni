@@ -147,6 +147,50 @@ $(document).ready(function (){
     }
   });
 
+    function drasl(){
+      var username = $(".user").text();
+
+      var items = [];
+      var elementBaraUser = document.getElementsByClassName('BaraUser');
+      if (username /*typeof username !== 'undefined'*/)  {
+        $('.searchNotandi').each(function (i, e) {
+          items.push($(e).text());
+          var notandi = items[i].slice(9);
+            if(notandi !== username){
+              $(elementBaraUser[i]).hide();//latum parentid fela sig
+            }
+        });
+      }
+      else {
+        $('.BaraUser').hide();
+      }
+  }
+
+  drasl();
+
+/*
+  //fall sem felur breyta / eyða takkana fyrir alla nema innskraðan user
+  module.exports.felatakka = function felatakka(username){
+    var items = [];
+    var elementBaraUser = document.getElementsByClassName('BaraUser');
+    debugger;
+    if (typeof username !== 'ekkiskradurinn') {
+      //var username=user;
+      $('.searchNotandi' ).each(function (i, e) {
+        items.push($(e).text());
+          if(items[i]!== username){
+                    $(elementBaraUser[i]).hide();//latum parentid fela sig
+          }
+      });
+    }
+    else {
+      $('.BaraUser').hide();
+    }
+
+  }
+*/
+  //felatakka();
+
 
   function dateFormat(){
     $('.searchDate').each(function(){
@@ -203,19 +247,7 @@ $(document).ready(function (){
 
 
 
-// herna endar underline fallid og date picker fyrir dagatalid kemur inn
 
-$(".date-picker").datepicker();
-
-$(".date-picker").on("change", function () {
-  var id = $(this).attr("id");
-  var val = $("label[for='" + id + "']").text();
-  $("#msg").text(val + " changed");
-});
-
-  // herna endar date picker og clockpicker kemur inn fyrir klukkuna
-
-  $('.clockpicker').clockpicker();
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
@@ -241,3 +273,4 @@ else
   dateFormat();
 
 });
+
