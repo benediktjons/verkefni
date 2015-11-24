@@ -147,12 +147,12 @@ $(document).ready(function (){
     }
   });
 
-    function drasl(){
+    function felatakka(){
       var username = $(".user").text();
 
       var items = [];
       var elementBaraUser = document.getElementsByClassName('BaraUser');
-      if (username /*typeof username !== 'undefined'*/)  {
+      if (username )  {
         $('.searchNotandi').each(function (i, e) {
           items.push($(e).text());
           var notandi = items[i].slice(9);
@@ -166,30 +166,8 @@ $(document).ready(function (){
       }
   }
 
-  drasl();
+  felatakka();
 
-/*
-  //fall sem felur breyta / eyða takkana fyrir alla nema innskraðan user
-  module.exports.felatakka = function felatakka(username){
-    var items = [];
-    var elementBaraUser = document.getElementsByClassName('BaraUser');
-    debugger;
-    if (typeof username !== 'ekkiskradurinn') {
-      //var username=user;
-      $('.searchNotandi' ).each(function (i, e) {
-        items.push($(e).text());
-          if(items[i]!== username){
-                    $(elementBaraUser[i]).hide();//latum parentid fela sig
-          }
-      });
-    }
-    else {
-      $('.BaraUser').hide();
-    }
-
-  }
-*/
-  //felatakka();
 
 
   function dateFormat(){
@@ -271,6 +249,23 @@ else
 
   }
   dateFormat();
+
+$('.eyda').on('click', function(){
+  var eydaid=$(this).attr('id');
+  var id=eydaid.slice(4);
+ $.ajax({
+            url: '/',
+            type: 'get',
+            dataType: 'json',
+            data: {id: id},
+            contentType: 'application/json',
+            success: function(data){
+               alert("success");
+               alert(data);
+        }
+});
+ //location.reload();
+});
 
 });
 

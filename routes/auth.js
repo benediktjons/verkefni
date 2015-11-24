@@ -1,4 +1,5 @@
 'use strict';
+console.log("auth");
 
 var express = require('express');
 var router = express.Router();
@@ -14,7 +15,7 @@ router.get('/login', redirectIfLoggedIn, login);
 router.post('/login', loginHandler);
 router.get('/logout', logout);
 router.get('/create', createForm);
-router.post('/create', createHandler);  
+router.post('/create', createHandler);
 router.get('/redirect', redirect);
 
 module.exports = router;
@@ -106,11 +107,11 @@ function entryHandler(req,res){
       }
 
       var success = true;
-      
+
       if (err || !status){
         success = false;
       }
-      
+
       res.redirect('/');
     });
 }
