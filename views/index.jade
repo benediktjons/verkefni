@@ -263,17 +263,16 @@ block content
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1
                         button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
                     .row
-                        .BaraUser
-                            .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
-                                button.btn.btn-warning(type='button',id='eyda')
-                                    | Breyta
-                            .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
-                                button.btn.btn-danger(type='button')
-                                    | Eyða
-                        .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
-                        .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
-
-
+                        a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                            .BaraUser
+                                .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
+                                    button.btn.btn-warning(type='button', id="breyta#{e.entryid}")
+                                        | Breyta
+                                .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
+                                    button.btn.btn-danger(type='button', class = "eyda", id="eyda#{e.entryid}")
+                                        | Eyða
+                            .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
+                            .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
                 article.collapse(id='#{e.entryid}')
                     .row
@@ -300,4 +299,4 @@ block content
                                 .col-xs-11.col-sm-11.col-md-11.col-lg-11
                                     | #{e.entryfleira}
 
-        a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
+    a(href='/createride').btn.btn-success Skrá ferð/Óska eftir

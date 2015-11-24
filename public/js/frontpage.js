@@ -1,9 +1,8 @@
 $(document).ready(function (){
-  $('.navbar').fadeOut();
-
-
-
   'use strict';
+
+  $('.navbar').fadeOut();
+  
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
     var leitFra = $("#leitFra").val();
@@ -148,12 +147,12 @@ $(document).ready(function (){
     }
   });
 
-    function drasl(){
+    function felatakka(){
       var username = $(".user").text();
 
       var items = [];
       var elementBaraUser = document.getElementsByClassName('BaraUser');
-      if (username /*typeof username !== 'undefined'*/)  {
+      if (username )  {
         $('.searchNotandi').each(function (i, e) {
           items.push($(e).text());
           var notandi = items[i].slice(9);
@@ -167,30 +166,8 @@ $(document).ready(function (){
       }
   }
 
-  drasl();
+  felatakka();
 
-/*
-  //fall sem felur breyta / eyða takkana fyrir alla nema innskraðan user
-  module.exports.felatakka = function felatakka(username){
-    var items = [];
-    var elementBaraUser = document.getElementsByClassName('BaraUser');
-    debugger;
-    if (typeof username !== 'ekkiskradurinn') {
-      //var username=user;
-      $('.searchNotandi' ).each(function (i, e) {
-        items.push($(e).text());
-          if(items[i]!== username){
-                    $(elementBaraUser[i]).hide();//latum parentid fela sig
-          }
-      });
-    }
-    else {
-      $('.BaraUser').hide();
-    }
-
-  }
-*/
-  //felatakka();
 
   //dateFormat tekur date á því formati sem það kemur úr gagnagrunninum,
   // t.d. (Wed Nov 25 2015 00:00:00 GMT+0000 (Greenwich Standard Time)) og strípar það í dd/mm/yyyy
@@ -264,7 +241,7 @@ $('.smooth-click').click(function(){
 });
 $('#eyda').click(function(e){
   e.preventDefault();
-})
+});
 
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
@@ -299,6 +276,24 @@ $('.parent').click(function blabla() {
   //Komum í veg fyrir að #id bætist við efitr að klikka á takka sem færir mann á ákveðið element
   $(window).on('hashchange', function(e){
       history.replaceState ("", document.title, e.originalEvent.oldURL);
+  });
+
+
+  $('.eyda').on('click', function(){
+    var eydaid=$(this).attr('id');
+    var id=eydaid.slice(4);
+   $.ajax({
+              url: '/',
+              type: 'get',
+              dataType: 'json',
+              data: {id: id},
+              contentType: 'application/json',
+              success: function(data){
+                 alert("success");
+                 alert(data);
+          }
+    });
+   //location.reload();
   });
 
   //Finnum y-gildi main elementsins og látum navbarinn fade-a inn þegar y er komið þangað
