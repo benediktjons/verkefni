@@ -8,8 +8,6 @@ var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
 
-//router.get('/restricted', ensureLoggedIn, restrictedIndex);
-//router.get('/restricted/thewall',ensureLoggedIn, thewall);
 router.get('/createride',ensureLoggedIn, write);
 router.post('/createride', entryHandler);
 router.get('/login', redirectIfLoggedIn, login);
@@ -88,21 +86,33 @@ function entryHandler(req,res){
   var klukka = xss(req.body.klukka);
   var annad = xss(req.body.textarea);
   var seats = xss(req.body.seats);
-  console.log(seats);
 
-  entries.createEntry(username.username,from, to,time,request, smoking, username.userphone, username.useremail, klukka, annad, seats, function(err, status){
-    if (err){
-      console.error(err);
-    }
+  time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
 
-    var success = true;
+  entries.createEntry(username.username,
+    from,
+    to,
+    time,
+    request,
+    smoking,
+    username.userphone,
+    username.useremail,
+    klukka,
+    annad,
+    seats,
+    function(err, status){
+      if (err){
+        console.error(err);
+      }
 
-    if (err || !status){
-      success = false;
-    }
-
-    res.redirect('/');
-  });
+      var success = true;
+      
+      if (err || !status){
+        success = false;
+      }
+      
+      res.redirect('/');
+    });
 }
 
 function ensureLoggedIn(req, res, next) {
@@ -161,30 +171,6 @@ function logout(req, res) {
   // eyðir session og öllum gögnum, verður til nýtt við næsta request
   req.session.destroy(function(){
     res.redirect('/');
-  });
-}
-
-function restrictedIndex(req, res) {
-  var user = req.session.user;
-
-  users.listUsers(function (err, all) {
-    res.render('restricted', { title: 'Leynisvæðið',
-      user: user,
-      users: all });
-  });
-}
-
-function thewall(req, res) {
-  console.log('Keyri thewall');
-  var user = req.session.user;
-
-  entries.listEntries(function (err, all){
-    if (err){
-      console.error(err);
-    }
-    res.render('thewall',{title: 'The Wall',
-      user: user,
-      entries: all});
   });
 }
 

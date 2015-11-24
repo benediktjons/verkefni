@@ -192,36 +192,29 @@ block content
                     option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
 
         h3 Veldu tímabil
-        form.form-inline.form-horizontal(role="form")
+        form.form-inline(role="form")
             .form-group
                 label.control-label(for='date-picker-2') Frá:
                 .input-group
                     input.date-picker.form-control(type='text', id="date-picker-2")
-                    aside.input-group-addon.btn(for='date-picker-2')
+                    label.input-group-addon.btn(for='date-picker-2')
                         span.glyphicon.glyphicon-calendar
                 label.control-label(for='date-picker-3') Til:
                 .input-group
                     input.date-picker.form-control(type='text', id="date-picker-3")
-                    aside.input-group-addon.btn(for='date-picker-3')
+                    label.input-group-addon.btn(for='date-picker-3')
                         span.glyphicon.glyphicon-calendar
         h3.grayscale Aðrir valkostir
-        form.form-group
-            label.checkbox
-                        input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                        | Sjá aðeins
-                        span.underline  reyklausa
-                        |  bíla.
-             label.checkbox
-                        input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                        | Sjá aðeins þá sem
-                        span.underline  óska
-                        |  eftir fari
-             label.checkbox
-                        input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                        | Sjá aðeins þá sem
-                        span.underline  eru á
-                        |  bíl.
-             label(for='saetaleit') Sætafjöldi a.m.k:
+
+        .form-inline
+            .form-group
+                label.checkbox
+                            input(id="leitReyklaus", type="checkbox", value="Reyklaus")
+                            | Sjá aðeins
+                            span.underline  reyklausa
+                            |  bíla.
+
+                label.saetisfjoldi(for='saetaleit') Sætafjöldi a.m.k:
                 select.form-control(id= "saetaleit")
                     option(value='1') 1
                     option(value='2') 2
@@ -233,6 +226,21 @@ block content
                     option(value='8') 8
                     option(value='9') 9
                     option(value='10') 10
+        .form-inline
+            .form-group
+                 label.checkbox
+                            input(id="leitOskaEftirFari", type="checkbox", value="barafari")
+                            | Sjá aðeins þá sem
+                            span.underline  óska
+                            |  eftir fari
+        .form-inline
+            .form-group
+                 label.checkbox
+                            input(id="leitOkumenn", type="checkbox", value="barafarthegum")
+                            | Sjá aðeins þá sem
+                            span.underline  eru á
+                            |  bíl.
+
 
 
     #head.row
@@ -245,17 +253,17 @@ block content
 
     if entries
         each e in entries
-            section.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                .row.hvitt
-                    .row
-                        .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
-                        .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-                        .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-                        .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                            button.btn.btn-primary(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                | Nánar
+            section.row.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="a#{e.entryid}")
+                .row
+                    .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
+                    .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
+                    .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
+                    .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
+                    .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
+                    .hidden-xs.col-sm-1.col-md-1.col-lg-1
+                        button.btn.btn-primary.Button-colap(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                            span.glyphicon.glyphicon-chevron-down
+
                     .row
                         a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                             .BaraUser
@@ -267,6 +275,7 @@ block content
                                         | Eyða
                             .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
                             .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
+
 
 
                 article.collapse(id='#{e.entryid}')
