@@ -246,6 +246,7 @@ $(document).ready(function (){
       dags=day+'/'+month+'/'+year;
       $(this).text(dags);
     });
+  }
 
 
 
@@ -271,7 +272,6 @@ else
 });
 
 
-  }
   dateFormat();
 
 });

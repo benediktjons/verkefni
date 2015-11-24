@@ -8,19 +8,23 @@ var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
 
+
+router.get('/about', aboutUs);
 router.get('/createride',ensureLoggedIn, write);
 router.post('/createride', entryHandler);
 router.get('/login', redirectIfLoggedIn, login);
 router.post('/login', loginHandler);
 router.get('/logout', logout);
 router.get('/create', createForm);
-router.post('/create', createHandler);  
+router.post('/create', createHandler);
 router.get('/redirect', redirect);
 
 module.exports = router;
 
 //route middlewares
-
+function aboutUs(req, res, next) {
+  res.render('about', { title: 'Um Samfó' });
+}
 function createForm(req, res) {
   res.render('create', { title: 'Nýskráning' });
 }
@@ -87,6 +91,66 @@ function entryHandler(req,res){
   var annad = xss(req.body.textarea);
   var seats = xss(req.body.seats);
 
+//validate-um gogninn sem vid faum inn
+var validFrom = validate.isPlace(from);
+var validTo = validate.isPlace(to);
+var validRequest = validate.request(request);
+var validnumberOfSeats = validate.numberOfSeats(seats);
+var validDate= validate.checkDate(time);
+var validClock= validate.checkClock(klukka);
+
+if(!validFrom){
+  //villumedhondlun
+  res.render('writeOnWall', {title: 'Skrifa á vegg',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'
+  });
+}
+
+else if(!validTo){
+  //villumedhondlun
+  res.render('writeOnWall', {title: 'Jæja, þarna gerðist eitthvað',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að velja þarf möguleika úr Til boxinu.'
+    });
+}
+else if(!validRequest){
+  //villumedhondlun
+  res.render('writeOnWall', {title: 'Skutla?',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að velja þarf möguleika úr óska eftir boxinu..'
+    });
+}
+else if(!validnumberOfSeats){
+  //villumedhondlun
+  res.render('writeOnWall', {title: 'Hversu margir?',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að  velja þarf fjölda sæta úr fjöldi sæta boxinu.'
+    });
+}
+else if(!validClock){
+  //villumedhondlun
+  res.render('writeOnWall', {title: 'Klukkan?',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að velja þarf  Klukku..'
+    });
+}
+else if(!validDate){
+  //villumedhondlun
+  res.render('writeOnWall', {title: 'Hvenær?',
+    success: false,
+    post: true,
+    error: 'Villa: Ath. að velja þarf dagsetningu..'
+    });
+}
+
+
+else{
   time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
 
   entries.createEntry(username.username,
@@ -106,13 +170,14 @@ function entryHandler(req,res){
       }
 
       var success = true;
-      
+
       if (err || !status){
         success = false;
       }
-      
+
       res.redirect('/');
     });
+}
 }
 
 function ensureLoggedIn(req, res, next) {
