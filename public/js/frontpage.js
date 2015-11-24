@@ -1,5 +1,7 @@
 $(document).ready(function (){
 
+
+
   'use strict';
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
