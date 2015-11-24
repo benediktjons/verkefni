@@ -1,4 +1,5 @@
 'use strict';
+console.log("auth");
 
 var express = require('express');
 var router = express.Router();

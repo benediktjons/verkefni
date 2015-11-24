@@ -1,8 +1,8 @@
 $(document).ready(function (){
-
-
-
   'use strict';
+
+  $('.navbar').fadeOut();
+console.log("frontpage keyrir");
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
     var leitFra = $("#leitFra").val();
@@ -65,8 +65,6 @@ $(document).ready(function (){
 
   //fall sem synir bara reyklaus
   $("input, select").on("change click", function () {
-    //reykstatus otharfi
-    var reykstatus = $("#Reyklaus").val();
     var items = [];
     var elementParent = document.getElementsByClassName('parent');
 
@@ -149,12 +147,12 @@ $(document).ready(function (){
     }
   });
 
-    function drasl(){
+    function felatakka(){
       var username = $(".user").text();
 
       var items = [];
       var elementBaraUser = document.getElementsByClassName('BaraUser');
-      if (username /*typeof username !== 'undefined'*/)  {
+      if (username )  {
         $('.searchNotandi').each(function (i, e) {
           items.push($(e).text());
           var notandi = items[i].slice(9);
@@ -168,38 +166,17 @@ $(document).ready(function (){
       }
   }
 
-  drasl();
-
-/*
-  //fall sem felur breyta / eyða takkana fyrir alla nema innskraðan user
-  module.exports.felatakka = function felatakka(username){
-    var items = [];
-    var elementBaraUser = document.getElementsByClassName('BaraUser');
-    debugger;
-    if (typeof username !== 'ekkiskradurinn') {
-      //var username=user;
-      $('.searchNotandi' ).each(function (i, e) {
-        items.push($(e).text());
-          if(items[i]!== username){
-                    $(elementBaraUser[i]).hide();//latum parentid fela sig
-          }
-      });
-    }
-    else {
-      $('.BaraUser').hide();
-    }
-
-  }
-*/
-  //felatakka();
+  felatakka();
 
 
+  //dateFormat tekur date á því formati sem það kemur úr gagnagrunninum,
+  // t.d. (Wed Nov 25 2015 00:00:00 GMT+0000 (Greenwich Standard Time)) og strípar það í dd/mm/yyyy
   function dateFormat(){
     $('.searchDate').each(function(){
-      var dags = $(this).text();
-      dags = dags.slice(4,16);
+      var dags = $(this).text();//Skilar dags á formattinu Dag Mán dd yyyy tími timezone ofl sem við viljum ekki
+      dags = dags.slice(4,16);//Fáum dags á formið Mán dd yyyy
       var year = dags.slice(7,11);
-      var month = dags.slice(0,3);
+      var month = dags.slice(0,3);//Tökum út Mán úr dags og notum í switch
       var day=dags.slice(4,6);
 
       switch (month) {
@@ -248,31 +225,105 @@ $(document).ready(function (){
     });
   }
 
+  dateFormat();
 
+
+$('.smooth-click').click(function(){
+  var klasi = $(this).attr('id');
+  $.ajax({
+    url: '/',
+    type: 'get',
+    dataType: 'json',
+    data: {name:klasi},
+    contentType: 'application/json',
+    success: function(data){
+       alert("success");
+       alert(data);
+    }
+  });
+});
+$('#eyda').click(function(e){
+  e.preventDefault();
+});
 
 
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
-  debugger;
   var id = $(this).attr('aria-expanded');
   var id2 = $(this).attr("id");
-  var id3 = "#"+id2;
-  var id4 = "#a" + id2;
+  var id3 = "#a" + id2;
+
+  if(id ==="false")
+  {
+      $(id3).removeClass('glyphicon-chevron-down');
+      $(id3).addClass('glyphicon-chevron-up');
+  }
+  else
+  {
+      $(id3).removeClass('glyphicon-chevron-up');
+      $(id3).addClass('glyphicon-chevron-down');
+  }
+  });
 
 
-if(id ==="false")
-{
-    $(id4).html('<span class="glyphicon glyphicon-chevron-up"></span>');
+
+
+  function runReload () {
+   setTimeout(myTimeFunction, 1000);
 }
-else
-{
-    $(id4).html('<span class="glyphicon glyphicon-chevron-down"></span>');
+
+function myTimeFunction() {
+   document.location.reload(true);
 }
+
+$('.eyda').on('click', function(){
+  var eydaid=$(this).attr('id');
+  var id=eydaid.slice(4);
+ $.ajax({
+            url: '/',
+            type: 'get',
+            dataType: 'json',
+            data: {id: id},
+            contentType: 'application/json',
+            success: function(data){
+               alert("success");
+               alert(data);
+        }
+});
+runReload ();
 });
 
 
-  dateFormat();
 
+
+
+  //Gerir transation-ið smooth þegar smellt er á örvatakkann
+  $('.smooth-click').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    return false;
+  });
+
+  //Komum í veg fyrir að #id bætist við efitr að klikka á takka sem færir mann á ákveðið element
+  $(window).on('hashchange', function(e){
+      history.replaceState ("", document.title, e.originalEvent.oldURL);
+  });
+
+
+
+  //Finnum y-gildi main elementsins og látum navbarinn fade-a inn þegar y er komið þangað
+    window.addEventListener("scroll", function() {
+      var height= document.getElementById('navbar').offsetHeight;
+
+      if (window.scrollY>height) {
+          $('.navbar').fadeIn();
+      }
+      else {
+          $('.navbar').fadeOut();
+      }
+    },false);
 });
+
 
