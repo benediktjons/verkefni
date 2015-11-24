@@ -65,8 +65,6 @@ $(document).ready(function (){
 
   //fall sem synir bara reyklaus
   $("input, select").on("change click", function () {
-    //reykstatus otharfi
-    var reykstatus = $("#Reyklaus").val();
     var items = [];
     var elementParent = document.getElementsByClassName('parent');
 
@@ -196,7 +194,6 @@ $(document).ready(function (){
   //dateFormat tekur date á því formati sem það kemur úr gagnagrunninum,
   // t.d. (Wed Nov 25 2015 00:00:00 GMT+0000 (Greenwich Standard Time)) og strípar það í dd/mm/yyyy
   function dateFormat(){
-    debugger;
     $('.searchDate').each(function(){
       var dags = $(this).text();//Skilar dags á formattinu Dag Mán dd yyyy tími timezone ofl sem við viljum ekki
       dags = dags.slice(4,16);//Fáum dags á formið Mán dd yyyy
@@ -255,22 +252,20 @@ $(document).ready(function (){
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
-  debugger;
   var id = $(this).attr('aria-expanded');
   var id2 = $(this).attr("id");
-  var id3 = "#"+id2;
-  var id4 = "#a" + id2;
+  var id3 = "#a" + id2;
 
 
 if(id ==="false")
 {
-    $(id4).removeClass('glyphicon-chevron-down');
-    $(id4).addClass('glyphicon-chevron-up');
+    $(id3).removeClass('glyphicon-chevron-down');
+    $(id3).addClass('glyphicon-chevron-up');
 }
 else
 {
-    $(id4).removeClass('glyphicon-chevron-up');
-    $(id4).addClass('glyphicon-chevron-down');
+    $(id3).removeClass('glyphicon-chevron-up');
+    $(id3).addClass('glyphicon-chevron-down');
 }
 });
 
