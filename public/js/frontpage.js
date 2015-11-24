@@ -149,11 +149,53 @@ $(document).ready(function (){
     }
   });
 
+    function drasl(){
+      var username = $(".user").text();
+
+      var items = [];
+      var elementBaraUser = document.getElementsByClassName('BaraUser');
+      if (username /*typeof username !== 'undefined'*/)  {
+        $('.searchNotandi').each(function (i, e) {
+          items.push($(e).text());
+          var notandi = items[i].slice(9);
+            if(notandi !== username){
+              $(elementBaraUser[i]).hide();//latum parentid fela sig
+            }
+        });
+      }
+      else {
+        $('.BaraUser').hide();
+      }
+  }
+
+  drasl();
+
+/*
+  //fall sem felur breyta / eyða takkana fyrir alla nema innskraðan user
+  module.exports.felatakka = function felatakka(username){
+    var items = [];
+    var elementBaraUser = document.getElementsByClassName('BaraUser');
+    debugger;
+    if (typeof username !== 'ekkiskradurinn') {
+      //var username=user;
+      $('.searchNotandi' ).each(function (i, e) {
+        items.push($(e).text());
+          if(items[i]!== username){
+                    $(elementBaraUser[i]).hide();//latum parentid fela sig
+          }
+      });
+    }
+    else {
+      $('.BaraUser').hide();
+    }
+
+  }
+*/
+  //felatakka();
+
 
   function dateFormat(){
     $('.searchDate').each(function(){
-      debugger;
-      $(this);
       var dags = $(this).text();
       dags = dags.slice(4,16);
       var year = dags.slice(7,11);
@@ -162,39 +204,40 @@ $(document).ready(function (){
 
       switch (month) {
         case 'Jan':
-          month ='01'
+          month ='01';
           break;
         case 'Feb':
           month = '02';
           break;
         case 'Mar':
+          month ='03';
           break;
         case 'Apr':
-          month ='04'
+          month ='04';
           break;
         case 'May':
-          month ='05'
+          month ='05';
           break;
         case 'Jun':
-          month ='06'
+          month ='06';
           break;
         case 'Jul':
-          month ='07'
+          month ='07';
           break;
         case 'Aug':
-          month ='08'
+          month ='08';
           break;
         case 'Sep':
-          month ='09'
+          month ='09';
           break;
         case 'Oct':
-          month ='10'
+          month ='10';
           break;
         case 'Nov':
-          month ='11'
+          month ='11';
           break;
         case 'Dec':
-          month ='12'
+          month ='12';
           break;
         default:
           alert('Whoops! Something went wrong');
@@ -206,19 +249,7 @@ $(document).ready(function (){
 
 
 
-// herna endar underline fallid og date picker fyrir dagatalid kemur inn
 
-$(".date-picker").datepicker();
-
-$(".date-picker").on("change", function () {
-  var id = $(this).attr("id");
-  var val = $("label[for='" + id + "']").text();
-  $("#msg").text(val + " changed");
-});
-
-  // herna endar date picker og clockpicker kemur inn fyrir klukkuna
-
-  $('.clockpicker').clockpicker();
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
@@ -244,3 +275,4 @@ else
   dateFormat();
 
 });
+
