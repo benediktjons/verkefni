@@ -5,7 +5,8 @@ var router = express.Router();
 var entries = require('../lib/entries');
 
 
-router.get('/',   function(req, res) {
+router.get('/', function(req, res) {
+
   var id=req.query.id;
   if(id){
     console.log("inni i falli");

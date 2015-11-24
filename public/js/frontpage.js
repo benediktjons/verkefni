@@ -1,8 +1,8 @@
 $(document).ready(function (){
-
-
-
   'use strict';
+
+  $('.navbar').fadeOut();
+
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
     var leitFra = $("#leitFra").val();
@@ -223,9 +223,26 @@ $(document).ready(function (){
       dags=day+'/'+month+'/'+year;
       $(this).text(dags);
     });
-}
 
+  }
 
+$('.smooth-click').click(function(){
+  var klasi = $(this).attr('id');
+  $.ajax({
+    url: '/',
+    type: 'get',
+    dataType: 'json',
+    data: {name:klasi},
+    contentType: 'application/json',
+    success: function(data){
+       alert("success");
+       alert(data);
+    }
+  });
+});
+$('#eyda').click(function(e){
+  e.preventDefault();
+});
 
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
@@ -233,21 +250,6 @@ $('.parent').click(function blabla() {
   var id = $(this).attr('aria-expanded');
   var id2 = $(this).attr("id");
   var id3 = "#a" + id2;
-
-
-if(id ==="false")
-{
-    $(id3).removeClass('glyphicon-chevron-down');
-    $(id3).addClass('glyphicon-chevron-up');
-}
-else
-{
-    $(id3).removeClass('glyphicon-chevron-up');
-    $(id3).addClass('glyphicon-chevron-down');
-}
-});
-
-  dateFormat();
 
   function runReload () {
    setTimeout(myTimeFunction, 1000);
@@ -278,3 +280,45 @@ runReload ();
 
 });
 
+
+  if(id ==="false")
+  {
+      $(id3).removeClass('glyphicon-chevron-down');
+      $(id3).addClass('glyphicon-chevron-up');
+  }
+  else
+  {
+      $(id3).removeClass('glyphicon-chevron-up');
+      $(id3).addClass('glyphicon-chevron-down');
+  }
+  });
+
+  dateFormat();
+
+  //Gerir transation-ið smooth þegar smellt er á örvatakkann
+  $('.smooth-click').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    return false;
+  });
+
+  //Komum í veg fyrir að #id bætist við efitr að klikka á takka sem færir mann á ákveðið element
+  $(window).on('hashchange', function(e){
+      history.replaceState ("", document.title, e.originalEvent.oldURL);
+  });
+
+
+
+  //Finnum y-gildi main elementsins og látum navbarinn fade-a inn þegar y er komið þangað
+    window.addEventListener("scroll", function() {
+      var height= document.getElementById('navbar').offsetHeight;
+
+      if (window.scrollY>height) {
+          $('.navbar').fadeIn();
+      }
+      else {
+          $('.navbar').fadeOut();
+      }
+    },false);
+});
