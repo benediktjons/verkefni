@@ -1,5 +1,7 @@
 $(document).ready(function (){
 
+
+
   'use strict';
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
@@ -63,8 +65,6 @@ $(document).ready(function (){
 
   //fall sem synir bara reyklaus
   $("input, select").on("change click", function () {
-    //reykstatus otharfi
-    var reykstatus = $("#Reyklaus").val();
     var items = [];
     var elementParent = document.getElementsByClassName('parent');
 
@@ -169,13 +169,14 @@ $(document).ready(function (){
   felatakka();
 
 
-
+  //dateFormat tekur date á því formati sem það kemur úr gagnagrunninum,
+  // t.d. (Wed Nov 25 2015 00:00:00 GMT+0000 (Greenwich Standard Time)) og strípar það í dd/mm/yyyy
   function dateFormat(){
     $('.searchDate').each(function(){
-      var dags = $(this).text();
-      dags = dags.slice(4,16);
+      var dags = $(this).text();//Skilar dags á formattinu Dag Mán dd yyyy tími timezone ofl sem við viljum ekki
+      dags = dags.slice(4,16);//Fáum dags á formið Mán dd yyyy
       var year = dags.slice(7,11);
-      var month = dags.slice(0,3);
+      var month = dags.slice(0,3);//Tökum út Mán úr dags og notum í switch 
       var day=dags.slice(4,6);
 
       switch (month) {
@@ -229,20 +230,20 @@ $(document).ready(function (){
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
-  debugger;
   var id = $(this).attr('aria-expanded');
   var id2 = $(this).attr("id");
-  var id3 = "#"+id2;
-  var id4 = "#a" + id2;
+  var id3 = "#a" + id2;
 
 
 if(id ==="false")
 {
-    $(id4).html('<span class="glyphicon glyphicon-chevron-up"></span>');
+    $(id3).removeClass('glyphicon-chevron-down');
+    $(id3).addClass('glyphicon-chevron-up');
 }
 else
 {
-    $(id4).html('<span class="glyphicon glyphicon-chevron-down"></span>');
+    $(id3).removeClass('glyphicon-chevron-up');
+    $(id3).addClass('glyphicon-chevron-down');
 }
 });
 

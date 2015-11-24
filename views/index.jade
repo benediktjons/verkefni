@@ -261,9 +261,7 @@ block content
                     .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                        button.btn.btn-primary.Button-colap(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
-                            span.glyphicon.glyphicon-chevron-down
-
+                        button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
                     .row
                         a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                             .BaraUser
