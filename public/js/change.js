@@ -1,4 +1,5 @@
 $(document).ready(function (){
+    debugger;
     'use strict'
 
     //náum í gildi úr localstorage

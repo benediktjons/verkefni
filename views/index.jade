@@ -6,7 +6,7 @@ block content
         p Skráð/ur inn sem
         p.user #{user.username}
     div
-      button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
+      button.btn.btn-primary.search-button(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
         | Leita
     section#search.collapse
         h3 Veldu leið
@@ -296,24 +296,24 @@ block content
 
                     .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11.right
                         .row
-                            .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
+                            .searchNotandi.col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Notandi:
                                 strong  #{e.entryuser}
-                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                            .col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Símanúmer:
                                 strong #{e.entryphone}
-                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                            .col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Netfang:
                                 strong #{e.entryemail}
-                            .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                            .searchSeats.col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Sæti:
                                 strong(id='#seats#{e.entryid}') #{e.entryseats}
-                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1(id='#smoke#{e.entryid}')
+                            .searchSmoke.col-xs-12.col-sm-12.col-md-12.col-lg-12(id='#smoke#{e.entryid}')
                                 strong #{e.smoking}
                         .row
-                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                            .col-xs-12.col-sm-12.col-md-12.col-lg-12
                                 | Annað:
-                            .col-xs-11.col-sm-11.col-md-11.col-lg-11(id='#fleira#{e.entryid}')
+                            .col-xs-12.col-sm-12.col-md-12.col-lg-12(id='#fleira#{e.entryid}')
                                 | #{e.entryfleira}
 
     a(href='/createride').btn.btn-primary.pull-right Skrá ferð/Óska eftir
