@@ -2,6 +2,7 @@
 
 .wrapper10 {
   background-image:url("/images/road.jpg");
+  background-position:center center;
   background-size: cover;
   /*text-align: center;*/
   margin:0;
@@ -97,8 +98,12 @@ span.underline{
 header#s1{
   height:calc(100vh - 60px);
   position:relative;
+  text-align:center;
 }
 header#s1 h1{
+  vertical-align:middle;
+  display:inline-block;
+  line-height: normal;
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
   text-shadow: -5px 10 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -126,7 +131,9 @@ main{
   top:80%;
   background-opacity:0;
 }
-
+.right{
+  float:right;
+}
 
 .smooth-click.glyphicon.glyphicon-chevron-down{
   font-size:300%;
