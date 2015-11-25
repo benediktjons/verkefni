@@ -19,7 +19,8 @@ $(document).ready(function (){
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
   $('.clockpicker').clockpicker();
 
-  
+  //H'er er fall sem tekur gildin á færslunni sem á að breyta og
+  //vistar þau í localstorage. Framhald í change.js
   $('.breyta').on('click', function(){
     var breytaid=$(this).attr('id');
     var myid=breytaid.slice(6);
@@ -43,7 +44,6 @@ $(document).ready(function (){
     var smoke = $(smokeElement).text();
     var seats = $(seatsElement).text();
 
-    console.log(from);
     localStorage.setItem('request', JSON.stringify(request));
     localStorage.setItem('from', JSON.stringify(from));
     localStorage.setItem('to', JSON.stringify(to));
@@ -52,40 +52,10 @@ $(document).ready(function (){
     localStorage.setItem('fleira', JSON.stringify(fleira));
     localStorage.setItem('smoke', JSON.stringify(smoke));
     localStorage.setItem('seats', JSON.stringify(seats));
-    location.href='/change' ;
+    localStorage.setItem('id', JSON.stringify(myid));
 
+    location.href='/change' ;
   });
 
 
 });
-
-/* her ad nedan tilraunir til ad faera milli sida
-
-function changestyle(id,  request){
-  var val = request;
-  console.log('herna')
-  console.log(val);
-  $('#request option').val(val);
-}
-//onnur tilraun
-
-$(document).delegate('/change', 'pageinit', function () {
-
-    //get the ID saved as a global variable
-    var currentId = window.myId;
-    var val = window.request;
-    console.log('herna2');
-    console.log(val);
-    $('#request option').val(val);
-
-    //now do logic for second page
-});
-
-
-//kom TypeError: $.mobile is undefined /egar eg reyndi /etta
-/*
-  $.mobile.changePage( "/change", {
-  type: "post",
-  data: {id:window.myid}
-});
-*/

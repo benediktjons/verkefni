@@ -4,7 +4,7 @@ block content
 
   if !success
         p.error=error
-    form.form-horizontal.col-md-8(method='post', action='/changeride')
+    form.form-horizontal.col-md-8(method='post', action='/change')
         if user
         p Þú ert innskráð/ur sem #{user.username}
         .form-group.col-md-12
@@ -249,6 +249,8 @@ block content
             label.col-md-2(for="textarea") Annað:
             .col-md-10
                 textarea.form-control(row="5", id ="textarea", name = "textarea",placeholder="Legg af stað frá árbæjarsundlaug um hádegi. Stoppað verður einusinni og kiss verður botnað í útvarpinu.")
+
+        input(type='hidden', id="myid", name='myid')
 
         .col-md-12
             button.btn.btn-default.pull-right Breyta færslu
