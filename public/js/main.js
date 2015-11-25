@@ -19,14 +19,12 @@ $(document).ready(function (){
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
 
   $('.clockpicker').clockpicker();
-
   //});
   //byrja h'er ad reyna ad breyta
   //var breytaid;
   //var window.request;
 
   $('.breyta').on('click', function(){
-    debugger;
     var breytaid=$(this).attr('id');
     var myid=breytaid.slice(6);
 
@@ -36,13 +34,18 @@ $(document).ready(function (){
     var timeElement = document.getElementById('#time'+myid);
     var klukkaElement = document.getElementById('#klukka'+myid);
     var fleiraElement = document.getElementById('#fleira'+myid);
+    var smokeElement = document.getElementById('#smoke'+myid);
+    var seatsElement = document.getElementById('#seats'+myid);
+
 
     var request = $(requestElement).text();
     var from = $(fromElement).text();
-    var to = $(toElement).text();
-    var time = $(timeElement).text();
-    var klukka = $(klukkaElement).text();
+    var  to = $(toElement).text();
+    var  time = $(timeElement).text();
+    var  klukka = $(klukkaElement).text();
     var fleira = $(fleiraElement).text();
+    var smoke = $(smokeElement).text();
+    var seats = $(seatsElement).text();
 
     console.log(from);
     localStorage.setItem('request', JSON.stringify(request));
@@ -50,12 +53,12 @@ $(document).ready(function (){
     localStorage.setItem('to', JSON.stringify(to));
     localStorage.setItem('time', JSON.stringify(time));
     localStorage.setItem('klukka', JSON.stringify(klukka));
+    localStorage.setItem('fleira', JSON.stringify(fleira));
+    localStorage.setItem('smoke', JSON.stringify(smoke));
+    localStorage.setItem('seats', JSON.stringify(seats));
     location.href='/change' ;
 
   });
-
-
-
 
 
 });

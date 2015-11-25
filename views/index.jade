@@ -307,8 +307,8 @@ block content
                                 strong #{e.entryemail}
                             .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
                                 | Sæti:
-                                strong #{e.entryseats}
-                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                                strong(id='#seats#{e.entryid}') #{e.entryseats}
+                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1(id='#smoke#{e.entryid}')
                                 strong #{e.smoking}
                         .row
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11

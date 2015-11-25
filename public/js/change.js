@@ -19,6 +19,10 @@ $(document).ready(function (){
     var klukka= JSON.parse(klukkavalue);
     var fleiravalue = localStorage.getItem('fleira');
     var fleira= JSON.parse(fleiravalue);
+    var seatsvalue = localStorage.getItem('seats');
+    var seats= JSON.parse(seatsvalue);
+    var smokevalue = localStorage.getItem('smoke');
+    var smoke= JSON.parse(smokevalue);
 
     if (request == "Fari"){
         console.log('WTF?');
@@ -30,14 +34,18 @@ $(document).ready(function (){
     $('#date-picker-2').val(time);
     $('#timiFerdar').val(klukka);
     $('#textarea').val(fleira);
+    $('#saeti').val(seats);
 
-
-
-
-
-
-
-
+    console.log('smoke');
+    console.log(smoke);
+    if (smoke == 'Reyklaus'){
+        $('#inlineCheckbox1').prop('checked', true);
+        //$('.inlineCheckbox1').attr('checked', true);
+    }
+    else{
+        $('#inlineCheckbox1').prop('checked', false);
+        //$('.inlineCheckbox1').attr('checked', true);
+    }
 
 
 });
