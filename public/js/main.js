@@ -20,3 +20,24 @@ $(".date-picker").on("change", function () {
 
   $('.clockpicker').clockpicker();
 });
+
+var val = 'Fish';
+$('#changeFra').val(val);
+
+$('.breyta').on('click', function(){
+  var breytaid=$(this).attr('id');
+  var id=breytaid.slice(6);
+  console.log("fallid keyrir");
+  var bla= document.getElementById('#request'+id);
+  console.log( $(bla).text());
+  console.log(id);
+  location.href='/change';
+  changestyle(id);
+});
+
+function changestyle(id){
+  //var bla= '#request'+id;
+  //console.log( $(bla).text() );
+  /*var val = ${;
+  $('#changeFra').val(val);*/
+}
