@@ -206,15 +206,9 @@ block content
                         span.glyphicon.glyphicon-calendar
         h3.grayscale Aðrir valkostir
 
-        .form-inline
+        .form-inline.hidden-md.hidden-lg
             .form-group
-                label.checkbox
-                            input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                            | Sjá aðeins
-                            span.underline  reyklausa
-                            |  bíla.
-
-                label.saetisfjoldi(for='saetaleit') Sætafjöldi a.m.k:
+                 label(for='saetaleit') Sætafjöldi a.m.k:
                 select.form-control(id= "saetaleit")
                     option(value='1') 1
                     option(value='2') 2
@@ -226,20 +220,42 @@ block content
                     option(value='8') 8
                     option(value='9') 9
                     option(value='10') 10
+
         .form-inline
             .form-group
-                 label.checkbox
-                            input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                            | Sjá aðeins þá sem
-                            span.underline  óska
-                            |  eftir fari
+                label.checkbox
+                input(id="leitReyklaus", type="checkbox", value="Reyklaus")
+                | Sjá aðeins
+                span.underline reyklausa
+                |  bíla.
         .form-inline
             .form-group
-                 label.checkbox
-                            input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                            | Sjá aðeins þá sem
-                            span.underline  eru á
-                            |  bíl.
+                label.checkbox
+                input(id="leitOskaEftirFari", type="checkbox", value="barafari")
+                | Sjá aðeins þá sem
+                span.underline óska
+                |  eftir fari
+        .form-inline
+            .form-group
+                label.checkbox
+                input(id="leitOkumenn", type="checkbox", value="barafarthegum")
+                | Sjá aðeins þá sem
+                span.underline eru á
+                |  bíl.
+
+                label.saetisfjoldi.hidden-sm.hidden-xs(for='saetaleit') Sætafjöldi a.m.k:
+                select.form-control.hidden-sm.hidden-xs(id= "saetaleit")
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+                    option(value='6') 6
+                    option(value='7') 7
+                    option(value='8') 8
+                    option(value='9') 9
+                    option(value='10') 10
+
 
 
 
@@ -253,8 +269,8 @@ block content
 
     if entries
         each e in entries
-            section.row.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="a#{e.entryid}")
-                .row.herna
+            section.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="a#{e.entryid}")
+                article.herna
                     .row
                         .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#request#{e.entryid}') #{e.request}
                         .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3(id='#from#{e.entryid}') #{e.entryfrom}
@@ -262,23 +278,23 @@ block content
                         .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#time#{e.entryid}') #{e.entrytime}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1(id='#klukka#{e.entryid}') #{e.entryklukka}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                            button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                            button.btn.btn-defualt.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
                     .row
                             a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                .BaraUser
+                                .BaraUser.pull-right
                                     .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
                                         button.btn.btn-warning(type='button', class="breyta" id="breyta#{e.entryid}")
-                                            | Breyta
+                                            span.glyphicon.glyphicon-edit
                                     .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
                                         button.btn.btn-danger(type='button', class = "eyda", id="eyda#{e.entryid}")
-                                            | Eyða
+                                            span.glyphicon.glyphicon-trash
                                 .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
                                 .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
-                .row.collapse(id='#{e.entryid}')
 
-                    .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                    .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
+                article.row.collapse(id='#{e.entryid}')
+
+                    .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11.right
                         .row
                             .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
                                 | Notandi:
@@ -300,4 +316,4 @@ block content
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11(id='#fleira#{e.entryid}')
                                 | #{e.entryfleira}
 
-    a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
+    a(href='/createride').btn.btn-primary.pull-right Skrá ferð/Óska eftir

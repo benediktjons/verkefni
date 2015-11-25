@@ -271,35 +271,35 @@ $('.parent').click(function blabla() {
 
   function runReload () {
    setTimeout(myTimeFunction, 1000);
-}
+  }
 
-function myTimeFunction() {
-   document.location.reload(true);
-}
+  function myTimeFunction() {
+     document.location.reload(true);
+  }
 
-$('.eyda').on('click', function(){
-  var eydaid=$(this).attr('id');
-  var id=eydaid.slice(4);
- $.ajax({
-            url: '/',
-            type: 'get',
-            dataType: 'json',
-            data: {id: id},
-            contentType: 'application/json',
-            success: function(data){
-               alert("success");
-               alert(data);
-        }
-});
-runReload ();
-});
-
+  $('.eyda').on('click', function(){
+    var eydaid=$(this).attr('id');
+    var id=eydaid.slice(4);
+    $.ajax({
+      url: '/',
+      type: 'get',
+      dataType: 'json',
+      data: {id: id},
+      contentType: 'application/json',
+      success: function(data){
+         alert("success");
+         alert(data);
+      }
+    });
+    runReload ();
+  });
 
 
 
 
   //Gerir transation-ið smooth þegar smellt er á örvatakkann
   $('.smooth-click').click(function(){
+    $('.navbar').fadeIn();
     $('html, body').animate({
         scrollTop: $( $.attr(this, 'href') ).offset().top
     }, 500);

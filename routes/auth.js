@@ -26,7 +26,7 @@ router.get('/redirect', redirect);
 module.exports = router;
 
 //route middlewares
-function aboutUs(req, res, next) {
+function aboutUs(req, res) {
   res.render('about', { title: 'Um Samfó' });
 }
 function createForm(req, res) {
@@ -95,6 +95,7 @@ function entryHandler(req,res){
   var annad = xss(req.body.textarea);
   var seats = xss(req.body.seats);
 
+
 //validate-um gogninn sem vid faum inn
 var validFrom = validate.isPlace(from);
 var validTo = validate.isPlace(to);
@@ -149,7 +150,7 @@ else if(!validDate){
   res.render('writeOnWall', {title: 'Hvenær?',
     success: false,
     post: true,
-    error: 'Villa: Ath. að velja þarf dagsetningu..'
+    error: 'Villa: Ath. ertu viss um að þessi dagsetning sé ekki liðin?...'
     });
 }
 
