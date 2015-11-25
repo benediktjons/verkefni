@@ -254,49 +254,50 @@ block content
     if entries
         each e in entries
             section.row.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="a#{e.entryid}")
-                .row
-                    .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.request}
-                    .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-                    .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-                    .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
-                    .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
-                    .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                        button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                .row.herna
                     .row
-                        a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                            .BaraUser
-                                .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
-                                    button.btn.btn-warning(type='button', id="breyta#{e.entryid}")
-                                        | Breyta
-                                .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
-                                    button.btn.btn-danger(type='button', class = "eyda", id="eyda#{e.entryid}")
-                                        | Eyða
-                            .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
-                            .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
+                        .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#request#{e.entryid}') #{e.request}
+                        .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
+                        .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
+                        .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
+                        .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
+                        .hidden-xs.col-sm-1.col-md-1.col-lg-1
+                            button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                    .row
+                            a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
+                                .BaraUser
+                                    .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
+                                        button.btn.btn-warning(type='button', class="breyta" id="breyta#{e.entryid}")
+                                            | Breyta
+                                    .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
+                                        button.btn.btn-danger(type='button', class = "eyda", id="eyda#{e.entryid}")
+                                            | Eyða
+                                .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
+                                .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
-                article.collapse(id='#{e.entryid}')
-                    .row
-                        .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                        .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
-                            .row
-                                .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                    | Notandi:
-                                    strong  #{e.entryuser}
-                                .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                    | Símanúmer:
-                                    strong #{e.entryphone}
-                                .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                    | Netfang:
-                                    strong #{e.entryemail}
-                                .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
-                                    | Sæti:
-                                    strong #{e.entryseats}
-                                .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
-                                    strong #{e.smoking}
-                            .row
-                                .col-xs-11.col-sm-11.col-md-11.col-lg-11
-                                    | Annað:
-                                .col-xs-11.col-sm-11.col-md-11.col-lg-11
-                                    | #{e.entryfleira}
+                .row.collapse(id='#{e.entryid}')
+
+                    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+                    .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
+                        .row
+                            .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Notandi:
+                                strong  #{e.entryuser}
+                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Símanúmer:
+                                strong #{e.entryphone}
+                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Netfang:
+                                strong #{e.entryemail}
+                            .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                                | Sæti:
+                                strong #{e.entryseats}
+                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                                strong #{e.smoking}
+                        .row
+                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                                | Annað:
+                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                                | #{e.entryfleira}
 
     a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
