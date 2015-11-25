@@ -225,6 +225,9 @@ console.log("frontpage keyrir");
     });
   }
 
+  dateFormat();
+
+
 $('.smooth-click').click(function(){
   var klasi = $(this).attr('id');
   $.ajax({
@@ -263,7 +266,6 @@ $('.parent').click(function blabla() {
   }
   });
 
-  dateFormat();
 
 
 
@@ -296,7 +298,6 @@ runReload ();
 
 
 
-
   //Gerir transation-ið smooth þegar smellt er á örvatakkann
   $('.smooth-click').click(function(){
     $('html, body').animate({
@@ -323,6 +324,6 @@ runReload ();
           $('.navbar').fadeOut();
       }
     },false);
-
-
 });
+
+

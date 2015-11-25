@@ -118,6 +118,11 @@ main{
   border-color: gray;
   border-width: 1px;
 }
+
+.collapse{
+  border: none;
+}
+
 .col{
   margin-bottom: 10px;
 }
@@ -141,6 +146,7 @@ main{
   color:black;
 }
 
+
 .searchRequest {
   margin-left: 10px;
   margin-right: -10px;
@@ -151,5 +157,30 @@ main{
 }
 
 
+/*her er  um okkur*/
+
+ul.social{
+  float:left;
+  margin-left:-2em;
+}
 
 
+
+.img-Us{
+  padding:10px;
+
+}
+
+img.img-icon {
+    opacity: 0.65;
+    filter: alpha(opacity=40);
+}
+
+img.img-icon:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+.gamli{
+  margin-left:5%;
+  float:left;
+}
