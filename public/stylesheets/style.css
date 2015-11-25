@@ -1,8 +1,10 @@
+
 body{
  background-color: rgba(170, 185, 255, 0.1);
 }
 
-.wrapper10 {
+
+.first-page {
   background-image:url("/images/road.jpg");
   background-position:center center;
   background-size: cover;

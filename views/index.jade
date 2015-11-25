@@ -225,21 +225,21 @@ block content
             .form-group
                 label.checkbox
                 input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                | Sjá aðeins 
+                | Sjá aðeins
                 span.underline reyklausa
                 |  bíla.
         .form-inline
             .form-group
                 label.checkbox
                 input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                | Sjá aðeins þá sem 
+                | Sjá aðeins þá sem
                 span.underline óska
                 |  eftir fari
         .form-inline
             .form-group
                 label.checkbox
                 input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                | Sjá aðeins þá sem 
+                | Sjá aðeins þá sem
                 span.underline eru á
                 |  bíl.
 
@@ -273,10 +273,10 @@ block content
                 article.herna
                     .row
                         .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#request#{e.entryid}') #{e.request}
-                        .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-                        .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-                        .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
+                        .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3(id='#from#{e.entryid}') #{e.entryfrom}
+                        .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3(id='#to#{e.entryid}') #{e.entryto}
+                        .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#time#{e.entryid}') #{e.entrytime}
+                        .hidden-xs.col-sm-1.col-md-1.col-lg-1(id='#klukka#{e.entryid}') #{e.entryklukka}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1
                             button.btn.btn-defualt.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
                     .row
@@ -313,7 +313,7 @@ block content
                         .row
                             .col-xs-11.col-sm-11.col-md-11.col-lg-11
                                 | Annað:
-                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                            .col-xs-11.col-sm-11.col-md-11.col-lg-11(id='#fleira#{e.entryid}')
                                 | #{e.entryfleira}
 
     a(href='/createride').btn.btn-primary.pull-right Skrá ferð/Óska eftir
