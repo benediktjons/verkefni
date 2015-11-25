@@ -26,7 +26,7 @@ router.get('/redirect', redirect);
 module.exports = router;
 
 //route middlewares
-function aboutUs(req, res, next) {
+function aboutUs(req, res) {
   res.render('about', { title: 'Um Samfó' });
 }
 function createForm(req, res) {
