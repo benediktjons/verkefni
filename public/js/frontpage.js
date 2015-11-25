@@ -149,7 +149,6 @@ console.log("frontpage keyrir");
 
     function felatakka(){
       var username = $(".user").text();
-    debugger;
       var items = [];
       var elementBaraUser = document.getElementsByClassName('BaraUser');
       var syna = document.getElementsByClassName('syna');
@@ -256,7 +255,6 @@ $('#eyda').click(function(e){
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
-  debugger;
   var id = $(this).attr('aria-expanded');
   var id2 = $(this).attr("id");
   var id3 = ".a" + id2;
@@ -273,32 +271,30 @@ $('.parent').click(function blabla() {
   }
   });
 
-
-
-
-  function runReload () {
-   setTimeout(myTimeFunction, 1000);
-  }
-
-  function myTimeFunction() {
-     document.location.reload(true);
-  }
-
+  //Keyrum þetta þegar ýtt er á delete takkann. 
+  //Eyðir færslunni úr gagnagrunnig og úr DOM tré
   $('.eyda').on('click', function(){
+    debugger;
     var eydaid=$(this).attr('id');
     var id=eydaid.slice(4);
-    $.ajax({
-      url: '/',
-      type: 'get',
-      dataType: 'json',
-      data: {id: id},
-      contentType: 'application/json',
-      success: function(data){
-         alert("success");
-         alert(data);
-      }
-    });
-    runReload ();
+    var arcticle1=$('#entry'+id);
+    var arcticle2=$('#'+id);
+    var del = confirm('Ertu viss um að þú viljir eyða færslunni?');
+    if (del === true){
+      $.ajax({
+        url: '/',
+        type: 'get',
+        dataType: 'json',
+        data: {id: id},
+        contentType: 'application/json',
+        success: function(data){
+           alert("success");
+           alert(data);
+        }
+      });
+    arcticle1.remove();
+    arcticle2.remove();
+    }
   });
 
 

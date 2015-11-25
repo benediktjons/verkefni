@@ -1,4 +1,3 @@
-
 body{
  background-color: rgba(170, 185, 255, 0.1);
 }
@@ -101,7 +100,7 @@ span.underline{
 }
 header#s1{
   margin-top:150px;
-  height:calc(100vh - 150px);
+  min-height:calc(100vh - 150px);
   position:relative;
   text-align:center;
 }
@@ -137,7 +136,7 @@ header{
   margin-top:60px;
 }
 main{
-  height:100vh;
+  min-height:100vh;
 }
 .clicker{
   -webkit-transition:1s;
@@ -231,6 +230,7 @@ main{
   background-color: rgba(0, 0, 0, 0);
   padding: 0px 25px;
   margin-top: 25px;
+  margin-bottom:50px;
 }
 
 .button-green:hover{

@@ -61,7 +61,7 @@ function createHandler(req, res) {
     res.render('create', {title: 'Nýskráning',
     success: false,
     post: true,
-    error: 'Villa: Ath Simanumer þarf að vera minstakosti 7 tölustafir.'
+    error: 'Villa: Símanúmer þarf að vera að minnsta kosti 7 tölustafir.'
   });
   }
   else{
@@ -75,9 +75,9 @@ function createHandler(req, res) {
       if (err || !status) {
         success = false;
         error= 'Villa við að útbúa notanda';
+        res.render('create', { title: 'Nýskráning', post: true, error: error, success: success });
       }
-
-      res.render('create', { title: 'Nýskráning', post: true, error: error, success: success });
+      res.render('login', { title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success });
     });
   }
 }
@@ -179,7 +179,7 @@ else{
         success = false;
       }
 
-      res.redirect('/');
+      res.redirect('/#s2');
     });
 }
 }
@@ -285,7 +285,7 @@ else{
         success = false;
       }
 
-      res.redirect('/');
+      res.redirect('/#s2');
     });
 }
 }
@@ -327,7 +327,7 @@ function loginHandler(req, res) {
       else{
         req.session.regenerate(function (){
           req.session.user = user;
-          res.redirect('/');
+          res.redirect('/#s2');
         });
       }
     }

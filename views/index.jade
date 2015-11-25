@@ -270,7 +270,7 @@ block content
     if entries
         each e in entries
             section.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="a#{e.entryid}")
-                article.herna
+                article.herna(id="entry#{e.entryid}")
                     .row
                         .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#request#{e.entryid}') #{e.request}
                         .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3(id='#from#{e.entryid}') #{e.entryfrom}
@@ -299,7 +299,7 @@ block content
 
                 article.row.collapse(id='#{e.entryid}')
 
-                    .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11.right
+                    .hvitt.col-xs-9.col-sm-9.col-md-11.col-lg-11.right
                         .row
                             .searchNotandi.col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Notandi:
