@@ -8,11 +8,14 @@ var xss = require('xss');
 var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
+//var change = require('../lib/change');
 
 
 router.get('/about', aboutUs);
 router.get('/createride',ensureLoggedIn, write);
 router.post('/createride', entryHandler);
+router.get('/change', ensureLoggedIn, change);
+router.post('/change', entryHandler);
 router.get('/login', redirectIfLoggedIn, login);
 router.post('/login', loginHandler);
 router.get('/logout', logout);
@@ -245,6 +248,16 @@ function write(req, res) {
   var user = req.session.user;
   entries.listEntries(function (err, all) {
     res.render('writeOnWall', { title: 'Skrifa á vegg',
+      user: user,
+      users: all });
+  });
+}
+
+function change(req, res) {
+  console.log('Keyri change');
+  var user = req.session.user;
+  entries.listEntries(function (err, all) {
+    res.render('change', { title: 'Breyta færslu',
       user: user,
       users: all });
   });

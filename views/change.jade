@@ -1,19 +1,16 @@
-extends indexlayout
+extends layout
 
 block content
 
-    if user
-        p Skráð/ur inn sem
-        p.user #{user.username}
-    div
-      button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
-        | Leita
-    section#search.collapse
-        h3 Veldu leið
-        form.form-inline
-            .form-group
-                label(for='leitFra') Frá:
-                select.form-control(name='from' id = "leitFra")
+  if !success
+        p.error=error
+    form.form-horizontal.col-md-8(method='post', action='/changeride')
+        if user
+        p Þú ert innskráð/ur sem #{user.username}
+        .form-group.col-md-12
+            label.col-md-2(for='Fra') Frá:
+            .col-md-6
+                select.form-control(muliteple='' name='from' id = "changeFra")
                     option(value='Veldu') Allt
                     option(value='Reykjavík') Reykjavík
                     option(value='Akranes') Akranes
@@ -101,8 +98,11 @@ block content
                     option(value='Þingeyri') Þingeyri
                     option(value='Þorlákshöfn') Þorlákshöfn
                     option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
-                label(for='leitTil') Til:
-                select.form-control(id= "leitTil")
+        .col-md-4
+        .form-group.col-md-12
+            label.col-md-2(for='Til') Til:
+            .col-md-6
+                select.form-control(muliteple='', name='to', id= "Til")
                     option(value='Veldu') Allt
                     option(value='Reykjavík') Reykjavík
                     option(value='Akranes') Akranes
@@ -191,31 +191,19 @@ block content
                     option(value='Þorlákshöfn') Þorlákshöfn
                     option(value='Ögur í Ísafjarðardjúpi') Ögur í Ísafjarðardjúpi
 
-        h3 Veldu tímabil
-        form.form-inline(role="form")
-            .form-group
-                label.control-label(for='date-picker-2') Frá:
-                .input-group
-                    input.date-picker.form-control(type='text', id="date-picker-2")
-                    label.input-group-addon.btn(for='date-picker-2')
-                        span.glyphicon.glyphicon-calendar
-                label.control-label(for='date-picker-3') Til:
-                .input-group
-                    input.date-picker.form-control(type='text', id="date-picker-3")
-                    label.input-group-addon.btn(for='date-picker-3')
-                        span.glyphicon.glyphicon-calendar
-        h3.grayscale Aðrir valkostir
+        .col-md-6
+        .form-group.col-md-12
+            label.col-md-2(for='request') Óska eftir:
+            .col-md-6
+                select.form-control(muliteple='', name='request', id= "request")
+                    option(value='Farþegum') Farþegum
+                    option(value='Fari') Fari
 
-        .form-inline
-            .form-group
-                label.checkbox
-                            input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                            | Sjá aðeins
-                            span.underline  reyklausa
-                            |  bíla.
-
-                label.saetisfjoldi(for='saetaleit') Sætafjöldi a.m.k:
-                select.form-control(id= "saetaleit")
+            .col-md-4
+        .form-group.col-md-12
+            label.col-md-2(for='saeti') Fjöldi sæta:
+            .col-md-4
+                select.form-control(muliteple='' name='seats' id = "saeti")
                     option(value='1') 1
                     option(value='2') 2
                     option(value='3') 3
@@ -226,81 +214,41 @@ block content
                     option(value='8') 8
                     option(value='9') 9
                     option(value='10') 10
-        .form-inline
-            .form-group
-                 label.checkbox
-                            input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                            | Sjá aðeins þá sem
-                            span.underline  óska
-                            |  eftir fari
-        .form-inline
-            .form-group
-                 label.checkbox
-                            input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                            | Sjá aðeins þá sem
-                            span.underline  eru á
-                            |  bíl.
+            .col-md-6
+
+        .form-group.col-md-12
+            label.control-label.col-md-2(for='date-picker-2') Dagsetning:
+            .col-md-4
+                .input-group
+                    input.date-picker.form-control.col-md-6(type='text', name='date', id="date-picker-2")
+                    label.input-group-addon.btn(for='date-picker-2')
+                        span.glyphicon.glyphicon-calendar
+            .col-md-6
+
+
+        .form-group.col-md-12
+            label.col-md-2.control-label(for='timiFerdar') Klukkan:
+            .col-md-4
+                .input-group.clockpicker(data-placement='left', data-align='top', data-autoclose='true')
+                    input.form-control(type='text', value='13:37', id="timiFerdar", name='klukka')
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-time
+            .col-md-6
 
 
 
-    #head.row
-        .col-xs-3.col-sm-2.col-md-2.col-lg-2 Óska eftir
-        .col-xs-3.col-sm-3.col-md-3.col-lg-3 Frá
-        .col-xs-3.col-sm-3.col-md-3.col-lg-3 Til
-        .col-xs-2.col-sm-2.col-md-2.col-lg-2 Dagsetning
-        .hidden-xs.col-sm-1.col-md-1.col-lg-1 Brottför
-        .col-xs-1.col-sm-1.col-md-1.col-lg-1
 
-    if entries
-        each e in entries
-            section.row.parent(data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="a#{e.entryid}")
+        .form-group.col-md-12
+            label.checkbox.col-md-2 Reyklaus:
+            .col-md-10
+                input(id="inlineCheckbox1", type="checkbox", name='smoking' value="Reyklaus")
 
 
-                .row.herna
-                    .row
-                        .searchRequest.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#request#{e.entryid}') #{e.request}
-                        .searchFrom.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryfrom}
-                        .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3 #{e.entryto}
-                        .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2 #{e.entrytime}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                            button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
-                    .row
-                            a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                .BaraUser
-                                    .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
-                                        button.btn.btn-warning(type='button', class="breyta" id="breyta#{e.entryid}")
-                                            | Breyta
-                                    .col-xs-4.col.col-sm-7.col-md-7.col-lg-8
-                                        button.glyphicon.glyphicon-remove.btn.btn-danger(type='button', class = "eyda", id="eyda#{e.entryid}")
-                                            | Eyða
-                                .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
-                                .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
+        .form-group.col-md-12
+            label.col-md-2(for="textarea") Annað:
+            .col-md-10
+                textarea.form-control(row="5", id ="textarea", name = "textarea",placeholder="Legg af stað frá árbæjarsundlaug um hádegi. Stoppað verður einusinni og kiss verður botnað í útvarpinu.")
 
-                .row.collapse(id='#{e.entryid}')
-
-                    .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                    .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
-                        .row
-                            .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                | Notandi:
-                                strong  #{e.entryuser}
-                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                | Símanúmer:
-                                strong #{e.entryphone}
-                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                | Netfang:
-                                strong #{e.entryemail}
-                            .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
-                                | Sæti:
-                                strong #{e.entryseats}
-                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
-                                strong #{e.smoking}
-                        .row
-                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
-                                | Annað:
-                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
-                                | #{e.entryfleira}
-
-    a(href='/createride').btn.btn-success.pull-right Skrá ferð/Óska eftir
+        .col-md-12
+            button.btn.btn-default.pull-right Breyta færslu
