@@ -8,8 +8,6 @@ var xss = require('xss');
 var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
-//var change = require('../lib/change');
-
 
 router.get('/about', aboutUs);
 router.get('/createride',ensureLoggedIn, write);

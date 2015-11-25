@@ -17,13 +17,9 @@ $(document).ready(function (){
   });
 
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
-
   $('.clockpicker').clockpicker();
-  //});
-  //byrja h'er ad reyna ad breyta
-  //var breytaid;
-  //var window.request;
 
+  
   $('.breyta').on('click', function(){
     var breytaid=$(this).attr('id');
     var myid=breytaid.slice(6);

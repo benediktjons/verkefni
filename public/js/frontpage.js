@@ -301,7 +301,7 @@ $('.parent').click(function blabla() {
   $('.smooth-click').click(function(){
     $('.navbar').fadeIn();
     $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
+      scrollTop: $($.attr(this,'href')).offset().top
     }, 500);
     return false;
   });
@@ -311,19 +311,15 @@ $('.parent').click(function blabla() {
       history.replaceState ("", document.title, e.originalEvent.oldURL);
   });
 
-
-
   //Finnum y-gildi main elementsins og látum navbarinn fade-a inn þegar y er komið þangað
-    window.addEventListener("scroll", function() {
-      var height= document.getElementById('navbar').offsetHeight;
+  window.addEventListener("scroll", function() {
+    var height= document.getElementById('navbar').offsetHeight;
 
-      if (window.scrollY>height) {
-          $('.navbar').fadeIn();
-      }
-      else {
-          $('.navbar').fadeOut();
-      }
-    },false);
+    if (window.scrollY>height) {
+        $('.navbar').fadeIn();
+    }
+    else {
+        $('.navbar').fadeOut();
+    }
+  },false);
 });
-
-
