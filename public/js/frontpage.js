@@ -149,20 +149,26 @@ console.log("frontpage keyrir");
 
     function felatakka(){
       var username = $(".user").text();
-
+    debugger;
       var items = [];
       var elementBaraUser = document.getElementsByClassName('BaraUser');
+      var syna = document.getElementsByClassName('syna');
+
       if (username )  {
         $('.searchNotandi').each(function (i, e) {
           items.push($(e).text());
           var notandi = items[i].slice(9);
             if(notandi !== username){
               $(elementBaraUser[i]).hide();//latum parentid fela sig
+              $(syna[i]).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+
             }
         });
       }
       else {
         $('.BaraUser').hide();
+        $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+
       }
   }
 
@@ -250,9 +256,10 @@ $('#eyda').click(function(e){
 
 // herna er fallid fyrir orvarnar sem breytast upp og nidur
 $('.parent').click(function blabla() {
+  debugger;
   var id = $(this).attr('aria-expanded');
   var id2 = $(this).attr("id");
-  var id3 = "#a" + id2;
+  var id3 = ".a" + id2;
 
   if(id ==="false")
   {
