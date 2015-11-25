@@ -4,6 +4,7 @@
   /*text-align: center;*/
   margin:0;
   padding:0;
+  background-position: center center;
 }
 
 body{
@@ -114,7 +115,7 @@ main{
   position:absolute;
   height:10%;
   top:75%;
-  background-opacity:0;
+
 }
 
 .btn.smooth-click{
@@ -176,16 +177,12 @@ main{
     background-color:#B4CFEC !important;
 }
 
-.blue{
-  background-color: #3B5998;
-  color:white;
-}
-.blue:hover{
-  background-color: #3B5998 !important;
-  background: rgba(0, 0, 0, 0.8);
-  color:white;
-}
+.btn-danger{
+  background-color: white;
 
+  border:solid  rgba(248, 165, 165, 0.3);
+  color:black;
+}
 
 
 .searchRequest {
