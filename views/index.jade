@@ -5,9 +5,6 @@ block content
     if user
         p.hidden Skráð/ur inn sem
         p.hidden.user #{user.username}
-    div
-      button.btn.btn-primary.search-button(type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
-        | Leita
     section#search.collapse
         h3 Veldu leið
         form.form-inline

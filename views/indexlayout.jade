@@ -34,6 +34,8 @@ html(lang="is")
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand.navbartext(href='/') Samfó
+              a.navbar-brand.navbartext( href = "/#s2", type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
+                span.glyphicon.glyphicon-search(href="/")
             #content.collapse.navbar-collapse
               ul.nav.navbar-nav.navbar-right
                 if user
