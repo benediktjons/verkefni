@@ -32,10 +32,10 @@ router.get('/', function(req, res) {
         var user=req.session.user;
         console.log("her kemur entries1");
         console.log(entries);
-        res.render('index',{title:'Velkominn', user:user, entries:all});
+        res.render('index',{title:'Samferða - hagkvæmur og umhverfisvænn ferðamáti', user:user, entries:all});
     }
     else{
-    res.render('index',{title: 'Velkominn',
+    res.render('index',{title: 'Samferða - hagkvæmur og umhverfisvænn ferðamáti',
       entries: all});
     }
   });
