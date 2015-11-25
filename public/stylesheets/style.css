@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
 .wrapper10 {
   background-image:url("/images/road.jpg");
   background-size: cover;
@@ -34,7 +36,6 @@ h2{
   text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
 
 }
-
 
 h3{
   font-family: "Times New Roman", Times, serif;
@@ -94,8 +95,17 @@ span.underline{
   background-color: none !important;
 }
 header#s1{
-  height:100vh;
+  height:calc(100vh - 60px);
   position:relative;
+}
+header#s1 h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  text-shadow: -5px 10 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header{
+  margin-top:60px;
 }
 main{
   height:100vh;
@@ -113,13 +123,11 @@ main{
 .smooth-click{
   position:absolute;
   height:10%;
-  top:75%;
+  top:80%;
   background-opacity:0;
 }
 
-.btn.smooth-click{
-  opacity:.5;
-}
+
 .smooth-click.glyphicon.glyphicon-chevron-down{
   font-size:300%;
 }
