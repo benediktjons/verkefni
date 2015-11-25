@@ -35,6 +35,9 @@ $('.breyta').on('click', function(){
   var timeElement = document.getElementById('#time'+myid);
   var klukkaElement = document.getElementById('#klukka'+myid);
   var fleiraElement = document.getElementById('#fleira'+myid);
+  var smokeElement = document.getElementById('#smoke'+myid);
+  var seatsElement = document.getElementById('#seats'+myid);
+
 
   var request = $(requestElement).text();
   var from = $(fromElement).text();
@@ -42,6 +45,8 @@ $('.breyta').on('click', function(){
   var  time = $(timeElement).text();
   var  klukka = $(klukkaElement).text();
   var fleira = $(fleiraElement).text();
+  var smoke = $(smokeElement).text();
+  var seats = $(seatsElement).text();
 
   console.log(from);
   localStorage.setItem('request', JSON.stringify(request));
@@ -49,6 +54,9 @@ $('.breyta').on('click', function(){
   localStorage.setItem('to', JSON.stringify(to));
   localStorage.setItem('time', JSON.stringify(time));
   localStorage.setItem('klukka', JSON.stringify(klukka));
+  localStorage.setItem('fleira', JSON.stringify(fleira));
+  localStorage.setItem('smoke', JSON.stringify(smoke));
+  localStorage.setItem('seats', JSON.stringify(seats));
   location.href='/change' ;
 
 });
