@@ -262,7 +262,7 @@ block content
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1 #{e.entryklukka}
                     .hidden-xs.col-sm-1.col-md-1.col-lg-1
                         button.btn.btn-primary.Button-colap.glyphicon.glyphicon-chevron-down(type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
-                    .row
+                .row
                         a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
                             .BaraUser
                                 .col-xs-4.col.col-sm-2.col-md-2.col-lg-1
@@ -275,28 +275,30 @@ block content
                             .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
                 article.collapse(id='#{e.entryid}')
-                    .row
-                        .col-xs-1.col-sm-1.col-md-1.col-lg-1
-                        .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
-                            .row
-                                .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                    | Notandi:
-                                    strong  #{e.entryuser}
-                                .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                    | Símanúmer:
-                                    strong #{e.entryphone}
-                                .col-xs-11.col-sm-3.col-md-3.col-lg-3
-                                    | Netfang:
-                                    strong #{e.entryemail}
-                                .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
-                                    | Sæti:
-                                    strong #{e.entryseats}
-                                .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
-                                    strong #{e.smoking}
-                            .row
-                                .col-xs-11.col-sm-11.col-md-11.col-lg-11
-                                    | Annað:
-                                .col-xs-11.col-sm-11.col-md-11.col-lg-11
-                                    | #{e.entryfleira}
+
+                    .black.col-xs-1.col-sm-1.col-md-1.col-lg-1
+
+
+                    .hvitt.col-xs-11.col-sm-11.col-md-11.col-lg-11
+                        .row
+                            .searchNotandi.col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Notandi:
+                                strong  #{e.entryuser}
+                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Símanúmer:
+                                strong #{e.entryphone}
+                            .col-xs-11.col-sm-3.col-md-3.col-lg-3
+                                | Netfang:
+                                strong #{e.entryemail}
+                            .searchSeats.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                                | Sæti:
+                                strong #{e.entryseats}
+                            .searchSmoke.col-xs-11.col-sm-1.col-md-1.col-lg-1
+                                strong #{e.smoking}
+                        .row
+                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                                | Annað:
+                            .col-xs-11.col-sm-11.col-md-11.col-lg-11
+                                | #{e.entryfleira}
 
     a(href='/createride').btn.btn-success Skrá ferð/Óska eftir
