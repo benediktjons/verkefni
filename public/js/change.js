@@ -1,4 +1,5 @@
 $(document).ready(function (){
+    debugger;
     'use strict'
     console.log('/etta keyrir')
     //console.log(id);

@@ -26,6 +26,7 @@ $(document).ready(function (){
   //var window.request;
 
   $('.breyta').on('click', function(){
+    debugger;
     var breytaid=$(this).attr('id');
     var myid=breytaid.slice(6);
 
@@ -38,9 +39,9 @@ $(document).ready(function (){
 
     var request = $(requestElement).text();
     var from = $(fromElement).text();
-    var  to = $(toElement).text();
-    var  time = $(timeElement).text();
-    var  klukka = $(klukkaElement).text();
+    var to = $(toElement).text();
+    var time = $(timeElement).text();
+    var klukka = $(klukkaElement).text();
     var fleira = $(fleiraElement).text();
 
     console.log(from);
