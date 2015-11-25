@@ -1,8 +1,6 @@
 $(document).ready(function (){
   'use strict';
-
-  $('.navbar').fadeOut();
-console.log("frontpage keyrir");
+  console.log("frontpage keyrir");
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
     var leitFra = $("#leitFra").val();
@@ -309,7 +307,6 @@ $('.parent').click(function blabla() {
 
   //Gerir transation-ið smooth þegar smellt er á örvatakkann
   $('.smooth-click').click(function(){
-    $('.navbar').fadeIn();
     $('html, body').animate({
       scrollTop: $($.attr(this,'href')).offset().top
     }, 500);
