@@ -153,6 +153,17 @@ border-bottom: none;
   color:black;
 }
 
+.Button-colap:hover{
+  background-color: rgba(50, 48, 213, 0.2);
+  /*rgba(50, 48, 213, 0.2);*/
+  color:black;
+
+}
+
+.Button-colap:active {
+    background-color:#B4CFEC !important;
+}
+
 /*her er  um okkur*/
 
 ul.social{
