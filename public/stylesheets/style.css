@@ -27,6 +27,14 @@ h1{
   text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
 }
 
+h2{
+   font-family: "Times New Roman", Times, serif;
+
+  font-size: 2em;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+
+}
+
 
 h3{
   font-family: "Times New Roman", Times, serif;
@@ -151,15 +159,31 @@ main{
 }
 
 
-.Button-colap:hover{
-  background-color: rgba(50, 48, 213, 0.2);
+.Button-colap:link{
+  background-color:rgba(134, 135, 213, 0.1);;
   /*rgba(50, 48, 213, 0.2);*/
   color:black;
 
 }
 
+.Button-colap:hover{
+  background-color: rgba(50, 48, 213, 0.2);
+  /*rgba(50, 48, 213, 0.2);*/
+  color:black;
+}
+
 .Button-colap:active {
     background-color:#B4CFEC !important;
+}
+
+.blue{
+  background-color: #3B5998;
+  color:white;
+}
+.blue:hover{
+  background-color: #3B5998 !important;
+  background: rgba(0, 0, 0, 0.8);
+  color:white;
 }
 
 
