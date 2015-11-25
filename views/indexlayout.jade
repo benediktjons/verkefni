@@ -36,12 +36,16 @@ html(lang="is")
               a.navbar-brand.navbartext(href='/') Samfó
             #content.collapse.navbar-collapse
               ul.nav.navbar-nav.navbar-right
-                li
-                  a.navbartext(href='/login') Innskrá
-                li
-                  a.navbartext(href='/logout') Útskrá
-                li
-                  a.navbartext(href='/create') Nýskrá
+                if user
+                  li
+                    a.navbartext(href='/createride') Skrá ferð
+                  li
+                    a.navbartext(href='/logout') Útskrá
+                if !user
+                  li
+                    a.navbartext(href='/login') Innskrá
+                  li
+                    a.navbartext(href='/create') Nýskrá
                 li
                   a.navbartext(href='/about') Um okkur
         block content
