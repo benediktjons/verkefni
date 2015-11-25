@@ -224,10 +224,24 @@ block content
         .form-inline
             .form-group
                 label.checkbox
-                            input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                            | Sjá aðeins
-                            span.underline  reyklausa
-                            |  bíla.
+                input(id="leitReyklaus", type="checkbox", value="Reyklaus")
+                | Sjá aðeins 
+                span.underline reyklausa
+                |  bíla.
+        .form-inline
+            .form-group
+                label.checkbox
+                input(id="leitOskaEftirFari", type="checkbox", value="barafari")
+                | Sjá aðeins þá sem 
+                span.underline óska
+                |  eftir fari
+        .form-inline
+            .form-group
+                label.checkbox
+                input(id="leitOkumenn", type="checkbox", value="barafarthegum")
+                | Sjá aðeins þá sem 
+                span.underline eru á
+                |  bíl.
 
                 label.saetisfjoldi.hidden-sm.hidden-xs(for='saetaleit') Sætafjöldi a.m.k:
                 select.form-control.hidden-sm.hidden-xs(id= "saetaleit")
@@ -241,20 +255,6 @@ block content
                     option(value='8') 8
                     option(value='9') 9
                     option(value='10') 10
-        .form-inline
-            .form-group
-                 label.checkbox
-                            input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                            | Sjá aðeins þá sem
-                            span.underline  óska
-                            |  eftir fari
-        .form-inline
-            .form-group
-                 label.checkbox
-                            input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                            | Sjá aðeins þá sem
-                            span.underline  eru á
-                            |  bíl.
 
 
 

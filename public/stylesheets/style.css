@@ -1,5 +1,3 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans');
-
 .wrapper10 {
   background-image:url("/images/road.jpg");
   background-position:center center;
@@ -244,4 +242,10 @@ img.img-icon:hover {
 .gamli{
   margin-left:5%;
   float:left;
+}
+
+
+
+a.navbartext{
+  padding-left: 25px !important;
 }
