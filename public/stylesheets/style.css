@@ -3,7 +3,9 @@ body{
  background-color: rgba(170, 185, 255, 0.1);
 }
 
-
+.search-button{
+  margin-top:60px;
+}
 .first-page {
   background-image:url("/images/road.jpg");
   background-position:center center;
@@ -98,7 +100,8 @@ span.underline{
   background-color: none !important;
 }
 header#s1{
-  height:calc(100vh - 60px);
+  margin-top:150px;
+  height:calc(100vh - 150px);
   position:relative;
   text-align:center;
 }
@@ -131,7 +134,7 @@ header#s1 h1{
 }
 
 header{
-  margin-top:150px;
+  margin-top:60px;
 }
 main{
   height:100vh;
