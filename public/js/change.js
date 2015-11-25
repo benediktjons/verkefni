@@ -1,13 +1,10 @@
 $(document).ready(function (){
     'use strict'
-    console.log('/etta keyrir')
-    //console.log(id);
-    var reqvalue = localStorage.getItem('request');
-    //pase the value
-    var request = JSON.parse(reqvalue);
-    console.log(request);
-    console.log(jQuery.type(request));
 
+    //náum í gildi úr localstorage
+    var reqvalue = localStorage.getItem('request');
+    //parse the value
+    var request = JSON.parse(reqvalue);
     var fromvalue = localStorage.getItem('from');
     var from = JSON.parse(fromvalue);
     var tovalue = localStorage.getItem('to');
@@ -22,29 +19,27 @@ $(document).ready(function (){
     var seats= JSON.parse(seatsvalue);
     var smokevalue = localStorage.getItem('smoke');
     var smoke= JSON.parse(smokevalue);
+    var idvalue = localStorage.getItem('id');
+    var id= JSON.parse(idvalue);
 
-    if (request == "Fari"){
-        console.log('WTF?');
-        //console.log(klukka + time + from + fleira );
-    }
-    console.log(from);
+    //breytum völdum gildum í hinum ´´ymsu select og input boxum
     $('#changeFra').val(from);
     $('#changeTil').val(to);
     $('#date-picker-2').val(time);
     $('#timiFerdar').val(klukka);
     $('#textarea').val(fleira);
     $('#saeti').val(seats);
+    $('#myid').val(id);
 
-    console.log('smoke');
-    console.log(smoke);
     if (smoke == 'Reyklaus'){
         $('#inlineCheckbox1').prop('checked', true);
-        //$('.inlineCheckbox1').attr('checked', true);
     }
     else{
         $('#inlineCheckbox1').prop('checked', false);
-        //$('.inlineCheckbox1').attr('checked', true);
     }
 
+    $('.btn').on('click', function(){
+        localStorage.clear();
+    });
 
 });
