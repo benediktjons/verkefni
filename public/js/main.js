@@ -1,57 +1,57 @@
-    $(document).ready(function (){
-    'use strict';
-// herna endar leitinn og klick underline fyror siduna sem tu ert a kemur inn
-    $("a").click(function () {
-      $(this).css("text-decoration", "underline");
-    });
+$(document).ready(function (){
+  'use strict';
+  // herna endar leitinn og klick underline fyror siduna sem tu ert a kemur inn
+  $("a").click(function () {
+    $(this).css("text-decoration", "underline");
+  });
 
 
-// herna endar underline fallid og date picker fyrir dagatalid kemur inn
+  // herna endar underline fallid og date picker fyrir dagatalid kemur inn
 
-$(".date-picker").datepicker();
+  $(".date-picker").datepicker();
 
-$(".date-picker").on("change", function () {
-  var id = $(this).attr("id");
-  var val = $("label[for='" + id + "']").text();
-  $("#msg").text(val + " changed");
-});
+  $(".date-picker").on("change", function () {
+    var id = $(this).attr("id");
+    var val = $("label[for='" + id + "']").text();
+    $("#msg").text(val + " changed");
+  });
 
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
 
   $('.clockpicker').clockpicker();
 
-//});
-//byrja h'er ad reyna ad breyta
-//var breytaid;
-//var window.request;
+  //});
+  //byrja h'er ad reyna ad breyta
+  //var breytaid;
+  //var window.request;
 
-$('.breyta').on('click', function(){
-  var breytaid=$(this).attr('id');
-  var myid=breytaid.slice(6);
+  $('.breyta').on('click', function(){
+    var breytaid=$(this).attr('id');
+    var myid=breytaid.slice(6);
 
-  var requestElement= document.getElementById('#request'+myid);
-  var fromElement = document.getElementById('#from'+myid);
-  var toElement = document.getElementById('#to'+myid);
-  var timeElement = document.getElementById('#time'+myid);
-  var klukkaElement = document.getElementById('#klukka'+myid);
-  var fleiraElement = document.getElementById('#fleira'+myid);
+    var requestElement= document.getElementById('#request'+myid);
+    var fromElement = document.getElementById('#from'+myid);
+    var toElement = document.getElementById('#to'+myid);
+    var timeElement = document.getElementById('#time'+myid);
+    var klukkaElement = document.getElementById('#klukka'+myid);
+    var fleiraElement = document.getElementById('#fleira'+myid);
 
-  var request = $(requestElement).text();
-  var from = $(fromElement).text();
-  var  to = $(toElement).text();
-  var  time = $(timeElement).text();
-  var  klukka = $(klukkaElement).text();
-  var fleira = $(fleiraElement).text();
+    var request = $(requestElement).text();
+    var from = $(fromElement).text();
+    var  to = $(toElement).text();
+    var  time = $(timeElement).text();
+    var  klukka = $(klukkaElement).text();
+    var fleira = $(fleiraElement).text();
 
-  console.log(from);
-  localStorage.setItem('request', JSON.stringify(request));
-  localStorage.setItem('from', JSON.stringify(from));
-  localStorage.setItem('to', JSON.stringify(to));
-  localStorage.setItem('time', JSON.stringify(time));
-  localStorage.setItem('klukka', JSON.stringify(klukka));
-  location.href='/change' ;
+    console.log(from);
+    localStorage.setItem('request', JSON.stringify(request));
+    localStorage.setItem('from', JSON.stringify(from));
+    localStorage.setItem('to', JSON.stringify(to));
+    localStorage.setItem('time', JSON.stringify(time));
+    localStorage.setItem('klukka', JSON.stringify(klukka));
+    location.href='/change' ;
 
-});
+  });
 
 
 
