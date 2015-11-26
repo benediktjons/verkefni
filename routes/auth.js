@@ -36,9 +36,13 @@ function createForm(req, res) {
 function createHandler(req, res) {
   var username = xss(req.body.username);
   var password = xss(req.body.password);
+  var password2 = xss(req.body.password2);
   var email = xss(req.body.email);
   var phone = xss(req.body.phone);
 
+
+
+  var validCheckPw = validate.password(password,password2);
   var validUser = validate.length(username, 2);
   var validPw = validate.length(password, 5);
   var validPh = validate.phonenumber(phone);
@@ -51,11 +55,20 @@ function createHandler(req, res) {
     error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir.'
   });
   }
+
   else if(!validPw){
     res.render('create', {title: 'Nýskráning',
     success: false,
     post: true,
     error: 'Villa: lykilorð þarf að vera lengra en 5 stafir.'
+  });
+  }
+
+  else if(!validCheckPw){
+    res.render('create', {title: 'Nýskráning',
+    success: false,
+    post: true,
+    error: 'Villa: lykilorð þurfa að vera eins.'
   });
   }
   else if(!validPh){
