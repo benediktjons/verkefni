@@ -41,7 +41,7 @@ Innskrá síðan virkar síðan eins og í verkefni 6.
 Til að síðan nýtist fólki sem best þyrfti að vinna að útfærslu hennar í samstarfi við fólk sem er að nota hana, til að greina almennilega þarfir notendanna. 
 Mögulega væri hægt að skipta henni í tvo hluta eftir því hvort beðið væri um far innanbæjar eða úti á landi þar sem stórt hlutfall notenda væri ef til vill bara að leita að fari innanbæjar. Athugasemda eiginleiki á færslur gæti verið sniðugt að bæta við og hefðum við líklega bætt því við ef þetta væri stærra vekefni.
 ##Lokaorð
-Ljóst er að grundvöllur fyrir síðu af þessu tagi er til staðar á Íslandi en hún þyrfti að vera vel gerð og auglýst þannig að fólk myndi byrja að nota hana til að hún myndi virka. Hún byggist nefninlega á því að notendur skrifi færslur inn á hana.
+Ljóst er að grundvöllur fyrir síðu af þessu tagi er til staðar á Íslandi en hún þyrfti að vera vel gerð og auglýst þannig að fólk myndi byrja að nota hana til að hún myndi virka. Þar sem hún byggist á því að notendur skrifi færslur inn á hana.
 
 Verkefnið gekk vel og við náðum að búa til alla grunnvirkni sem við vorum að vonast eftir auk þess sem okkur tókst að bæta við ýmis konar virkni sem okkur datt í hug á meðan gerð síðunnar stóð.
 

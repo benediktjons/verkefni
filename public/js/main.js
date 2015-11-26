@@ -56,10 +56,9 @@ $(document).ready(function (){
     location.href='/change' ;
   });
   /*Þegar viewportið er ákveðið lítið birtast aðrir takkar sem hafa sömu eiginlega og breyta/eyda.
-   Föllin nota id til að breyta/eyða og því triggerum við bara click 
+   Föllin nota id til að breyta/eyða og því triggerum við bara click
    á hina takkana til þess að einfalda okkur lífið.*/
   $('.smallEyda,.smallBreyta').click(function(){
-    debugger;
     var id=$(this).attr("id");
     var clickId='#'+id.slice(3);
     $(clickId).trigger("click");
@@ -114,7 +113,6 @@ $(document).ready(function (){
         alert('Whoops! Something went wrong');
         break;
       }
-      debugger;
     dags=day+'/'+month+'/'+year;
     $('#date-picker-2').val(dags);
   }
