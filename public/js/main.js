@@ -56,7 +56,7 @@ $(document).ready(function (){
 
     location.href='/change' ;
   });
-  
+  //setDatepickerDate setur value á #date-picker-2 sem daginn í dag.
   function setDatepickerDate(){
     var dags=new Date();
     dags=dags.toString();
