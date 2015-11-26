@@ -222,21 +222,21 @@ block content
             .form-group
                 label.checkbox
                 input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                | Sjá aðeins
+                | Sjá aðeins 
                 span.underline reyklausa
                 |  bíla.
         .form-inline
             .form-group
                 label.checkbox
                 input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                | Sjá aðeins þá sem
+                | Sjá aðeins þá sem 
                 span.underline óska
                 |  eftir fari
         .form-inline
             .form-group
                 label.checkbox
                 input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                | Sjá aðeins þá sem
+                | Sjá aðeins þá sem 
                 span.underline eru á
                 |  bíl.
 
@@ -253,12 +253,11 @@ block content
                     option(value='9') 9
                     option(value='10') 10
     #head.row
-        .hidden-xs.col-xs-3.col-sm-2.col-md-2.col-lg-2 Óska eftir
-        .hidden-xs.col-xs-3.col-sm-3.col-md-3.col-lg-3 Frá
-        .hidden-xs.col-xs-3.col-sm-3.col-md-3.col-lg-3 Til
-        .hidden-xs.col-xs-2.col-sm-2.col-md-2.col-lg-2 Dagsetning
+        .hidden-xs.col-sm-2.col-md-2.col-lg-2 Óska eftir
+        .hidden-xs.col-sm-3.col-md-3.col-lg-3 Frá
+        .hidden-xs.col-sm-3.col-md-3.col-lg-3 Til
+        .hidden-xs.col-sm-2.col-md-2.col-lg-2 Dagsetning
         .hidden-xs.col-sm-1.col-md-1.col-lg-1 Brottför
-        .col-xs-1.col-sm-1.col-md-1.col-lg-1
 
     if entries
         each e in entries
@@ -266,7 +265,9 @@ block content
                 article.herna(id="entry#{e.entryid}")
                     .row
                         .hidden-xs.searchRequest.col-sm-2.col-md-2.col-lg-2(id='#request#{e.entryid}') #{e.request}
-                        .col-xs-1.hidden-sm.hidden-md.hidden-lg.pan.glyphicons.glyphicons-taxi 🚕
+                        .col-xs-2.hidden-sm.hidden-md.hidden-lg.pan
+                            span.rideIcon.glyphicon.glyphicon-user
+                            img.rideImage(href='', alt='icon')
                         .wordwrap.searchFrom.col-xs-4.col-sm-3.col-md-3.col-lg-3.smallTime(id='#from#{e.entryid}') #{e.entryfrom}
                         .hidden-sm.col-xs-1.hidden-md.hidden-lg.glyphicon.glyphicon-arrow-right
                         .wordwrap.searchTo.col-xs-5.col-sm-3.col-md-3.col-lg-3.smallTime(id='#to#{e.entryid}') #{e.entryto}
@@ -277,10 +278,8 @@ block content
                         button.hidden-xs.pull-right.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.syna.hidden-xs.hidden-sm.hidden-md.hidden-lg.allbutton(class ="aa#{e.entryid}" type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
                     .row
 
-                        .col-xs-1.hidden-sm.hidden-md.hidden-lg
-                        .col-xs-4.hidden-sm.hidden-md.hidden-lg.smallDate #{e.entryklukka}
-                        .col-xs-1.hidden-sm.hidden-md.hidden-lg
-                        .text-center.col-xs-5.hidden-sm.hidden-md.hidden-lg.searchDate.smallTime #{e.entrytime}
+                        .col-xs-4.col-xs-offset-2.hidden-sm.hidden-md.hidden-lg.smallDate #{e.entryklukka}
+                        .col-xs-5.col-xs-offset-1.hidden-sm.hidden-md.hidden-lg.searchDate.smallTime #{e.entrytime}
 
 
 
@@ -307,7 +306,7 @@ block content
                                 strong #{e.entryemail}
                             .searchSeats.col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Sæti:
-                                strong(id='#seats#{e.entryid}') #{e.entryseats}
+                                strong.fjoldiSaeta(id='#seats#{e.entryid}') #{e.entryseats}
                             .searchSmoke.col-xs-12.col-sm-12.col-md-12.col-lg-12(id='#smoke#{e.entryid}')
                                 strong #{e.smoking}
                         .row

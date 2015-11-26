@@ -313,7 +313,14 @@ $('.parent').click(function blabla() {
     return false;
   });
 
-  //Komum í veg fyrir að #id bætist við efitr að klikka á takka sem færir mann á ákveðið element
+  $('.search').click(function(){
+    $('html, body').animate({
+      scrollTop: $($.attr(this,'href')).offset().top
+    }, 500);
+    return false;
+  });
+
+  //Komum í veg fyrir að #id bætist við eftir að klikka á takka sem færir mann á ákveðið element
   $(window).on('hashchange', function(e){
       history.replaceState ("", document.title, e.originalEvent.oldURL);
   });
@@ -329,4 +336,38 @@ $('.parent').click(function blabla() {
         $('.navbar').fadeOut();
     }
   },false);
+
+  //Setur rétt icon í 'óska eftir' dálkinn í minnstu skjástærð
+  function setIcon(){
+    debugger;
+    var stor = $('.searchRequest');
+    var litill = $('.rideIcon');
+    var image =$('.rideImage');
+    var fjoldiSaeta = $('.fjoldiSaeta');
+    $('.herna').each(function(i){
+      debugger;
+      var texti=stor[i].innerHTML;
+      var icon = litill[i];
+      var mynd = image[i];
+      if (texti === 'Farþegum'){
+        var fj = fjoldiSaeta[i].innerHTML;
+        if (fj==="1"){
+          $(mynd).hide();
+          $(icon).addClass('glyphicon-user');
+        }
+        else{
+          $(icon).hide();
+          var src = '/images/glyphicon_multi.png';
+          $(mynd).attr("src", src);
+        }
+      }
+      else if (texti === 'Fari'){
+        $(icon).hide();
+        var src = '/images/glyphicon_car.png';
+        $(mynd).attr("src", src);
+      }
+    });
+  }
+  setIcon();
+  
 });

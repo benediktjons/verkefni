@@ -6,6 +6,11 @@ body{
   margin-right:5px;
 
 }
+.rideImage,.rideIcon{
+  width:18px;
+  height:18px;
+  margin-left:1em;
+}
 .second-page{
   padding-top:60px;
 }
@@ -293,7 +298,6 @@ img.img-icon:hover {
    white-space: -pre-wrap;     /* Opera <7 */
    white-space: -o-pre-wrap;   /* Opera 7 */
    word-wrap: break-word;      /* IE */
-   text-align: center;
 }
 
 .glyphicon-arrow-right{
@@ -305,9 +309,7 @@ img.img-icon:hover {
   padding-left:25px;
 }
 
-.smallDate{
-  text-align: center;
-}
+
 
 #abouttext{margin-bottom:100px;}
 
