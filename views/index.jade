@@ -240,8 +240,8 @@ block content
                 span.underline eru á
                 |  bíl.
 
-                label.saetisfjoldi.hidden-sm.hidden-xs(for='saetaleit') Sætafjöldi a.m.k:
-                select.form-control.hidden-sm.hidden-xs(id= "saetaleit")
+                label.saetisfjoldi.hidden-sm.hidden-xs(for='saetaleit2') Sætafjöldi a.m.k:
+                select.form-control.hidden-sm.hidden-xs(id= "saetaleit2")
                     option(value='1') 1
                     option(value='2') 2
                     option(value='3') 3
@@ -270,40 +270,34 @@ block content
                 article.herna(id="entry#{e.entryid}")
                     .row
                         .hidden-xs.searchRequest.col-sm-2.col-md-2.col-lg-2(id='#request#{e.entryid}') #{e.request}
-                        span.hidden-sm.hidden-md.hidden-lg.col-xs-1.glyphicons-taxi
-                        .searchFrom.col-xs-4.col-sm-3.col-md-3.col-lg-3(id='#from#{e.entryid}') #{e.entryfrom}
-                        span.hidden-sm.hidden-md.hidden-lg.col-xs-1.glyphicon.glyphicon-arrow-right
-                        .searchTo.col-xs-4.col-sm-3.col-md-3.col-lg-3(id='#to#{e.entryid}') #{e.entryto}
+                        span.hidden-sm.hidden-md.hidden-lg.pan.glyphicons.glyphicons-taxi 🚕
+                        .searchFrom.col-sm-3.col-md-3.col-lg-3.smallTime(id='#from#{e.entryid}') #{e.entryfrom}
+                        span.hidden-sm.hidden-md.hidden-lg.glyphicon.glyphicon-arrow-right
+                        .searchTo.col-sm-3.col-md-3.col-lg-3.smallTime(id='#to#{e.entryid}') #{e.entryto}
                         .hidden-xs.searchDate.col-sm-2.col-md-2.col-lg-2(id='#time#{e.entryid}') #{e.entrytime}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1(id='#klukka#{e.entryid}') #{e.entryklukka}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                         button.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.syna.hidden-xs.hidden-sm.hidden-md.hidden-lg(class ="aa#{e.entryid}" type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
-                    .row
-                        .hidden-sm.hidden-md.hidden-lg.col-xs-3
-                        .hidden-sm.hidden-md.hidden-lg.searchDate.col-xs-3 #{e.entrytime}
-                        .hidden-sm.hidden-md.hidden-lg.col-xs-3 #{e.entryklukka}
-                        .hidden-sm.hidden-md.hidden-lg.col-xs-3
 
-                    .row.hidden-xs
-                            a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                .BaraUser.pull-right
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                        button.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down(class="aa#{e.entryid}", type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                        button.btn.btn-warning(type='button', class="breyta" id="breyta#{e.entryid}")
-                                            span.glyphicon.glyphicon-edit
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                        button.btn.btn-danger(type='button', class = "eyda", id="eyda#{e.entryid}")
-                                            span.glyphicon.glyphicon-trash
-                                .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
-                                .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
+                        button.hidden-xs.pull-right.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.syna.hidden-xs.hidden-sm.hidden-md.hidden-lg.allbutton(class ="aa#{e.entryid}" type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                    .row
+
+                        .hidden-sm.hidden-md.hidden-lg.smallDate #{e.entryklukka}
+                        .col-xs-2
+                        .hidden-sm.hidden-md.hidden-lg.searchDate.smallTime #{e.entrytime}
+
+
+
+
+                    .row.BaraUser.hidden-xs
+                        button.smallbutton.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.pull-right(class="aa#{e.entryid}", type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                        button.smallbutton.btn.btn-warning.glyphicon.glyphicon-edit.pull-right(type='button', class="breyta" id="breyta#{e.entryid}")
+                        button.smallbutton.btn.btn-danger.glyphicon.glyphicon-trash.pull-right(type='button', class = "eyda", id="eyda#{e.entryid}")
+                    .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
+
 
 
                 article.row.collapse(id='#{e.entryid}')
-
-                    .hvitt.col-xs-9.col-sm-9.col-md-11.col-lg-11.right
+                    aside.hvitt.col-xs-9.col-sm-9.col-md-11.col-lg-11.right
                         .row
                             .searchNotandi.col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Notandi:

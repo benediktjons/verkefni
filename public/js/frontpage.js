@@ -100,16 +100,23 @@ $(document).ready(function (){
   //Fall sem synir bara fleiri eda jafnt voldum saetafjolda
   $("input, select").on("change click", function () {
     var saetafjoldi = $("#saetaleit").val();
+    var saetafjoldi2 = $("#saetaleit2").val();
+    var saetialls = 1;
+    if(saetafjoldi>saetafjoldi2){
+      saetialls=saetafjoldi;
+    }
+    else if(saetafjoldi<saetafjoldi2){
+      saetialls=saetafjoldi2
+    }
+    else{
+      saetialls=saetafjoldi;
+    }
     var items = [];
     var elementParent = document.getElementsByClassName('parent');
-
     $('.searchSeats').each(function (i, e) {
       items.push($(e).text());
-
         var totalseats= items[i].slice(5,6);
-        console.log(totalseats);
-
-        if(totalseats < saetafjoldi){
+        if(totalseats < saetialls){
           $(elementParent[i]).hide();//latum parentid fela sig
         }
 
@@ -269,7 +276,7 @@ $('.parent').click(function blabla() {
   }
   });
 
-  //Keyrum þetta þegar ýtt er á delete takkann. 
+  //Keyrum þetta þegar ýtt er á delete takkann.
   //Eyðir færslunni úr gagnagrunnig og úr DOM tré
   $('.eyda').on('click', function(){
     debugger;

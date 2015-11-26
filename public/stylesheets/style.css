@@ -1,8 +1,12 @@
 body{
  background-color: rgba(170, 185, 255, 0.1);
 }
+.smallbutton{
+  margin-left:5px;
+  margin-right:5px;
 
-.search-button{
+}
+.second-page{
   margin-top:60px;
 }
 .first-page {
@@ -194,6 +198,9 @@ main{
   color:black;
   border:solid 0.1em rgba(0, 0, 255, 0.2);
 }
+.allbutton{
+  margin-right:20px;
+}
 
 
 .Button-colap:link{
@@ -248,12 +255,9 @@ main{
   margin-right: -10px;
 }
 
-.btn-warning {
-  margin-left: 10%;
-}
-
 .BaraUser{
-  margin-right:5%;
+  margin-left:0;
+  margin-right:0;
 }
 
 
@@ -281,4 +285,37 @@ img.img-icon:hover {
 .gamli{
   margin-left:5%;
   float:left;
+}
+@media screen and (max-width: 768px) {
+    body {
+        background-color: lightgreen;
+    }
+
+    .smallTime{
+      /*margin-left: 12.5% ;*/
+
+clear:both;
+      display: inline-block;
+
+
+
+    }
+    .smallDate{
+    margin-left: 40% ;
+
+      display: inline-block;
+
+    }
+
+    .glyphicons-taxi{
+      width:10%;
+      float:left;
+    }
+
+    .glyphicon-arrow-right{
+      width:10%;
+      float:left;
+    }
+
+
 }
