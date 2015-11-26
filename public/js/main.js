@@ -1,7 +1,7 @@
 $(document).ready(function (){
   'use strict';
   // herna endar leitinn og klick underline fyror siduna sem tu ert a kemur inn
-  $("a").click(function () {
+  $("li a").click(function () {
     $(this).css("text-decoration", "underline");
   });
 
