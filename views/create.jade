@@ -13,14 +13,14 @@ block content
         .form-group.has-feedback
             label.control-label.col-md-2(for="username") Notandanafn:
             .col-md-8
-                input.form-control(type='text', placeholder='Jón Sigurðsson', id="username", name="username", value=password.val)
+                input.form-control(type='text', placeholder='Jón Sigurðsson', id="username", name="username", value=username.val)
                 i.glyphicon.glyphicon-user.form-control-feedback
                 if (!username.valid)
                     p.error Villa. notendanafn þarf að vera að minstakosti tveir stafir
         .form-group.has-feedback
             label.control-label.col-md-2(for="password") Lykilorð:
             .col-md-8
-                input.form-control(type='password', placeholder='*****', id="password", name="password",value=password.val)
+                input.form-control(type='password', placeholder='*****', id="password", name="password")
                 i.glyphicon.glyphicon-lock.form-control-feedback
                 if (!password.valid)
                     p.error Villa! Lykilorð þarf að vera að minstakosti fimm stafir.
@@ -44,7 +44,7 @@ block content
                 input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email.val)
                 i.glyphicon.glyphicon-envelope.form-control-feedback
                 if (!email.valid)
-                    p.error Villa með notandanafn!
+                    p.error Villa: Netfang má ekki vera tómt!
 
 
 
