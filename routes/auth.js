@@ -130,115 +130,65 @@ function createHandler(req, res) {
 }
 
 function entryHandler(req,res){
+  var data={title: 'Skrá ferð'};
   console.log('Keyri entryHandler');
   var username = req.session.user;
   var from = xss(req.body.from);
   var to = xss(req.body.to);
-  var time = xss(req.body.date);
-  var request = xss(req.body.request);
+  var date = xss(req.body.date);
+  var ride = xss(req.body.request);
   var smoking = xss(req.body.smoking);
   var klukka = xss(req.body.klukka);
   var annad = xss(req.body.textarea);
   var seats = xss(req.body.seats);
 
- /* data.username={
-    val:username,
-    valid: validUser
-  };
-  data.password={
-    val:'',
-    valid:(validPw)
-  };
-
-   data.password2={
-    val:'',
-    valid:(validCheckPw)
-  };
-
-  if (req.body.phone){
-    phone = xss(req.body.phone);
-    var validPh = validate.phonenumber(phone);
-    data.phone={
-      val:phone,
-      valid:validPh
-    };
-  }
-  if (req.body.email){
-    email = xss(req.body.email);
-    var validEmail = validate.isEmail(email);
-    data.email = {
-      val:email,
-      valid: validEmail
-    };
-  }*/
 
   //validate-um gogninn sem vid faum inn
   var validFrom = validate.isPlace(from);
   var validTo = validate.isPlace(to);
-  var validRequest = validate.request(request);
+  var validRequest = validate.request(ride);
   var validnumberOfSeats = validate.numberOfSeats(seats);
-  var validDate= validate.checkDate(time);
+  var validDate= validate.checkDate(date);
   var validClock= validate.checkClock(klukka);
 
-  if(!validFrom){
-    //villumedhondlun
-    res.render('writeOnWall', {title: 'Skrá ferð',
-      success: false,
-      post: true,
-      error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'
-    });
-  }
 
-  else if(!validTo){
-    //villumedhondlun
-    res.render('writeOnWall', {title: 'Jæja, þarna gerðist eitthvað',
-      success: false,
-      post: true,
-      error: 'Villa: Ath. að velja þarf möguleika úr Til boxinu.'
-      });
-  }
-  else if(!validRequest){
-    //villumedhondlun
-    res.render('writeOnWall', {title: 'Skutla?',
-      success: false,
-      post: true,
-      error: 'Villa: Ath. að velja þarf möguleika úr óska eftir boxinu..'
-      });
-  }
-  else if(!validnumberOfSeats){
-    //villumedhondlun
-    res.render('writeOnWall', {title: 'Hversu margir?',
-      success: false,
-      post: true,
-      error: 'Villa: Ath. að  velja þarf fjölda sæta úr fjöldi sæta boxinu.'
-      });
-  }
-  else if(!validClock){
-    //villumedhondlun
-    res.render('writeOnWall', {title: 'Klukkan?',
-      success: false,
-      post: true,
-      error: 'Villa: Ath. að velja þarf  Klukku..'
-      });
-  }
-  else if(!validDate){
-    //villumedhondlun
-    res.render('writeOnWall', {title: 'Hvenær?',
-      success: false,
-      post: true,
-      error: 'Villa: Ath. ertu viss um að þessi dagsetning sé ekki liðin?...'
-      });
-  }
+  data.ride={
+    val:ride,
+    valid:validRequest
+  };
+  data.seats={
+    val:seats,
+    valid:(validnumberOfSeats)
+  };
 
-
-  else{
-    time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
+  data.dags={
+    val:date,
+    valid:validDate
+  };
+  data.time = {
+    val:klukka,
+    valid: validClock
+  };
+  data.txt={
+    val:annad,
+    valid:true
+  };
+  var allTrue = (
+    validFrom &&
+    validTo &&
+    validRequest &&
+    validnumberOfSeats &&
+    validDate &&
+    validClock
+  );
+  if (allTrue){
+    date = date.slice(6,10)+'-'+date.slice(3,5)+'-'+date.slice(0,2);
 
     entries.createEntry(username.username,
       from,
       to,
-      time,
-      request,
+      date,
+      ride,
       smoking,
       username.userphone,
       username.useremail,
@@ -259,6 +209,9 @@ function entryHandler(req,res){
         res.redirect('/#s2');
       });
   }
+  else{
+    res.render('writeOnWall',data);
+  }
 }
 
 function changeEntryHandler(req,res){
@@ -269,7 +222,7 @@ function changeEntryHandler(req,res){
   var username = req.session.user;
   var from = xss(req.body.from);
   var to = xss(req.body.to);
-  var time = xss(req.body.date);
+  var date = xss(req.body.date);
   var request = xss(req.body.request);
   var smoking = xss(req.body.smoking);
   var klukka = xss(req.body.klukka);
@@ -282,7 +235,7 @@ function changeEntryHandler(req,res){
   var validTo = validate.isPlace(to);
   var validRequest = validate.request(request);
   var validnumberOfSeats = validate.numberOfSeats(seats);
-  var validDate= validate.checkDate(time);
+  var validDate= validate.checkDate(date);
   var validClock= validate.checkClock(klukka);
 
   if(!validFrom){
@@ -337,13 +290,13 @@ function changeEntryHandler(req,res){
 
 
   else{
-    time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
+    date = date.slice(6,10)+'-'+date.slice(3,5)+'-'+date.slice(0,2);
 
     entries.changeEntry(id,
       username.username,
       from,
       to,
-      time,
+      date,
       request,
       smoking,
       username.userphone,
