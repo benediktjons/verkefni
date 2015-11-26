@@ -349,7 +349,7 @@ $('.parent').click(function blabla() {
       var texti=stor[i].innerHTML;
       var icon = litill[i];
       var mynd = image[i];
-      if (texti === 'Farþegum'){
+      if (texti === 'Fari'){
         var fj = fjoldiSaeta[i].innerHTML;
         if (fj==="1"){
           $(mynd).hide();
@@ -361,7 +361,7 @@ $('.parent').click(function blabla() {
           $(mynd).attr("src", src);
         }
       }
-      else if (texti === 'Fari'){
+      else if (texti === 'Farþegum'){
         $(icon).hide();
         var src = '/images/glyphicon_car.png';
         $(mynd).attr("src", src);
