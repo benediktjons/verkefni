@@ -88,14 +88,12 @@ function createHandler(req, res) {
     val:email,
     valid: validEmail
   };
-  if (req.body.phone){
-    phone = xss(req.body.phone);
-    var validPh = validate.phonenumber(phone);
-    data.phone={
-      val:phone,
-      valid:validPh
-    };
-  }
+  phone = xss(req.body.phone);
+  var validPh = validate.phonenumber(phone);
+  data.phone={
+    val:phone,
+    valid:validPh
+  };
 
   var allTrue = (
     data.username.valid &&
@@ -461,12 +459,7 @@ function write(req, res) {
 
 function change(req, res) {
   console.log('Keyri change');
-  var user = req.session.user;
-  entries.listEntries(function (err, all) {
-    res.render('change', { title: 'Breyta færslu',
-      user: user,
-      users: all });
-  });
+  res.render('change', { title: 'Breyta færslu'});
 }
 
 function redirect(req,res){
