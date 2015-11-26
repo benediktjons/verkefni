@@ -16,33 +16,35 @@ block content
                 input.form-control(type='text', placeholder='Jón Sigurðsson', id="username", name="username", value=username.val)
                 i.glyphicon.glyphicon-user.form-control-feedback
                 if (!username.valid)
-                    p.error Villa með notandanafn!
+                    p.error Villa. notendanafn þarf að vera að minstakosti tveir stafir
         .form-group.has-feedback
             label.control-label.col-md-2(for="password") Lykilorð:
             .col-md-8
-                input.form-control(type='password', placeholder='*****', id="password", name="password",value=email.val)
+                input.form-control(type='password', placeholder='*****', id="password", name="password")
                 i.glyphicon.glyphicon-lock.form-control-feedback
-                if (!username.valid)
-                    p.error Villa! Lykilorð þarf að vera HVAÐ?? VEIT EKKI                    
+                if (!password.valid)
+                    p.error Villa! Lykilorð þarf að vera að minstakosti fimm stafir.
           .form-group.has-feedback
             label.control-label.col-md-2(for="password2") Staðfesta lykilorð:
             .col-md-8
-                input.form-control(type='password', placeholder='*****', id="password2", name="password2")
+                input.form-control(type='password', placeholder='*****', id="password2", name="password2", value=password2.val)
                 i.glyphicon.glyphicon-alert.form-control-feedback
+                if (!password2.valid)
+                    p.error Villa! Lykilorð þurfa að vera eins.
         .form-group.has-feedback
             label.control-label.col-md-2(for="phone") Sími:
             .col-md-8
                 input.form-control(type='phone', placeholder='5812345', id="phone", name="phone", value=phone.val)
                 i.glyphicon.glyphicon-earphone.form-control-feedback
                 if (!phone.valid)
-                    p.error Villa með símanúmer! 
+                    p.error Villa með símanúmer!
          .form-group.has-feedback
             label.control-label.col-md-2(for="email") Netfang:
             .col-md-8
                 input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email.val)
                 i.glyphicon.glyphicon-envelope.form-control-feedback
                 if (!email.valid)
-                    p.error Villa með notandanafn! 
+                    p.error Villa: Netfang má ekki vera tómt!
 
 
 

@@ -41,6 +41,7 @@ function createForm(req, res) {
   console.log('data.title:'+data.title);
   var username={val:'',valid:true};
   var password={val: '', valid:true};
+  var password2={val:'', valid:true};
   var email={val: '', valid:true};
   var phone={val: '', valid:true};
 
@@ -48,6 +49,7 @@ function createForm(req, res) {
   data.email=email;
   data.phone=phone;
   data.password=password;
+  data.password2=password2;
   res.render('create', data);
 }
 
@@ -67,40 +69,42 @@ function createHandler(req, res) {
   var validPw = validate.length(password, 5);
 
   data.username={
-    val:username, 
+    val:username,
     valid: validUser
   };
+
   data.password={
     val:'',
-    valid:(validPw &&validCheckPw)
+    valid:(validPw)
+  };
+   data.password2={
+    val:'',
+    valid:(validCheckPw)
   };
 
-  if (req.body.phone){
-    var phone = xss(req.body.phone);
-    var validPh = validate.phonenumber(phone);
-    data.phone={
-      val:phone,
-      valid:validPh
-    }
-  }
-  if (req.body.email){
-    var email = xss(req.body.email);
-    var validEmail = validate.isEmail(email);
-    data.email = {
-      val:email,
-      valid: validEmail
-    };
-  }
+  email = xss(req.body.email);
+  var validEmail = validate.isEmail(email);
+  data.email = {
+    val:email,
+    valid: validEmail
+  };
+  phone = xss(req.body.phone);
+  var validPh = validate.phonenumber(phone);
+  data.phone={
+    val:phone,
+    valid:validPh
+  };
 
   var allTrue = (
     data.username.valid &&
     data.email.valid &&
     data.password.valid &&
+    data.password2.valid &&
     data.phone.valid
   );
 
   if(allTrue){
-    users.createUser(username, password, email, phone, function (err, status) {
+    users.createUser(username, password, email.val, phone, function (err, status) {
       if (err) {
         console.error(err);
       }
@@ -113,7 +117,9 @@ function createHandler(req, res) {
         res.render('create', { title: 'Nýskráning', post: true, error: error, success: success });
       }
       else{
-        res.render('login', { title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success });
+        var data={ title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success };
+        data.username={val:''};
+        res.render('login', data);
       }
     });
   }
@@ -121,40 +127,6 @@ function createHandler(req, res) {
     console.log('Else: Data er:'+data);
     res.render('create',data);
   }
-  //Kommentaði bara út! Þetta var gamla fallið en má held ég eyða ef fyrir ofan virkar 100%
-  /*
-  if (!validUser){
-    res.render('create', data{title: 'Nýskráning',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir.'
-  });
-  }
-
-  else if(!validPw){
-    res.render('create', {title: 'Nýskráning',
-    success: false,
-    post: true,
-    error: 'Villa: lykilorð þarf að vera lengra en 5 stafir.'
-  });
-  }
-
-  else if(!validCheckPw){
-    res.render('create', {title: 'Nýskráning',
-    success: false,
-    post: true,
-    error: 'Villa: lykilorð þurfa að vera eins.'
-  });
-  }
-  else if(!validPh){
-    res.render('create', {title: 'Nýskráning',
-    success: false,
-    post: true,
-    error: 'Villa: Símanúmer þarf að vera að minnsta kosti 7 tölustafir.'
-  });
-  }
-  else{
-  }*/
 }
 
 function entryHandler(req,res){
@@ -169,94 +141,124 @@ function entryHandler(req,res){
   var annad = xss(req.body.textarea);
   var seats = xss(req.body.seats);
 
+ /* data.username={
+    val:username,
+    valid: validUser
+  };
+  data.password={
+    val:'',
+    valid:(validPw)
+  };
 
-//validate-um gogninn sem vid faum inn
-var validFrom = validate.isPlace(from);
-var validTo = validate.isPlace(to);
-var validRequest = validate.request(request);
-var validnumberOfSeats = validate.numberOfSeats(seats);
-var validDate= validate.checkDate(time);
-var validClock= validate.checkClock(klukka);
+   data.password2={
+    val:'',
+    valid:(validCheckPw)
+  };
 
-if(!validFrom){
-  //villumedhondlun
-  res.render('writeOnWall', {title: 'Skrá ferð',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'
-  });
-}
+  if (req.body.phone){
+    phone = xss(req.body.phone);
+    var validPh = validate.phonenumber(phone);
+    data.phone={
+      val:phone,
+      valid:validPh
+    };
+  }
+  if (req.body.email){
+    email = xss(req.body.email);
+    var validEmail = validate.isEmail(email);
+    data.email = {
+      val:email,
+      valid: validEmail
+    };
+  }*/
 
-else if(!validTo){
-  //villumedhondlun
-  res.render('writeOnWall', {title: 'Jæja, þarna gerðist eitthvað',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf möguleika úr Til boxinu.'
+  //validate-um gogninn sem vid faum inn
+  var validFrom = validate.isPlace(from);
+  var validTo = validate.isPlace(to);
+  var validRequest = validate.request(request);
+  var validnumberOfSeats = validate.numberOfSeats(seats);
+  var validDate= validate.checkDate(time);
+  var validClock= validate.checkClock(klukka);
+
+  if(!validFrom){
+    //villumedhondlun
+    res.render('writeOnWall', {title: 'Skrá ferð',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'
     });
-}
-else if(!validRequest){
-  //villumedhondlun
-  res.render('writeOnWall', {title: 'Skutla?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf möguleika úr óska eftir boxinu..'
-    });
-}
-else if(!validnumberOfSeats){
-  //villumedhondlun
-  res.render('writeOnWall', {title: 'Hversu margir?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að  velja þarf fjölda sæta úr fjöldi sæta boxinu.'
-    });
-}
-else if(!validClock){
-  //villumedhondlun
-  res.render('writeOnWall', {title: 'Klukkan?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf  Klukku..'
-    });
-}
-else if(!validDate){
-  //villumedhondlun
-  res.render('writeOnWall', {title: 'Hvenær?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. ertu viss um að þessi dagsetning sé ekki liðin?...'
-    });
-}
+  }
+
+  else if(!validTo){
+    //villumedhondlun
+    res.render('writeOnWall', {title: 'Jæja, þarna gerðist eitthvað',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf möguleika úr Til boxinu.'
+      });
+  }
+  else if(!validRequest){
+    //villumedhondlun
+    res.render('writeOnWall', {title: 'Skutla?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf möguleika úr óska eftir boxinu..'
+      });
+  }
+  else if(!validnumberOfSeats){
+    //villumedhondlun
+    res.render('writeOnWall', {title: 'Hversu margir?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að  velja þarf fjölda sæta úr fjöldi sæta boxinu.'
+      });
+  }
+  else if(!validClock){
+    //villumedhondlun
+    res.render('writeOnWall', {title: 'Klukkan?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf  Klukku..'
+      });
+  }
+  else if(!validDate){
+    //villumedhondlun
+    res.render('writeOnWall', {title: 'Hvenær?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. ertu viss um að þessi dagsetning sé ekki liðin?...'
+      });
+  }
 
 
-else{
-  time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
+  else{
+    time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
 
-  entries.createEntry(username.username,
-    from,
-    to,
-    time,
-    request,
-    smoking,
-    username.userphone,
-    username.useremail,
-    klukka,
-    annad,
-    seats,
-    function(err, status){
-      if (err){
-        console.error(err);
-      }
+    entries.createEntry(username.username,
+      from,
+      to,
+      time,
+      request,
+      smoking,
+      username.userphone,
+      username.useremail,
+      klukka,
+      annad,
+      seats,
+      function(err, status){
+        if (err){
+          console.error(err);
+        }
 
-      var success = true;
+        var success = true;
 
-      if (err || !status){
-        success = false;
-      }
+        if (err || !status){
+          success = false;
+        }
 
-      res.redirect('/#s2');
-    });
-}
+        res.redirect('/#s2');
+      });
+  }
 }
 
 function changeEntryHandler(req,res){
@@ -275,94 +277,94 @@ function changeEntryHandler(req,res){
   var seats = xss(req.body.seats);
 
 
-//validate-um gogninn sem vid faum inn
-var validFrom = validate.isPlace(from);
-var validTo = validate.isPlace(to);
-var validRequest = validate.request(request);
-var validnumberOfSeats = validate.numberOfSeats(seats);
-var validDate= validate.checkDate(time);
-var validClock= validate.checkClock(klukka);
+  //validate-um gogninn sem vid faum inn
+  var validFrom = validate.isPlace(from);
+  var validTo = validate.isPlace(to);
+  var validRequest = validate.request(request);
+  var validnumberOfSeats = validate.numberOfSeats(seats);
+  var validDate= validate.checkDate(time);
+  var validClock= validate.checkClock(klukka);
 
-if(!validFrom){
-  //villumedhondlun
-  res.render('change', {title: 'Hvert á að fara?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'
-  });
-}
-
-else if(!validTo){
-  //villumedhondlun
-  res.render('change', {title: 'Jæja, þarna gerðist eitthvað',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf möguleika úr Til boxinu.'
+  if(!validFrom){
+    //villumedhondlun
+    res.render('change', {title: 'Hvert á að fara?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'
     });
-}
-else if(!validRequest){
-  //villumedhondlun
-  res.render('change', {title: 'Skutla?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf möguleika úr óska eftir boxinu..'
-    });
-}
-else if(!validnumberOfSeats){
-  //villumedhondlun
-  res.render('change', {title: 'Hversu margir?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að  velja þarf fjölda sæta úr fjöldi sæta boxinu.'
-    });
-}
-else if(!validClock){
-  //villumedhondlun
-  res.render('change', {title: 'Klukkan?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. að velja þarf  Klukku..'
-    });
-}
-else if(!validDate){
-  //villumedhondlun
-  res.render('change', {title: 'Hvenær?',
-    success: false,
-    post: true,
-    error: 'Villa: Ath. ertu viss um að þessi dagsetning sé ekki liðin?...'
-    });
-}
+  }
+
+  else if(!validTo){
+    //villumedhondlun
+    res.render('change', {title: 'Jæja, þarna gerðist eitthvað',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf möguleika úr Til boxinu.'
+      });
+  }
+  else if(!validRequest){
+    //villumedhondlun
+    res.render('change', {title: 'Skutla?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf möguleika úr óska eftir boxinu..'
+      });
+  }
+  else if(!validnumberOfSeats){
+    //villumedhondlun
+    res.render('change', {title: 'Hversu margir?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að  velja þarf fjölda sæta úr fjöldi sæta boxinu.'
+      });
+  }
+  else if(!validClock){
+    //villumedhondlun
+    res.render('change', {title: 'Klukkan?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. að velja þarf  Klukku..'
+      });
+  }
+  else if(!validDate){
+    //villumedhondlun
+    res.render('change', {title: 'Hvenær?',
+      success: false,
+      post: true,
+      error: 'Villa: Ath. ertu viss um að þessi dagsetning sé ekki liðin?...'
+      });
+  }
 
 
-else{
-  time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
+  else{
+    time = time.slice(6,10)+'-'+time.slice(3,5)+'-'+time.slice(0,2);
 
-  entries.changeEntry(id,
-    username.username,
-    from,
-    to,
-    time,
-    request,
-    smoking,
-    username.userphone,
-    username.useremail,
-    klukka,
-    annad,
-    seats,
-    function(err, status){
-      if (err){
-        console.error(err);
-      }
+    entries.changeEntry(id,
+      username.username,
+      from,
+      to,
+      time,
+      request,
+      smoking,
+      username.userphone,
+      username.useremail,
+      klukka,
+      annad,
+      seats,
+      function(err, status){
+        if (err){
+          console.error(err);
+        }
 
-      var success = true;
+        var success = true;
 
-      if (err || !status){
-        success = false;
-      }
+        if (err || !status){
+          success = false;
+        }
 
-      res.redirect('/#s2');
-    });
-}
+        res.redirect('/#s2');
+      });
+  }
 }
 
 function ensureLoggedIn(req, res, next) {
@@ -386,13 +388,26 @@ function redirectIfLoggedIn(req, res, next) {
 }
 
 function login(req, res) {
-  res.render('login', { title: 'Login'});
+  var data={title: 'Login'};
+  var username={val: ''};
+  data.username=username;
+
+
+  res.render('login', data);
 }
 
 function loginHandler(req, res) {
+  var data = {
+        title: 'Login',
+        username: username,
+        error: true
+      };
   var username = req.body.username;
   var password = req.body.password;
-
+  data.username ={
+    val:username
+  };
+  console.log(data.username);
   users.auth(username, password, function (err, user) {
     if (user) {
       if (req.session.redirected){
@@ -407,11 +422,7 @@ function loginHandler(req, res) {
       }
     }
     else {
-      var data = {
-        title: 'Login',
-        username: username,
-        error: true
-      };
+
       res.render('login', data);
     }
   });
@@ -426,22 +437,29 @@ function logout(req, res) {
 
 function write(req, res) {
   console.log('Keyri write');
-  var user = req.session.user;
-  entries.listEntries(function (err, all) {
-    res.render('writeOnWall', { title: 'Skrifa á vegg',
-      user: user,
-      users: all });
-  });
+  var data={title: 'Skrá ferð'};
+  var dags={val: '', valid:true};
+  var seats={val: '1', valid:true};
+  var time={val: '13:37', valid:true};
+  var ride={val:'Farþegum', valid:true};
+  var from={val:'Reykjavík', valid:true};
+  var to={val:'Akureyri', valid:true};
+  var txt={val:'',valid:true};
+
+  data.dags=dags;
+  data.seats=seats;
+  data.time=time;
+  data.ride=ride;
+  data.from=from;
+  data.to=to;
+  data.txt=txt;
+
+  res.render('writeOnWall',data);
 }
 
 function change(req, res) {
   console.log('Keyri change');
-  var user = req.session.user;
-  entries.listEntries(function (err, all) {
-    res.render('change', { title: 'Breyta færslu',
-      user: user,
-      users: all });
-  });
+  res.render('change', { title: 'Breyta færslu'});
 }
 
 function redirect(req,res){

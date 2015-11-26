@@ -31,6 +31,7 @@ $(document).ready(function (){
 
   //Fall sem synir bara valdar dagsetningar
   $("input, select").on("change click", function () {
+    debugger;
     var dagssetningfra = $("#date-picker-2").val();
     var yearsfra= dagssetningfra.slice(6,10);
     var monthsfra= dagssetningfra.slice(3,5);
@@ -45,6 +46,7 @@ $(document).ready(function (){
     var elementParent = document.getElementsByClassName('parent');
 
     $('.searchDate').each(function (i, e) {
+      debugger;
       items.push($(e).text());
 
       var ar= items[i].slice(6,10);
