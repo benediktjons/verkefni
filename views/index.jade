@@ -274,29 +274,18 @@ block content
                         .searchTo.col-xs-3.col-sm-3.col-md-3.col-lg-3(id='#to#{e.entryid}') #{e.entryto}
                         .searchDate.col-xs-3.col-sm-2.col-md-2.col-lg-2(id='#time#{e.entryid}') #{e.entrytime}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1(id='#klukka#{e.entryid}') #{e.entryklukka}
-                        .hidden-xs.col-sm-1.col-md-1.col-lg-1
-                         button.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.syna.hidden-xs.hidden-sm.hidden-md.hidden-lg(class ="aa#{e.entryid}" type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                        button.hidden-xs.pull-right.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.syna.hidden-xs.hidden-sm.hidden-md.hidden-lg.allbutton(class ="aa#{e.entryid}" type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
 
-                    .row
-                            a( data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search')
-                                .BaraUser.pull-right
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                        button.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down(class="aa#{e.entryid}", type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                        button.btn.btn-warning(type='button', class="breyta" id="breyta#{e.entryid}")
-                                            span.glyphicon.glyphicon-edit
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                    .col-xs-1.col.col-sm-1.col-md-1.col-lg-1.pull-right
-                                        button.btn.btn-danger(type='button', class = "eyda", id="eyda#{e.entryid}")
-                                            span.glyphicon.glyphicon-trash
-                                .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
-                                .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
+                    .row.BaraUser
+                        button.smallbutton.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.pull-right(class="aa#{e.entryid}", type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
+                        button.smallbutton.btn.btn-warning.glyphicon.glyphicon-edit.pull-right(type='button', class="breyta" id="breyta#{e.entryid}")
+                        button.smallbutton.btn.btn-danger.glyphicon.glyphicon-trash.pull-right(type='button', class = "eyda", id="eyda#{e.entryid}")
+                    .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
+                    .col-xs-2.hidden-sm.hidden-md.hidden-lg #{e.entryklukka}
 
 
                 article.row.collapse(id='#{e.entryid}')
-
-                    .hvitt.col-xs-9.col-sm-9.col-md-11.col-lg-11.right
+                    aside.hvitt.col-xs-9.col-sm-9.col-md-11.col-lg-11.right
                         .row
                             .searchNotandi.col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Notandi:
