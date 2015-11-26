@@ -286,6 +286,21 @@ img.img-icon:hover {
   margin-left:5%;
   float:left;
 }
+
+.wordwrap {
+   white-space: pre-wrap;      /* CSS3 */
+   white-space: -moz-pre-wrap; /* Firefox */
+   white-space: -pre-wrap;     /* Opera <7 */
+   white-space: -o-pre-wrap;   /* Opera 7 */
+   word-wrap: break-word;      /* IE */
+}
+
+.glyphicon-arrow-right{
+  margin: auto;
+}
+
+#abouttext{margin-bottom:100px;}
+/*
 @media screen and (max-width: 768px) {
     body {
         background-color: lightgreen;
@@ -293,7 +308,7 @@ img.img-icon:hover {
 
     .smallTime{
       /*margin-left: 12.5% ;*/
-
+/*
 clear:both;
       display: inline-block;
 
