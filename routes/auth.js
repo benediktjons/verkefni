@@ -35,6 +35,7 @@ function createForm(req, res) {
   console.log('data.title:'+data.title);
   var username={val:'',valid:true};
   var password={val: '', valid:true};
+  var password2={val:'', valid:true};
   var email={val: '', valid:true};
   var phone={val: '', valid:true};
 
@@ -42,6 +43,7 @@ function createForm(req, res) {
   data.email=email;
   data.phone=phone;
   data.password=password;
+  data.password2=password2;
   res.render('create', data);
 }
 
@@ -61,12 +63,17 @@ function createHandler(req, res) {
   var validPw = validate.length(password, 5);
 
   data.username={
-    val:username, 
+    val:username,
     valid: validUser
   };
   data.password={
     val:'',
-    valid:(validPw &&validCheckPw)
+    valid:(validPw)
+  };
+
+   data.password2={
+    val:'',
+    valid:(validCheckPw)
   };
 
   if (req.body.phone){
@@ -90,6 +97,7 @@ function createHandler(req, res) {
     data.username.valid &&
     data.email.valid &&
     data.password.valid &&
+    data.password2.valid &&
     data.phone.valid
   );
 
@@ -380,13 +388,30 @@ function redirectIfLoggedIn(req, res, next) {
 }
 
 function login(req, res) {
-  res.render('login', { title: 'Login'});
+  var data={title: 'Login'};
+   var username={val: ''};
+  var password={val: '', valid:true};
+
+data.username=username
+
+
+  res.render('login', data);
 }
 
 function loginHandler(req, res) {
+  var data = {
+        title: 'Login',
+        username: username,
+        error: true,
+
+      };
   var username = req.body.username;
   var password = req.body.password;
-
+   var validUser = validate.length(username, 2);
+data.username ={
+  val:username
+}
+console.log(data.username);
   users.auth(username, password, function (err, user) {
     if (user) {
       if (req.session.redirected){
@@ -401,11 +426,7 @@ function loginHandler(req, res) {
       }
     }
     else {
-      var data = {
-        title: 'Login',
-        username: username,
-        error: true
-      };
+
       res.render('login', data);
     }
   });
