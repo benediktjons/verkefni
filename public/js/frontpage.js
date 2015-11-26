@@ -21,7 +21,7 @@ $(document).ready(function (){
 
     $('.searchTo').each(function (i, e) {
       itemsTil.push($(e).text());
-      
+
       if(itemsTil[i] !== leitTil && leitTil !== 'Veldu'){
         $(elementParent[i]).hide();//latum parentid fela sig
       }
@@ -106,7 +106,7 @@ $(document).ready(function (){
       saetialls=saetafjoldi;
     }
     else if(saetafjoldi<saetafjoldi2){
-      saetialls=saetafjoldi2
+      saetialls=saetafjoldi2;
     }
     else{
       saetialls=saetafjoldi;
@@ -279,7 +279,6 @@ $('.parent').click(function blabla() {
   //Keyrum þetta þegar ýtt er á delete takkann.
   //Eyðir færslunni úr gagnagrunnig og úr DOM tré
   $('.eyda').on('click', function(){
-    debugger;
     var eydaid=$(this).attr('id');
     var id=eydaid.slice(4);
     var arcticle1=$('#entry'+id);
@@ -339,13 +338,11 @@ $('.parent').click(function blabla() {
 
   //Setur rétt icon í 'óska eftir' dálkinn í minnstu skjástærð
   function setIcon(){
-    debugger;
     var stor = $('.searchRequest');
     var litill = $('.rideIcon');
     var image =$('.rideImage');
     var fjoldiSaeta = $('.fjoldiSaeta');
     $('.herna').each(function(i){
-      debugger;
       var texti=stor[i].innerHTML;
       var icon = litill[i];
       var mynd = image[i];
@@ -363,11 +360,11 @@ $('.parent').click(function blabla() {
       }
       else if (texti === 'Farþegum'){
         $(icon).hide();
-        var src = '/images/glyphicon_car.png';
-        $(mynd).attr("src", src);
+        var src2 = '/images/glyphicon_car.png';
+        $(mynd).attr("src", src2);
       }
     });
   }
   setIcon();
-  
+
 });

@@ -1,6 +1,5 @@
 $(document).ready(function (){
-    debugger;
-    'use strict'
+    'use strict';
 
     //náum í gildi úr localstorage
     var reqvalue = localStorage.getItem('request');
@@ -24,6 +23,7 @@ $(document).ready(function (){
     var id= JSON.parse(idvalue);
 
     //breytum völdum gildum í hinum ´´ymsu select og input boxum
+    $('#request').val(request);
     $('#changeFra').val(from);
     $('#changeTil').val(to);
     $('#date-picker-2').val(time);
@@ -32,7 +32,7 @@ $(document).ready(function (){
     $('#saeti').val(seats);
     $('#myid').val(id);
 
-    if (smoke == 'Reyklaus'){
+    if (smoke === 'Reyklaus'){
         $('#inlineCheckbox1').prop('checked', true);
     }
     else{
