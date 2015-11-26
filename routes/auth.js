@@ -105,7 +105,7 @@ var validClock= validate.checkClock(klukka);
 
 if(!validFrom){
   //villumedhondlun
-  res.render('writeOnWall', {title: 'Skrifa á vegg',
+  res.render('writeOnWall', {title: 'Skrá ferð',
     success: false,
     post: true,
     error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'

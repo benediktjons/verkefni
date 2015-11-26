@@ -56,6 +56,59 @@ $(document).ready(function (){
 
     location.href='/change' ;
   });
-
+  //setDatepickerDate setur value á #date-picker-2 sem daginn í dag.
+  function setDatepickerDate(){
+    var dags=new Date();
+    dags=dags.toString();
+    dags = dags.substr(4,11);//Fáum dags á formið Mán dd yyyy
+    var year = dags.substr(7,4);
+    var month = dags.substr(0,3);//Tökum út Mán úr dags og notum í switch
+    var day=dags.substr(4,2);
+    switch (month) {
+      case 'Jan':
+        month ='01';
+        break;
+      case 'Feb':
+        month = '02';
+        break;
+      case 'Mar':
+        month ='03';
+        break;
+      case 'Apr':
+        month ='04';
+        break;
+      case 'May':
+        month ='05';
+        break;
+      case 'Jun':
+        month ='06';
+        break;
+      case 'Jul':
+        month ='07';
+        break;
+      case 'Aug':
+        month ='08';
+        break;
+      case 'Sep':
+        month ='09';
+        break;
+      case 'Oct':
+        month ='10';
+        break;
+      case 'Nov':
+        month ='11';
+        break;
+      case 'Dec':
+        month ='12';
+        break;
+      default:
+        alert('Whoops! Something went wrong');
+        break;
+      }
+      debugger;
+    dags=day+'/'+month+'/'+year;
+    $('#date-picker-2').val(dags);
+  }
+  setDatepickerDate();
 
 });
