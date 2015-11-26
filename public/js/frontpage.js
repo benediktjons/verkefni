@@ -221,7 +221,7 @@ $(document).ready(function (){
   //dateFormat tekur date á því formati sem það kemur úr gagnagrunninum,
   // t.d. (Wed Nov 25 2015 00:00:00 GMT+0000 (Greenwich Standard Time)) og strípar það í dd/mm/yyyy
   function dateFormat(){
-    $('.searchDate').each(function(){
+    $('.litilDags').each(function(i){
       var dags = $(this).text();//Skilar dags á formattinu Dag Mán dd yyyy tími timezone ofl sem við viljum ekki
       dags = dags.slice(4,16);//Fáum dags á formið Mán dd yyyy
       var year = dags.slice(7,11);
