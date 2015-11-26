@@ -1,6 +1,7 @@
 $(document).ready(function (){
   'use strict';
   console.log("frontpage keyrir");
+
   // her er til og fra gaurinn
   $("input, select").on("change click", function () {
     var leitFra = $("#leitFra").val();
@@ -28,7 +29,6 @@ $(document).ready(function (){
     });
   });
 
-
   //Fall sem synir bara valdar dagsetningar
   $("input, select").on("change click", function () {
     debugger;
@@ -53,7 +53,7 @@ $(document).ready(function (){
       var manudir= items[i].slice(3,5);
       var dagar= items[i].slice(0,2);
       var dagaralls = ar*365+manudir*30+dagar;
-
+      debugger;
       if(dagaralls < daystotalfra){
         $(elementParent[i]).hide();//latum parentid fela sig
       }
@@ -62,6 +62,7 @@ $(document).ready(function (){
       }
     });
   });
+
 
   //fall sem synir bara reyklaus
   $("input, select").on("change click", function () {
@@ -79,6 +80,7 @@ $(document).ready(function (){
   });
 
   //fall sem felur tha sem oska ekki eftir fari og tha sem oska ekki eftir farthegum
+  //#
   $("input, select").on("change click", function () {
     var items = [];
     var elementParent = document.getElementsByClassName('parent');
@@ -98,6 +100,38 @@ $(document).ready(function (){
       }
       });
   });
+
+  //fall sem synir bara daginn í dag
+  $("input, select").on("change click", function () {
+    var items = [];
+    var elementParent = document.getElementsByClassName('parent');
+    Date.prototype.yyyymmdd = function() {
+      var yyyy = this.getFullYear().toString();
+      var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+      var dd  = this.getDate().toString();
+      return (dd[1]?dd:"0"+dd[0]) + '/' + (mm[1]?mm:"0"+mm[0]) + '/' + yyyy; // padding
+      };
+    var d = new Date();
+    var idag=d.yyyymmdd();
+    console.log('idag');
+    console.log(idag);
+    console.log(typeof(idag))
+    $('.searchDate' ).each(function (i, e) {
+      items.push($(e).text());
+      if( document.getElementById('leitidag').checked){
+        console.log('hinar dags');
+        console.log(items[i]);
+        console.log(typeof(items[i]));
+        //debugger;
+        if(items[i] !== idag){
+          console.log(items[i]);
+          $(elementParent[i]).hide();//latum parentid fela sig
+          console.log($(elementParent[i]));
+        }
+      }
+    });
+  });
+
 
   //Fall sem synir bara fleiri eda jafnt voldum saetafjolda
   $("input, select").on("change click", function () {
@@ -128,6 +162,7 @@ $(document).ready(function (){
   /*Fallið correctIfFromISGreaterThanTo breytir gildinu á til dagsetningunni
   í gildið á frá dagsetningunni ef að frá er 'stærra' en til gildið.
   Þ.a. ekki er hægt að velja t.d. frá okt. 2015 til okt 2013.*/
+
   $('.date-picker').change(function correctIfFromIsGreaterThanTo(){
 
     var fromDate = $('#date-picker-2').val();
@@ -153,6 +188,7 @@ $(document).ready(function (){
       }
     }
   });
+
 
     function felatakka(){
       var username = $(".user").text();

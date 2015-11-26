@@ -196,11 +196,15 @@ block content
                     input.date-picker.form-control(type='text', id="date-picker-2")
                     label.input-group-addon.btn(for='date-picker-2')
                         span.glyphicon.glyphicon-calendar
-                label.control-label(for='date-picker-3') Til:
+                label.control-label(for='date-picker-3')  Til:
                 .input-group
                     input.date-picker.form-control(type='text', id="date-picker-3")
                     label.input-group-addon.btn(for='date-picker-3')
                         span.glyphicon.glyphicon-calendar
+                .form-group
+                    label.checkbox
+                    input(id="leitidag", type="checkbox")
+                    |  Í dag
         h3.grayscale Aðrir valkostir
 
         .form-inline.hidden-md.hidden-lg
@@ -222,22 +226,22 @@ block content
             .form-group
                 label.checkbox
                 input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                | Sjá aðeins 
-                span.underline reyklausa 
+                |  Sjá aðeins
+                span.underline  reyklausa
                 |  bíla.
         .form-inline
             .form-group
                 label.checkbox
-                input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                | Sjá aðeins þá sem 
-                span.underline óska 
+                input(id="leitOskaEftirFari", type="checkbox")
+                |  Sjá aðeins þá sem
+                span.underline  óska
                 |  eftir fari
         .form-inline
             .form-group
                 label.checkbox
-                input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                | Sjá aðeins þá sem 
-                span.underline eru á
+                input(id="leitOkumenn", type="checkbox")
+                |  Sjá aðeins þá sem
+                span.underline  eru á
                 |  bíl.
 
                 label.saetisfjoldi.hidden-sm.hidden-xs(for='saetaleit2') Sætafjöldi a.m.k:
