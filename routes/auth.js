@@ -36,26 +36,95 @@ function aboutUs(req, res) {
   res.render('about', { title: 'Um Samfó', user:username});
 }
 function createForm(req, res) {
-  res.render('create', { title: 'Nýskráning' });
+  var data={title: 'Nýskráning'};
+  console.log(data);
+  console.log('data.title:'+data.title);
+  var username={val:'',valid:true};
+  var password={val: '', valid:true};
+  var email={val: '', valid:true};
+  var phone={val: '', valid:true};
+
+  data.username= username;
+  data.email=email;
+  data.phone=phone;
+  data.password=password;
+  res.render('create', data);
 }
 
 function createHandler(req, res) {
+  var data={title: 'Nýskráning'};
+  var email={val: '', valid:true};
+  var phone={val: '', valid:true};
+  data.email=email;
+  data.phone=phone;
+
   var username = xss(req.body.username);
   var password = xss(req.body.password);
   var password2 = xss(req.body.password2);
-  var email = xss(req.body.email);
-  var phone = xss(req.body.phone);
-
-
 
   var validCheckPw = validate.password(password,password2);
   var validUser = validate.length(username, 2);
   var validPw = validate.length(password, 5);
-  var validPh = validate.phonenumber(phone);
 
+  data.username={
+    val:username, 
+    valid: validUser
+  };
+  data.password={
+    val:'',
+    valid:(validPw &&validCheckPw)
+  };
 
+  if (req.body.phone){
+    var phone = xss(req.body.phone);
+    var validPh = validate.phonenumber(phone);
+    data.phone={
+      val:phone,
+      valid:validPh
+    }
+  }
+  if (req.body.email){
+    var email = xss(req.body.email);
+    var validEmail = validate.isEmail(email);
+    data.email = {
+      val:email,
+      valid: validEmail
+    };
+  }
+
+  var allTrue = (
+    data.username.valid &&
+    data.email.valid &&
+    data.password.valid &&
+    data.phone.valid
+  );
+
+  if(allTrue){
+    users.createUser(username, password, email, phone, function (err, status) {
+      if (err) {
+        console.error(err);
+      }
+
+      var success = true;
+      var error='';
+      if (err || !status) {
+        success = false;
+        error= 'Villa við að útbúa notanda';
+        res.render('create', { title: 'Nýskráning', post: true, error: error, success: success });
+      }
+      else{
+        res.render('login', { title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success });
+      }
+    });
+  }
+  else{
+    console.log('Else: Data er:'+data);
+    res.render('create',data);
+  }
+  //Kommentaði bara út! Þetta var gamla fallið en má held ég eyða ef fyrir ofan virkar 100%
+  /*
   if (!validUser){
-    res.render('create', {title: 'Nýskráning',
+    res.render('create', data{title: 'Nýskráning',
     success: false,
     post: true,
     error: 'Villa: Ath. að notandanafn þarf að vera lengra en 2 stafir.'
@@ -85,21 +154,7 @@ function createHandler(req, res) {
   });
   }
   else{
-    users.createUser(username, password, email, phone, function (err, status) {
-      if (err) {
-        console.error(err);
-      }
-
-      var success = true;
-      var error='';
-      if (err || !status) {
-        success = false;
-        error= 'Villa við að útbúa notanda';
-        res.render('create', { title: 'Nýskráning', post: true, error: error, success: success });
-      }
-      res.render('login', { title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success });
-    });
-  }
+  }*/
 }
 
 function entryHandler(req,res){
