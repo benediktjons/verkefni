@@ -9,22 +9,28 @@ var validate = require('../lib/validate');
 var users = require('../lib/users');
 var entries = require('../lib/entries');
 
+//get og post fyrir um okkur síðuna
 router.get('/about', aboutUs);
+//Get og post fyrir 'búa til nýja færslu' síðuna
 router.get('/createride',ensureLoggedIn, write);
 router.post('/createride', entryHandler);
-//change
+//change, breyta færslu síðan
 router.get('/change', ensureLoggedIn, change);
 router.post('/change', changeEntryHandler);
+//login síðan
 router.get('/login', redirectIfLoggedIn, login);
 router.post('/login', loginHandler);
+
 router.get('/logout', logout);
+//Búa til nýjan notanda síðan
 router.get('/create', createForm);
 router.post('/create', createHandler);
+//Notandi fer á þessa síðu ef hann reynir að fara inn á login
+//síðuna þegar hann er skráður inn
 router.get('/redirect', redirect);
 
 module.exports = router;
 
-//route middlewares
 function aboutUs(req, res) {
   var username = req.session.user;
   res.render('about', { title: 'Um Samfó', user:username});
