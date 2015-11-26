@@ -286,8 +286,8 @@ block content
 
                     .row.BaraUser.hidden-xs
                         button.smallbutton.btn.btn-default.Button-colap.glyphicon.glyphicon-chevron-down.pull-right(class="aa#{e.entryid}", type='button', data-toggle='collapse', data-target="##{e.entryid}", aria-expanded='false', aria-controls='search',  id ="aa#{e.entryid}" )
-                        button.smallbutton.btn.btn-warning.glyphicon.glyphicon-edit.pull-right(type='button', class="breyta" id="breyta#{e.entryid}")
-                        button.smallbutton.btn.btn-danger.glyphicon.glyphicon-trash.pull-right(type='button', class = "eyda", id="eyda#{e.entryid}")
+                        button.smallbutton.btn.btn-warning.glyphicon.glyphicon-edit.pull-right.changeWithId(type='button', class="breyta" id="breyta#{e.entryid}")
+                        button.smallbutton.btn.btn-danger.glyphicon.glyphicon-trash.pull-right.delWithId(type='button', class = "eyda", id="eyda#{e.entryid}")
                     .AllirNemaUser.col-xs-9.hidden-sm.hidden-md.hidden-lg
 
 
@@ -314,5 +314,10 @@ block content
                                 | Annað:
                             .col-xs-12.col-sm-12.col-md-12.col-lg-12(id='#fleira#{e.entryid}')
                                 | #{e.entryfleira}
+                        .row
+                            .col-xs-12.hidden-sm.hidden-md.hidden-lg
+                                button.smallbutton.btn.btn-warning.glyphicon.glyphicon-edit.pull-right(type='button', class="smallBreyta" id="tmpbreyta#{e.entryid}")
+                                button.smallbutton.btn.btn-danger.glyphicon.glyphicon-trash.pull-right(type='button', class = "smallEyda", id="tmpeyda#{e.entryid}")
+
 
     a(href='/createride').btn.btn-primary.pull-right Skrá ferð/Óska eftir
