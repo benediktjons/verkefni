@@ -12,7 +12,7 @@ html(lang="is")
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body.container
-    nav.navbar.navbar-inverse
+    nav.navbar.navbar-inverse.navbar-static-top
       .container-fluid
         .navbar-header
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#content', aria-expanded='false')
@@ -31,8 +31,6 @@ html(lang="is")
               a(href='/create') Nýskrá
             li
               a(href='/about') Um okkur
-        // /.navbar-collapse
-      // /.container-fluid
     header
       h1= title
     main

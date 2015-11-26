@@ -18,8 +18,7 @@ $(document).ready(function (){
 
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
   $('.clockpicker').clockpicker();
-
-  //H'er er fall sem tekur gildin á færslunni sem á að breyta og
+  //Hér er fall sem tekur gildin á færslunni sem á að breyta og
   //vistar þau í localstorage. Framhald í change.js
   $('.breyta').on('click', function(){
     var breytaid=$(this).attr('id');
@@ -56,6 +55,16 @@ $(document).ready(function (){
 
     location.href='/change' ;
   });
+  /*Þegar viewportið er ákveðið lítið birtast aðrir takkar sem hafa sömu eiginlega og breyta/eyda.
+   Föllin nota id til að breyta/eyða og því triggerum við bara click 
+   á hina takkana til þess að einfalda okkur lífið.*/
+  $('.smallEyda,.smallBreyta').click(function(){
+    debugger;
+    var id=$(this).attr("id");
+    var clickId='#'+id.slice(3);
+    $(clickId).trigger("click");
+  });
+
   //setDatepickerDate setur value á #date-picker-2 sem daginn í dag.
   function setDatepickerDate(){
     var dags=new Date();
