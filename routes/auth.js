@@ -65,7 +65,7 @@ function createHandler(req, res) {
     valid: validUser
   };
   data.password={
-    val:password,
+    val:'',
     valid:(validPw &&validCheckPw)
   };
 
