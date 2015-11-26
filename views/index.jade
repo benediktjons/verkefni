@@ -222,21 +222,21 @@ block content
             .form-group
                 label.checkbox
                 input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                | Sjá aðeins 
+                | Sjá aðeins
                 span.underline reyklausa
                 |  bíla.
         .form-inline
             .form-group
                 label.checkbox
                 input(id="leitOskaEftirFari", type="checkbox", value="barafari")
-                | Sjá aðeins þá sem 
+                | Sjá aðeins þá sem
                 span.underline óska
                 |  eftir fari
         .form-inline
             .form-group
                 label.checkbox
                 input(id="leitOkumenn", type="checkbox", value="barafarthegum")
-                | Sjá aðeins þá sem 
+                | Sjá aðeins þá sem
                 span.underline eru á
                 |  bíl.
 
@@ -298,6 +298,9 @@ block content
                             .searchNotandi.col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Notandi:
                                 strong  #{e.entryuser}
+                            .col-xs-12.hidden-lg.hidden-md.hidden-sm
+                                | Óska eftir:
+                                strong #{e.request}
                             .col-xs-12.col-sm-12.col-md-6.col-lg-6
                                 | Símanúmer:
                                 strong #{e.entryphone}
