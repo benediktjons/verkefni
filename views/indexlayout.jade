@@ -19,46 +19,45 @@ html(lang="is")
           .btn.smooth-click.button-green(href="#s2", id='smooth123')
             h3#h3-front-box Sjá nánar
         nav#navbar.navbar.navbar-inverse.navbar-static-top
-          .container-fluid
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#content', aria-expanded='false')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#content', aria-expanded='false')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
 
-              a.navbar-brand(href='/') Samfó
-              a.navbar-brand.search( href = "/#s2", type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
-                span.glyphicon.glyphicon-search
+            a.navbar-brand(href='/') Samfó
+            a.navbar-brand.search( href = "/#s2", type='button', data-toggle='collapse', data-target='#search', aria-expanded='false', aria-controls='search')
+              span.glyphicon.glyphicon-search
 
-            #content.collapse.navbar-collapse
-              ul.nav.navbar-nav.navbar-right
-                if user
-                  li
-                    a(href='/createride') Skrá ferð
-                  li
-                    a(href='/logout') Útskrá
-                if !user
-                  li
-                    a(href='/login') Innskrá
-                  li
-                    a(href='/create') Nýskrá
+          #content.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              if user
                 li
-                  a(href='/about') Um okkur
+                  a(href='/createride') Skrá ferð
+                li
+                  a(href='/logout') Útskrá
+              if !user
+                li
+                  a(href='/login') Innskrá
+                li
+                  a(href='/create') Nýskrá
+              li
+                a(href='/about') Um okkur
 
     #s2.second-page.col-xs-12.col-sm-12.col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
       main
         block content
-      script(src='/bower_components/jquery/dist/jquery.min.js')
-      // Þetta jquery er bara fyrir heroku. Viljum eyða út þegar við náum að láta bower_components virka fyrir heroku.
-      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-      // Latest compiled and minified JavaScript
-      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-      script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
-      //thetta er fyrir thewall/create dagatal
-      script(src='http://code.jquery.com/jquery-1.11.0.min.js')
-      script(src='/js/main.js')
-      script(src='/js/frontpage.js')
-      script(src='/js/datepicker.js')
-      script(src='/js/bootstrap-clockpicker.min.js')
-      //script(src='/js/jquery-clockpicker.min.js')
+    script(src='/bower_components/jquery/dist/jquery.min.js')
+    // Þetta jquery er bara fyrir heroku. Viljum eyða út þegar við náum að láta bower_components virka fyrir heroku.
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    //thetta er fyrir thewall/create dagatal
+    script(src='http://code.jquery.com/jquery-1.11.0.min.js')
+    script(src='/js/main.js')
+    script(src='/js/datepicker.js')
+    script(src='/js/bootstrap-clockpicker.min.js')
+    //script(src='/js/jquery-clockpicker.min.js')
+    block scripts

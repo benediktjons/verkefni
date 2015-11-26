@@ -4,8 +4,6 @@ block content
     if !success
         p.error=error
     form.form-horizontal.col-md-8(method='post', action='/createride')
-        if user
-            p Þú ert innskráð/ur sem #{user.username}
         .form-group.col-md-12
             label.col-md-2(for='Fra') Frá:
             .col-md-6
@@ -215,7 +213,7 @@ block content
             .col-md-6
 
         .form-group.col-md-12
-            label.control-label.col-md-2(for='date-picker-2') Dagsetning:
+            label.col-md-2(for='date-picker-2') Dagsetning:
             .col-md-4
                 .input-group
                     input.date-picker.form-control.col-md-6(type='text', name='date', id="date-picker-2")
@@ -225,7 +223,7 @@ block content
 
 
         .form-group.col-md-12
-            label.col-md-2.control-label(for='timiFerdar') Klukkan:
+            label.col-md-2(for='timiFerdar') Klukkan:
             .col-md-4
                 .input-group.clockpicker(data-placement='left', data-align='top', data-autoclose='true')
                     input.form-control(type='text', value='13:37', id="timiFerdar", name='klukka')
@@ -250,3 +248,11 @@ block content
 
         .col-md-12
             button.btn.btn-default.pull-right Búa til færslu
+
+
+block navbar
+    ul.nav.navbar-nav.navbar-right
+        li
+            a(href='/logout') Útskrá
+        li
+            a(href='/about') Um okkur

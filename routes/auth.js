@@ -26,7 +26,8 @@ module.exports = router;
 
 //route middlewares
 function aboutUs(req, res) {
-  res.render('about', { title: 'Um Samfó' });
+  var username = req.session.user;
+  res.render('about', { title: 'Um Samfó', user:username});
 }
 function createForm(req, res) {
   res.render('create', { title: 'Nýskráning' });
@@ -210,7 +211,7 @@ var validClock= validate.checkClock(klukka);
 
 if(!validFrom){
   //villumedhondlun
-  res.render('change', {title: 'Skrifa á vegg',
+  res.render('change', {title: 'Hvert á að fara?',
     success: false,
     post: true,
     error: 'Villa: Ath. að velja þarf möguleika úr Frá boxinu.'

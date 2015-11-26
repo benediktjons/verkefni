@@ -126,3 +126,15 @@ block content
                                     img.img-responsive.img-icon( src="images/linkedin.png", alt="linkedin", width="25" ,height="25")
 
 
+block navbar
+    ul.nav.navbar-nav.navbar-right
+        if !user
+          li
+            a(href='/login') Innskrá
+          li
+            a(href='/create') Nýskrá
+        if user
+          li
+            a(href='/logout') Útskrá
+        li.active
+          a(href='/about') Um okkur
