@@ -293,44 +293,21 @@ img.img-icon:hover {
    white-space: -pre-wrap;     /* Opera <7 */
    white-space: -o-pre-wrap;   /* Opera 7 */
    word-wrap: break-word;      /* IE */
+   text-align: center;
 }
 
 .glyphicon-arrow-right{
   margin: auto;
+  padding-left:0px !important;
+}
+
+.glyphicons-taxi{
+  padding-left:25px;
+}
+
+.smallDate{
+  text-align: center;
 }
 
 #abouttext{margin-bottom:100px;}
-/*
-@media screen and (max-width: 768px) {
-    body {
-        background-color: lightgreen;
-    }
 
-    .smallTime{
-      /*margin-left: 12.5% ;*/
-/*
-clear:both;
-      display: inline-block;
-
-
-
-    }
-    .smallDate{
-    margin-left: 25% ;
-
-      display: inline-block;
-
-    }
-
-    .glyphicons-taxi{
-      width:10%;
-      float:left;
-    }
-
-    .glyphicon-arrow-right{
-      width:10%;
-      float:left;
-    }
-
-
-}
