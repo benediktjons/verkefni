@@ -13,33 +13,36 @@ block content
         .form-group.has-feedback
             label.control-label.col-md-2(for="username") Notandanafn:
             .col-md-8
-                input.form-control(type='text', placeholder='Jón Sigurðsson', id="username", name="username", value=username)
+                input.form-control(type='text', placeholder='Jón Sigurðsson', id="username", name="username", value=username.val)
                 i.glyphicon.glyphicon-user.form-control-feedback
-            .col-md-2
+                if (!username.valid)
+                    p.error Villa með notandanafn!
         .form-group.has-feedback
             label.control-label.col-md-2(for="password") Lykilorð:
             .col-md-8
-                input.form-control(type='password', placeholder='*****', id="password", name="password")
+                input.form-control(type='password', placeholder='*****', id="password", name="password",value=email.val)
                 i.glyphicon.glyphicon-lock.form-control-feedback
-            .col-md-2
+                if (!username.valid)
+                    p.error Villa með notandanafn!                    
           .form-group.has-feedback
             label.control-label.col-md-2(for="password2") Staðfesta lykilorð:
             .col-md-8
                 input.form-control(type='password', placeholder='*****', id="password2", name="password2")
                 i.glyphicon.glyphicon-alert.form-control-feedback
-            .col-md-2
         .form-group.has-feedback
             label.control-label.col-md-2(for="phone") Sími:
             .col-md-8
-                input.form-control(type='phone', placeholder='5812345', id="phone", name="phone", value=phone)
+                input.form-control(type='phone', placeholder='5812345', id="phone", name="phone", value=phone.val)
                 i.glyphicon.glyphicon-earphone.form-control-feedback
-            .col-md-2
+                if (!phone.valid)
+                    p.error Villa með símanúmer! 
          .form-group.has-feedback
             label.control-label.col-md-2(for="email") Netfang:
             .col-md-8
-                input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email)
+                input.form-control(type='email', placeholder='samfo@samfo.is', id="email", name="email", value=email.val)
                 i.glyphicon.glyphicon-envelope.form-control-feedback
-            .col-md-2
+                if (!email.valid)
+                    p.error Villa með notandanafn! 
 
 
 
