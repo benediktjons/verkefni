@@ -21,7 +21,7 @@ $(document).ready(function (){
 
     $('.searchTo').each(function (i, e) {
       itemsTil.push($(e).text());
-
+      
       if(itemsTil[i] !== leitTil && leitTil !== 'Veldu'){
         $(elementParent[i]).hide();//latum parentid fela sig
       }

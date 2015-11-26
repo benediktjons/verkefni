@@ -14,17 +14,10 @@ html(lang="is")
     .first-page.container-fluid
       .wrapper1.col-xs-12.col-sm-12.col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
         header#s1
-
           h1 Langar þig að vera samferða?
           h3#h3-front Samferða er heimasíða sem hjálpar fólki að komast á milli staða, á ódýrari og umhverfisvænni máta
           .btn.smooth-click.button-green(href="#s2", id='smooth123')
             h3#h3-front-box Sjá nánar
-
-
-
-    .second-page.col-xs-12.col-sm-12.col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
-
-      main#s2
         nav#navbar.navbar.navbar-inverse.navbar-static-top
           .container-fluid
             .navbar-header
@@ -52,6 +45,9 @@ html(lang="is")
                     a(href='/create') Nýskrá
                 li
                   a(href='/about') Um okkur
+
+    #s2.second-page.col-xs-12.col-sm-12.col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
+      main
         block content
       script(src='/bower_components/jquery/dist/jquery.min.js')
       // Þetta jquery er bara fyrir heroku. Viljum eyða út þegar við náum að láta bower_components virka fyrir heroku.

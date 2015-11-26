@@ -7,7 +7,7 @@ body{
 
 }
 .second-page{
-  margin-top:60px;
+  padding-top:60px;
 }
 .first-page {
   background-image:url("/images/road.jpg");
