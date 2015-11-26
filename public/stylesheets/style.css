@@ -321,6 +321,16 @@ img.img-icon:hover {
   padding-left:25px;
 }
 
+select{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.input-group{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 
 
 #abouttext{margin-bottom:100px;}
