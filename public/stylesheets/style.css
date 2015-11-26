@@ -58,11 +58,11 @@ h3 {
 input {
     margin-bottom: 10px;
 }
-input.comment {
+.comment {
     width: 400px;
     height: 100px;
 }
-p.error {
+.error {
     color: red;
 }
 a {
@@ -144,7 +144,7 @@ main {
     margin-bottom: 8px;
     border-width: 1px;
     border-radius: 4px;
-    /*border-style: solid;*/
+
 }
 .right {
     float: right;
@@ -154,7 +154,6 @@ main {
     border-bottom-right-radius: 4px;
     border-style: solid;
     border-color: rgba(170, 185, 255, 0.3);
-    ;
     border-width: 1px;
     margin-right: 15px;
     font-size: 1.1em;
@@ -189,15 +188,10 @@ main {
 }
 .Button-colap:link {
     background-color: rgba(134, 135, 213, 0.1);
-    ;
-    /*rgba(50, 48, 213, 0.2);*/
-
     color: black;
 }
 .Button-colap:hover {
     background-color: rgba(50, 48, 213, 1);
-    /*rgba(50, 48, 213, 0.2);*/
-
     color: white;
 }
 .Button-colap:active {
@@ -235,7 +229,7 @@ main {
     margin-left: 0;
     margin-right: 0;
 }
-ul.social {
+.social {
     float: left;
     margin-left: -2em;
 }
