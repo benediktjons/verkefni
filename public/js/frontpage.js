@@ -191,28 +191,32 @@ $(document).ready(function (){
   });
 
 
-    function felatakka(){
-      var username = $(".user").text();
-      var items = [];
-      var elementBaraUser = document.getElementsByClassName('BaraUser');
-      var syna = document.getElementsByClassName('syna');
+  function felatakka(){
+    debugger;
+    var username = $(".user").text();
+    var items = [];
+    var elementBaraUser = document.getElementsByClassName('BaraUser');
+    var minniBarauser= document.getElementsByClassName('BaraUserMinni');
+    var syna = document.getElementsByClassName('syna');
 
-      if (username )  {
-        $('.searchNotandi').each(function (i, e) {
-          items.push($(e).text());
-          var notandi = items[i].slice(9);
-            if(notandi !== username){
-              $(elementBaraUser[i]).hide();//latum parentid fela sig
-              $(syna[i]).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+    if (username )  {
+      $('.searchNotandi').each(function (i, e) {
+      debugger;
+        items.push($(e).text());
+        var notandi = items[i].slice(9);
+          if(notandi !== username){
+            $(minniBarauser[i]).hide();
+            $(elementBaraUser[i]).hide();//latum parentid fela sig
+            $(syna[i]).removeClass('hidden-md hidden-lg');
 
-            }
-        });
-      }
-      else {
-        $('.BaraUser').hide();
-        $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+          }
+      });
+    }
+    else {
+      $('.BaraUser').hide();
+      $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
 
-      }
+    }
   }
 
   felatakka();
