@@ -10,8 +10,10 @@ $(document).ready(function (){
 
   $(".date-picker").datepicker({
 
+     startDate: '-d',
     orientation: "top auto",
     autoclose: true
+
 
   });
 
