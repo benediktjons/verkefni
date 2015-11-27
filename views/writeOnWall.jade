@@ -1,13 +1,14 @@
 extends layout
-//extends thewall
+
 block content
+
     if !success
         p.error=error
     form.form-horizontal.col-md-8(method='post', action='/createride')
         .form-group.col-md-12
             label.col-md-2(for='Fra') Frá:
             .col-md-6
-                select.form-control(name='from' id = "Fra" value=from.val)
+                select.form-control(name='from' id = "Fra")
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
                     option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
@@ -98,7 +99,7 @@ block content
         .form-group.col-md-12
             label.col-md-2(for='Til') Til:
             .col-md-6
-                select.form-control(name='to', id= "Til" value=to.val)
+                select.form-control(name='to', id= "Til")
                     option(value='Akranes') Akranes
                     option(value='Akureyri') Akureyri
                     option(value='Árskógsströnd/Hrísey') Árskógsströnd/Hrísey
@@ -192,6 +193,8 @@ block content
                 select.form-control(muliteple='', name='request', id= "request" value=ride.val)
                     option(value='Farþegum') Farþegum
                     option(value='Fari') Fari
+            if !ride.valid
+                p.error Villa: Aðeins í boði að óska eftir fari eða farþegum.
 
             .col-md-4
         .form-group.col-md-12
@@ -208,6 +211,8 @@ block content
                     option(value='8') 8
                     option(value='9') 9
                     option(value='10') 10
+            if !seats.valid
+                p.error Ekki löglegur fjöldi sæta. Veldu tölu á bilinu 1-10.
             .col-md-6
 
         .form-group.col-md-12
@@ -218,6 +223,9 @@ block content
                     label.input-group-addon.btn(for='date-picker-2')
                         span.glyphicon.glyphicon-calendar
             .col-md-6
+            if !dags.valid
+                p.error Ekki gild dagssetning! Á að vera á forminu dd/mm/yyyy
+
 
 
         .form-group.col-md-12
@@ -228,6 +236,8 @@ block content
                     span.input-group-addon
                         span.glyphicon.glyphicon-time
             .col-md-6
+            if !time.valid
+                p.error Ekki gild tímasetning! Á að vera á forminu hh:mm
 
 
 

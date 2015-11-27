@@ -191,28 +191,32 @@ $(document).ready(function (){
   });
 
 
-    function felatakka(){
-      var username = $(".user").text();
-      var items = [];
-      var elementBaraUser = document.getElementsByClassName('BaraUser');
-      var syna = document.getElementsByClassName('syna');
+  function felatakka(){
+    debugger;
+    var username = $(".user").text();
+    var items = [];
+    var elementBaraUser = document.getElementsByClassName('BaraUser');
+    var minniBarauser= document.getElementsByClassName('BaraUserMinni');
+    var syna = document.getElementsByClassName('syna');
 
-      if (username )  {
-        $('.searchNotandi').each(function (i, e) {
-          items.push($(e).text());
-          var notandi = items[i].slice(9);
-            if(notandi !== username){
-              $(elementBaraUser[i]).hide();//latum parentid fela sig
-              $(syna[i]).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+    if (username )  {
+      $('.searchNotandi').each(function (i, e) {
+      debugger;
+        items.push($(e).text());
+        var notandi = items[i].slice(9);
+          if(notandi !== username){
+            $(minniBarauser[i]).hide();
+            $(elementBaraUser[i]).hide();//latum parentid fela sig
+            $(syna[i]).removeClass('hidden-md hidden-lg');
 
-            }
-        });
-      }
-      else {
-        $('.BaraUser').hide();
-        $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+          }
+      });
+    }
+    else {
+      $('.BaraUser').hide();
+      $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
 
-      }
+    }
   }
 
   felatakka();
@@ -221,7 +225,7 @@ $(document).ready(function (){
   //dateFormat tekur date á því formati sem það kemur úr gagnagrunninum,
   // t.d. (Wed Nov 25 2015 00:00:00 GMT+0000 (Greenwich Standard Time)) og strípar það í dd/mm/yyyy
   function dateFormat(){
-    $('.searchDate').each(function(){
+    $('.litilDags').each(function(i){
       var dags = $(this).text();//Skilar dags á formattinu Dag Mán dd yyyy tími timezone ofl sem við viljum ekki
       dags = dags.slice(4,16);//Fáum dags á formið Mán dd yyyy
       var year = dags.slice(7,11);
