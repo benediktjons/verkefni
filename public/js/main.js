@@ -8,7 +8,9 @@ $(document).ready(function (){
 
   // herna endar underline fallid og date picker fyrir dagatalid kemur inn
 
-  $(".date-picker").datepicker();
+  $(".date-picker").datepicker({
+    orientation: "top auto"
+  });
 
   $(".date-picker").on("change", function () {
     var id = $(this).attr("id");
