@@ -214,6 +214,7 @@ $(document).ready(function (){
     }
     else {
       $('.BaraUser').hide();
+      $('.BaraUserMinni').hide();
       $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
 
     }
