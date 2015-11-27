@@ -54,7 +54,6 @@ $(document).ready(function (){
       var manudir= items[i].slice(3,5);
       var dagar= items[i].slice(0,2);
       var dagaralls = ar*365+manudir*30+dagar;
-      debugger;
       if(dagaralls < daystotalfra){
         $(elementParent[i]).hide();//latum parentid fela sig
       }
@@ -123,7 +122,6 @@ $(document).ready(function (){
         console.log('hinar dags');
         console.log(items[i]);
         console.log(typeof(items[i]));
-        //debugger;
         if(items[i] !== idag){
           console.log(items[i]);
           $(elementParent[i]).hide();//latum parentid fela sig
@@ -192,7 +190,6 @@ $(document).ready(function (){
 
 
   function felatakka(){
-    debugger;
     var username = $(".user").text();
     var items = [];
     var elementBaraUser = document.getElementsByClassName('BaraUser');
@@ -201,7 +198,6 @@ $(document).ready(function (){
 
     if (username )  {
       $('.searchNotandi').each(function (i, e) {
-      debugger;
         items.push($(e).text());
         var notandi = items[i].slice(9);
           if(notandi !== username){
@@ -370,7 +366,6 @@ $('.parent').click(function blabla() {
 
   //Finnum y-gildi main elementsins og látum navbarinn fade-a inn þegar y er komið þangað
   window.addEventListener("scroll", function() {
-    debugger;
     var height= document.getElementById('navbar').offsetHeight;
 
     if (window.scrollY>height) {
