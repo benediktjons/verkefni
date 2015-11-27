@@ -17,7 +17,11 @@ $(document).ready(function (){
   });
 
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
-  $('.clockpicker').clockpicker();
+  $('.clockpicker').clockpicker({
+     placement: 'bottom',
+    align: 'left',
+    donetext: 'Done'
+  });
   //Hér er fall sem tekur gildin á færslunni sem á að breyta og
   //vistar þau í localstorage. Framhald í change.js
   $('.breyta').on('click', function(){
