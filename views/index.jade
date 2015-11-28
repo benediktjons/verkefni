@@ -202,14 +202,13 @@ block content
                     label.input-group-addon.btn(for='date-picker-3')
                         span.glyphicon.glyphicon-calendar
                 .form-group
-                    label.checkbox
                     input(id="leitidag", type="checkbox")
-                    |  Í dag
+                    label.checkbox(for="leitidag") Í dag
         h3.grayscale Aðrir valkostir
 
         .form-inline.hidden-md.hidden-lg
             .form-group
-                 label(for='saetaleit') Sætafjöldi a.m.k:
+                label(for='saetaleit') Sætafjöldi a.m.k:
                 select.form-control(id= "saetaleit")
                     option(value='1') 1
                     option(value='2') 2
@@ -224,25 +223,26 @@ block content
 
         .form-inline
             .form-group
-                label.checkbox
                 input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                |  Sjá aðeins
-                span.underline  reyklausa
-                |  bíla.
+                label.checkbox(for="leitReyklaus")
+                    |  Sjá aðeins 
+                    span.underline  reyklausa
+                    |  bíla.                
+
         .form-inline
             .form-group
-                label.checkbox
                 input(id="leitOskaEftirFari", type="checkbox")
-                |  Sjá aðeins þá sem
-                span.underline  óska
-                |  eftir fari
+                label.checkbox(for='leitOskaEftirFari')
+                    |  Sjá aðeins þá sem 
+                    span.underline  óska
+                    |  eftir fari
         .form-inline
             .form-group
-                label.checkbox
                 input(id="leitOkumenn", type="checkbox")
-                |  Sjá aðeins þá sem
-                span.underline  eru á
-                |  bíl.
+                label.checkbox(for="leitOkumenn")
+                    |  Sjá aðeins þá sem 
+                    span.underline  eru á
+                    |  bíl.
 
                 label.saetisfjoldi.hidden-sm.hidden-xs(for='saetaleit2') Sætafjöldi a.m.k:
                 select.form-control.hidden-sm.hidden-xs(id= "saetaleit2")
