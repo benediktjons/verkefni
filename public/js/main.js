@@ -8,8 +8,24 @@ $(document).ready(function (){
 
   // herna endar underline fallid og date picker fyrir dagatalid kemur inn
 
+  $.fn.datepicker.dates['is'] = {
+
+    days:["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimtudagur", "Föstudagur", "Laugardagur"],
+    daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    dayesShort:["Sun", "Mán", "Þri", "Mið", "Fim", "Fös", "Lau"],
+    daysMin: ["Su", "Má", "Þr", "Mi", "Fi", "Fö", "La"],
+    months: ["Jannúar", "Febrúar", "Mars", "April", "Maí", "Júní", "Júlý", "Ágúst", "September", "Október", "Nóvember", "Desember"],
+    monthsShort: ["Jan", "Feb", "Mar", "Apr", "Maí", "Jún", "Júl", "Aúg", "Sep", "Okt", "Nov", "Des"],
+    today: "Today",
+    clear: "Clear",
+    format: "mm/dd/yyyy",
+    titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+    weekStart: 0
+};
+
   $(".date-picker").datepicker({
 
+    language: "is",
      startDate: '-d',
     orientation: "top auto",
     autoclose: true
