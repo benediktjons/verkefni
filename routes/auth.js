@@ -215,10 +215,7 @@ function entryHandler(req,res){
 }
 
 function changeEntryHandler(req,res){
-  console.log('Keyri changeEntryHandler');
   var id = xss(req.body.myid);
-  console.log('id3');
-  console.log(id);
   var username = req.session.user;
   var from = xss(req.body.from);
   var to = xss(req.body.to);
