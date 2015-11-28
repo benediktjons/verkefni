@@ -10,11 +10,11 @@ $(document).ready(function (){
 
   $.fn.datepicker.dates['is'] = {
 
-    days:["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimtudagur", "Föstudagur", "Laugardagur"],
+    days:["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimmtudagur", "Föstudagur", "Laugardagur"],
     daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     dayesShort:["Sun", "Mán", "Þri", "Mið", "Fim", "Fös", "Lau"],
     daysMin: ["Su", "Má", "Þr", "Mi", "Fi", "Fö", "La"],
-    months: ["Jannúar", "Febrúar", "Mars", "April", "Maí", "Júní", "Júlý", "Ágúst", "September", "Október", "Nóvember", "Desember"],
+    months: ["Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí", "Ágúst", "September", "Október", "Nóvember", "Desember"],
     monthsShort: ["Jan", "Feb", "Mar", "Apr", "Maí", "Jún", "Júl", "Aúg", "Sep", "Okt", "Nov", "Des"],
     today: "Today",
     clear: "Clear",
