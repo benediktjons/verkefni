@@ -8,7 +8,7 @@ $(document).ready(function (){
 
   // herna endar underline fallid og date picker fyrir dagatalid kemur inn
 
-  $.fn.datepicker.dates['is'] = {
+  $.fn.datepicker.dates.is = {
 
     days:["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimmtudagur", "Föstudagur", "Laugardagur"],
     daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],

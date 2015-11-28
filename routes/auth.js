@@ -117,7 +117,7 @@ function createHandler(req, res) {
         res.render('create', data);
       }
       else{
-        var data={ title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success };
+        data={ title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success };
         data.username={val:''};
         res.render('login', data);
       }
