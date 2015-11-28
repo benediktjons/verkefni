@@ -104,7 +104,7 @@ function createHandler(req, res) {
   );
 
   if(allTrue){
-    users.createUser(username, password, email.val, phone, function (err, status) {
+    users.createUser(username, password, email, phone, function (err, status) {
       if (err) {
         console.error(err);
       }
