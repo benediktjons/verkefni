@@ -202,14 +202,13 @@ block content
                     label.input-group-addon.btn(for='date-picker-3')
                         span.glyphicon.glyphicon-calendar
                 .form-group
-                    label.checkbox
                     input(id="leitidag", type="checkbox")
-                    |  Í dag
+                    label.checkbox(for="leitidag") Í dag
         h3.grayscale Aðrir valkostir
 
         .form-inline.hidden-md.hidden-lg
             .form-group
-                 label(for='saetaleit') Sætafjöldi a.m.k:
+                label(for='saetaleit') Sætafjöldi a.m.k:
                 select.form-control(id= "saetaleit")
                     option(value='1') 1
                     option(value='2') 2
@@ -224,25 +223,26 @@ block content
 
         .form-inline
             .form-group
-                label.checkbox
                 input(id="leitReyklaus", type="checkbox", value="Reyklaus")
-                |  Sjá aðeins
-                span.underline  reyklausa
-                |  bíla.
+                label.checkbox(for="leitReyklaus")
+                    |  Sjá aðeins 
+                    span.underline  reyklausa
+                    |  bíla.                
+
         .form-inline
             .form-group
-                label.checkbox
                 input(id="leitOskaEftirFari", type="checkbox")
-                |  Sjá aðeins þá sem
-                span.underline  óska
-                |  eftir fari
+                label.checkbox(for='leitOskaEftirFari')
+                    |  Sjá aðeins þá sem 
+                    span.underline  óska
+                    |  eftir fari
         .form-inline
             .form-group
-                label.checkbox
                 input(id="leitOkumenn", type="checkbox")
-                |  Sjá aðeins þá sem
-                span.underline  eru á
-                |  bíl.
+                label.checkbox(for="leitOkumenn")
+                    |  Sjá aðeins þá sem 
+                    span.underline  eru á
+                    |  bíl.
 
                 label.saetisfjoldi.hidden-sm.hidden-xs(for='saetaleit2') Sætafjöldi a.m.k:
                 select.form-control.hidden-sm.hidden-xs(id= "saetaleit2")
@@ -275,7 +275,7 @@ block content
                         .wordwrap.searchFrom.col-xs-4.col-sm-3.col-md-3.col-lg-3.smallTime(id='#from#{e.entryid}') #{e.entryfrom}
                         .hidden-sm.col-xs-1.hidden-md.hidden-lg.glyphicon.glyphicon-arrow-right
                         .wordwrap.searchTo.col-xs-5.col-sm-3.col-md-3.col-lg-3.smallTime(id='#to#{e.entryid}') #{e.entryto}
-                        .hidden-xs.searchDate.col-sm-2.col-md-2.col-lg-2(id='#time#{e.entryid}') #{e.entrytime}
+                        .hidden-xs.searchDate.col-sm-2.col-md-2.col-lg-2.litilDags(id='#time#{e.entryid}') #{e.entrytime}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1(id='#klukka#{e.entryid}') #{e.entryklukka}
                         .hidden-xs.col-sm-1.col-md-1.col-lg-1
 
@@ -283,7 +283,7 @@ block content
                     .row
 
                         .col-xs-4.col-xs-offset-2.hidden-sm.hidden-md.hidden-lg.smallDate #{e.entryklukka}
-                        .col-xs-5.col-xs-offset-1.hidden-sm.hidden-md.hidden-lg.smallTime #{e.entrytime}
+                        .col-xs-5.col-xs-offset-1.hidden-sm.hidden-md.hidden-lg.smallTime.litilDags #{e.entrytime}
 
 
 
@@ -322,12 +322,12 @@ block content
                             .col-xs-12.col-sm-12.col-md-12.col-lg-12(id='#fleira#{e.entryid}')
                                 | #{e.entryfleira}
                         .row
-                            .col-xs-12.hidden-sm.hidden-md.hidden-lg
+                            .BaraUserMinni.col-xs-12.hidden-sm.hidden-md.hidden-lg
                                 a.smallbutton.btn.btn-warning.glyphicon.glyphicon-edit.pull-right(type='button', class="smallBreyta" id="tmpbreyta#{e.entryid}")
                                 a.smallbutton.btn.btn-danger.glyphicon.glyphicon-trash.pull-right(type='button', class = "smallEyda", id="tmpeyda#{e.entryid}")
 
 
-    a(href='/createride').btn.btn-primary.pull-right Skrá ferð/Óska eftir
+    a(href='/createride').btn.btn-primary.pull-right.skraferd Skrá ferð/Óska eftir
 block scripts
     script(src='/js/frontpage.js')
 

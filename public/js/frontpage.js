@@ -1,4 +1,5 @@
 $(document).ready(function (){
+
   'use strict';
   console.log("frontpage keyrir");
 
@@ -51,7 +52,6 @@ $(document).ready(function (){
       var manudir= items[i].slice(3,5);
       var dagar= items[i].slice(0,2);
       var dagaralls = ar*365+manudir*30+dagar;
-      debugger;
       if(dagaralls < daystotalfra){
         $(elementParent[i]).hide();//latum parentid fela sig
       }
@@ -103,25 +103,63 @@ $(document).ready(function (){
   $("input, select").on("change click", function () {
     var items = [];
     var elementParent = document.getElementsByClassName('parent');
-    Date.prototype.yyyymmdd = function() {
-      var yyyy = this.getFullYear().toString();
-      var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-      var dd  = this.getDate().toString();
-      return (dd[1]?dd:"0"+dd[0]) + '/' + (mm[1]?mm:"0"+mm[0]) + '/' + yyyy; // padding
-      };
-    var d = new Date();
-    var idag=d.yyyymmdd();
-    console.log('idag');
-    console.log(idag);
-    console.log(typeof(idag))
+    var dags=new Date();
+    dags=dags.toString();
+    dags = dags.substr(4,11);//Fáum dags á formið Mán dd yyyy
+    var year = dags.substr(7,4);
+    var month = dags.substr(0,3);//Tökum út Mán úr dags og notum í switch
+    var day=dags.substr(4,2);
+    switch (month) {
+      case 'Jan':
+        month ='01';
+        break;
+      case 'Feb':
+        month = '02';
+        break;
+      case 'Mar':
+        month ='03';
+        break;
+      case 'Apr':
+        month ='04';
+        break;
+      case 'May':
+        month ='05';
+        break;
+      case 'Jun':
+        month ='06';
+        break;
+      case 'Jul':
+        month ='07';
+        break;
+      case 'Aug':
+        month ='08';
+        break;
+      case 'Sep':
+        month ='09';
+        break;
+      case 'Oct':
+        month ='10';
+        break;
+      case 'Nov':
+        month ='11';
+        break;
+      case 'Dec':
+        month ='12';
+        break;
+      default:
+        alert('Whoops! Something went wrong');
+        break;
+    }
+    dags=day+'/'+month+'/'+year;
+    console.log('dags');
+    console.log(dags);
     $('.searchDate' ).each(function (i, e) {
       items.push($(e).text());
       if( document.getElementById('leitidag').checked){
         console.log('hinar dags');
         console.log(items[i]);
         console.log(typeof(items[i]));
-        //debugger;
-        if(items[i] !== idag){
+        if(items[i] !== dags){
           console.log(items[i]);
           $(elementParent[i]).hide();//latum parentid fela sig
           console.log($(elementParent[i]));
@@ -187,28 +225,31 @@ $(document).ready(function (){
   });
 
 
-    function felatakka(){
-      var username = $(".user").text();
-      var items = [];
-      var elementBaraUser = document.getElementsByClassName('BaraUser');
-      var syna = document.getElementsByClassName('syna');
+  function felatakka(){
+    var username = $(".user").text();
+    var items = [];
+    var elementBaraUser = document.getElementsByClassName('BaraUser');
+    var minniBarauser= document.getElementsByClassName('BaraUserMinni');
+    var syna = document.getElementsByClassName('syna');
 
-      if (username )  {
-        $('.searchNotandi').each(function (i, e) {
-          items.push($(e).text());
-          var notandi = items[i].slice(9);
-            if(notandi !== username){
-              $(elementBaraUser[i]).hide();//latum parentid fela sig
-              $(syna[i]).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+    if (username )  {
+      $('.searchNotandi').each(function (i, e) {
+        items.push($(e).text());
+        var notandi = items[i].slice(9);
+          if(notandi !== username){
+            $(minniBarauser[i]).hide();
+            $(elementBaraUser[i]).hide();//latum parentid fela sig
+            $(syna[i]).removeClass('hidden-md hidden-lg');
 
-            }
-        });
-      }
-      else {
-        $('.BaraUser').hide();
-        $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
+          }
+      });
+    }
+    else {
+      $('.BaraUser').hide();
+      $('.BaraUserMinni').hide();
+      $(syna).removeClass('hidden xs hidden sm hidden-md hidden-lg');
 
-      }
+    }
   }
 
   felatakka();
@@ -217,7 +258,7 @@ $(document).ready(function (){
   //dateFormat tekur date á því formati sem það kemur úr gagnagrunninum,
   // t.d. (Wed Nov 25 2015 00:00:00 GMT+0000 (Greenwich Standard Time)) og strípar það í dd/mm/yyyy
   function dateFormat(){
-    $('.searchDate').each(function(){
+    $('.litilDags').each(function(){
       var dags = $(this).text();//Skilar dags á formattinu Dag Mán dd yyyy tími timezone ofl sem við viljum ekki
       dags = dags.slice(4,16);//Fáum dags á formið Mán dd yyyy
       var year = dags.slice(7,11);

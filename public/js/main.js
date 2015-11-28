@@ -1,14 +1,37 @@
 $(document).ready(function (){
   'use strict';
   // herna endar leitinn og klick underline fyror siduna sem tu ert a kemur inn
-  $("a").click(function () {
+  $("li a").click(function () {
     $(this).css("text-decoration", "underline");
   });
 
 
   // herna endar underline fallid og date picker fyrir dagatalid kemur inn
 
-  $(".date-picker").datepicker();
+  $.fn.datepicker.dates['is'] = {
+
+    days:["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimmtudagur", "Föstudagur", "Laugardagur"],
+    daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    dayesShort:["Sun", "Mán", "Þri", "Mið", "Fim", "Fös", "Lau"],
+    daysMin: ["Su", "Má", "Þr", "Mi", "Fi", "Fö", "La"],
+    months: ["Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí", "Ágúst", "September", "Október", "Nóvember", "Desember"],
+    monthsShort: ["Jan", "Feb", "Mar", "Apr", "Maí", "Jún", "Júl", "Aúg", "Sep", "Okt", "Nov", "Des"],
+    today: "Today",
+    clear: "Clear",
+    format: "mm/dd/yyyy",
+    titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+    weekStart: 0
+};
+
+  $(".date-picker").datepicker({
+
+    language: "is",
+     startDate: '-d',
+    orientation: "top auto",
+    autoclose: true
+
+
+  });
 
   $(".date-picker").on("change", function () {
     var id = $(this).attr("id");
@@ -17,7 +40,11 @@ $(document).ready(function (){
   });
 
   // herna endar date picker og clockpicker kemur inn fyrir klukkuna
-  $('.clockpicker').clockpicker();
+  $('.clockpicker').clockpicker({
+     placement: 'bottom',
+    align: 'left',
+    donetext: 'Done'
+  });
   //Hér er fall sem tekur gildin á færslunni sem á að breyta og
   //vistar þau í localstorage. Framhald í change.js
   $('.breyta').on('click', function(){
