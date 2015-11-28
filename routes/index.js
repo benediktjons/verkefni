@@ -33,6 +33,7 @@ router.get('/', function(req, res) {
         console.log("her kemur entries1");
         console.log(entries);
         res.render('index',{title:'Samferða - hagkvæmur og umhverfisvænn ferðamáti', user:user, entries:all});
+        console.log(all);
     }
     else{
     res.render('index',{title: 'Samferða - hagkvæmur og umhverfisvænn ferðamáti',

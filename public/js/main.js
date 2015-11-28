@@ -18,7 +18,7 @@ $(document).ready(function (){
     monthsShort: ["Jan", "Feb", "Mar", "Apr", "Maí", "Jún", "Júl", "Aúg", "Sep", "Okt", "Nov", "Des"],
     today: "Today",
     clear: "Clear",
-    format: "mm/dd/yyyy",
+    format: "dd/mm/yyyy",
     titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
     weekStart: 0
 };

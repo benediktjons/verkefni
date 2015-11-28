@@ -114,7 +114,7 @@ function createHandler(req, res) {
       if (err || !status) {
         success = false;
         error= 'Villa við að útbúa notanda';
-        res.render('create', { title: 'Nýskráning', post: true, error: error, success: success });
+        res.render('create', data);
       }
       else{
         var data={ title: 'Skráðu þig inn', post: true, error: error,newuser:true, success: success };

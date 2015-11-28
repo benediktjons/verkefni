@@ -1,5 +1,4 @@
 $(document).ready(function (){
-
   'use strict';
   console.log("frontpage keyrir");
 
@@ -404,7 +403,7 @@ $('.parent').click(function blabla() {
   window.addEventListener("scroll", function() {
     var height= document.getElementById('navbar').offsetHeight;
 
-    if (document.documentElement.scrollTop>height) {
+    if (window.scrollY>height) {
         $('.navbar').fadeIn();
     }
     else {
